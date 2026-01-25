@@ -1,4 +1,5 @@
 @use 'variables' as *;
+@use 'fonts';
 
 // ==========================================
 // 全域樣式
@@ -20,10 +21,10 @@ html {
 }
 
 body {
-    background-color: $background-color;
-    color: $text-color;
+    background-color: #010109;
+    color: $grey-50;
     font-size: $font-size-base;
-    font-family: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, 'Helvetica Neue', arial, sans-serif;
+    font-family: $font-family-base;
     line-height: $line-height-normal;
 }
 
@@ -198,6 +199,71 @@ ol {
 
     &-right {
         text-align: right;
+    }
+}
+
+// 字體系列工具
+.font {
+    &-en {
+        font-family: $font-family-en;
+    }
+
+    &-zh {
+        font-family: $font-family-zh;
+    }
+}
+
+// 字體粗細工具
+.font-weight {
+    &-normal {
+        font-weight: $font-weight-normal;
+    }
+
+    &-medium {
+        font-weight: $font-weight-medium;
+    }
+
+    &-semibold {
+        font-weight: $font-weight-semibold;
+    }
+
+    &-bold {
+        font-weight: $font-weight-bold;
+    }
+}
+
+// 字體大小工具
+.text-size {
+    &-xs {
+        font-size: $font-size-xs;
+    }
+
+    &-sm {
+        font-size: $font-size-sm;
+    }
+
+    &-base {
+        font-size: $font-size-base;
+    }
+
+    &-lg {
+        font-size: $font-size-lg;
+    }
+
+    &-xl {
+        font-size: $font-size-xl;
+    }
+
+    &-xxl {
+        font-size: $font-size-xxl;
+    }
+
+    &-xxxl {
+        font-size: $font-size-xxxl;
+    }
+
+    &-display {
+        font-size: $font-size-display;
     }
 }
 

@@ -1,0 +1,134 @@
+// ==========================================
+// 字體引入 - 使用本地字體檔案
+// ==========================================
+
+// General Sans (英文字體)
+@font-face {
+    font-weight: 400;
+    font-style: normal;
+    font-family: 'General Sans';
+    src: url('/fonts/GeneralSans-Regular.otf') format('opentype');
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 400;
+    font-style: italic;
+    font-family: 'General Sans';
+    src: url('/fonts/GeneralSans-Italic.otf') format('opentype');
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 500;
+    font-style: normal;
+    font-family: 'General Sans';
+    src: url('/fonts/GeneralSans-Medium.otf') format('opentype');
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 500;
+    font-style: italic;
+    font-family: 'General Sans';
+    src: url('/fonts/GeneralSans-MediumItalic.otf') format('opentype');
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 600;
+    font-style: normal;
+    font-family: 'General Sans';
+    src: url('/fonts/GeneralSans-Semibold.otf') format('opentype');
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 600;
+    font-style: italic;
+    font-family: 'General Sans';
+    src: url('/fonts/GeneralSans-SemiboldItalic.otf') format('opentype');
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 700;
+    font-style: normal;
+    font-family: 'General Sans';
+    src: url('/fonts/GeneralSans-Bold.otf') format('opentype');
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 700;
+    font-style: italic;
+    font-family: 'General Sans';
+    src: url('/fonts/GeneralSans-BoldItalic.otf') format('opentype');
+    font-display: swap;
+}
+
+// Playfair Display (英文字體 - 用於標題)
+@font-face {
+    font-weight: 400;
+    font-style: normal;
+    font-family: 'Playfair Display';
+    src: url('/fonts/PlayfairDisplay-Regular.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 400;
+    font-style: italic;
+    font-family: 'Playfair Display';
+    src: url('/fonts/PlayfairDisplay-Italic.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 500;
+    font-style: normal;
+    font-family: 'Playfair Display';
+    src: url('/fonts/PlayfairDisplay-Medium.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 500;
+    font-style: italic;
+    font-family: 'Playfair Display';
+    src: url('/fonts/PlayfairDisplay-MediumItalic.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 600;
+    font-style: normal;
+    font-family: 'Playfair Display';
+    src: url('/fonts/PlayfairDisplay-SemiBold.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 600;
+    font-style: italic;
+    font-family: 'Playfair Display';
+    src: url('/fonts/PlayfairDisplay-SemiBoldItalic.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 700;
+    font-style: normal;
+    font-family: 'Playfair Display';
+    src: url('/fonts/PlayfairDisplay-Bold.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 700;
+    font-style: italic;
+    font-family: 'Playfair Display';
+    src: url('/fonts/PlayfairDisplay-BoldItalic.ttf') format('truetype');
+    font-display: swap;
+}
+

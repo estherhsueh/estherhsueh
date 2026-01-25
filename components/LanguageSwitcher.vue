@@ -43,7 +43,9 @@ watch(locale, (newLocale) => {
 });
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@use '~/assets/styles/variables' as *;
+
 .language-switcher {
     display: flex;
     align-items: center;
@@ -51,20 +53,30 @@ watch(locale, (newLocale) => {
 
 .language-select {
     padding: 8px 12px;
-    border: 1px solid #e0e0e0;
-    border-radius: 4px;
-    background-color: #fff;
+    border: 1px solid rgb(163 164 181 / 30%);
+    border-radius: 8px;
+    background-color: rgb(255 255 255 / 5%);
+    color: $grey-100;
     cursor: pointer;
-    transition: border-color 0.2s;
-    font-size: 14px;
-}
+    transition: all $transition-base;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-sm;
+    font-family: $font-family-base;
 
-.language-select:hover {
-    border-color: #666;
-}
+    &:hover {
+        border-color: $grey-200;
+        background-color: rgb(255 255 255 / 8%);
+    }
 
-.language-select:focus {
-    border-color: #000;
-    outline: none;
+    &:focus {
+        border-color: $grey-100;
+        background-color: rgb(255 255 255 / 10%);
+        outline: none;
+    }
+
+    option {
+        background-color: $grey-800;
+        color: $grey-50;
+    }
 }
 </style>

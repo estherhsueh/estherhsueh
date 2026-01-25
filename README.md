@@ -13,7 +13,7 @@ Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduct
 node --version
 ```
 
-如果版本低於 18.0.0，請升級 Node.js。建議使用 [nvm](https://github.com/nvm-sh/nvm) 管理 Node.js 版本：
+如果版本低於 24.2.0，請升級 Node.js。建議使用 [nvm](https://github.com/nvm-sh/nvm) 管理 Node.js 版本：
 
 ```bash
 # 使用 nvm 安裝並切換到專案指定版本

@@ -1,15 +1,12 @@
 <template>
     <div class="home-page">
-        <h1>{{ $t('home.title') }}</h1>
-        <p>{{ $t('home.subtitle') }}</p>
-        <p class="description">
-            {{ $t('home.description') }}
-        </p>
+        <HomeHero />
+        <HomeFeaturedProjects />
+        <HomeDesignGallery />
     </div>
 </template>
 
 <script setup lang="ts">
-// Home 頁面
 const { t } = useI18n();
 
 definePageMeta({
@@ -20,36 +17,14 @@ definePageMeta({
 useHead({
     title: t('home.title'),
     meta: [
-        { name: 'description', content: t('home.description') }
+        { name: 'description', content: t('home.hero.description') }
     ]
 });
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .home-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 20px;
-}
-
-.home-page h1 {
-    margin-bottom: 20px;
-    font-weight: bold;
-    font-size: 32px;
-}
-
-.home-page p {
-    margin-bottom: 16px;
-    color: #666;
-    font-size: 18px;
-}
-
-.home-page .description {
-    max-width: 600px;
-    text-align: center;
-    line-height: 1.6;
+    width: 100%;
+    background: #010109;
 }
 </style>

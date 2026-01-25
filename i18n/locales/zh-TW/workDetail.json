@@ -1,0 +1,23 @@
+{
+    "backToWork": "Back to Work",
+    "overview": {
+        "company": "Company :",
+        "responsibilities": "Responsibilities :",
+        "duration": "Duration :"
+    },
+    "otherProjects": "Other Projects",
+    "changhongWebsite": {
+        "title": "建設公司官網設計",
+        "description": "長虹建設原有官方網站因介面老舊、內容更新流程繁瑣，難以有效傳達企業價值與即時資訊。為重塑品牌形象並提升使用者體驗，客戶委託進行官網全面改版，本人負責本次專案的整體 UI 設計工作。",
+        "company": "長虹建設股份有限公司",
+        "responsibilities": "全站視覺風格、網頁設計",
+        "duration": "2024",
+        "sections": {
+            "challenge": "設計挑戰與解法",
+            "process": "設計流程",
+            "homepage": "首頁",
+            "investor": "投資人專區",
+            "collection": "典藏長虹"
+        }
+    }
+}

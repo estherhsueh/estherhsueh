@@ -8,35 +8,190 @@
     "home": {
         "title": "Welcome to My Website",
         "subtitle": "A personal website built with Nuxt 3",
-        "description": "Here you can explore my portfolio and learn more about me."
+        "description": "Here you can explore my portfolio and learn more about me.",
+        "hero": {
+            "available": "Available for freelance",
+            "greeting": "Hi, I'm Esther.",
+            "description": "我是擁有8年資歷的產品設計師，專注網頁與行動體驗設計。秉持「化繁為簡，賦簡以深」的設計理念，透過嚴謹的規劃流程，將複雜需求淬鍊為清晰、流暢且富有溫度的數位體驗。 保持熱忱與開放，關注產業與科技脈動，善用新工具精進設計，為品牌打造清晰流暢且深具商業價值的產品。"
+        },
+        "featured": {
+            "title": "My featured projects",
+            "projects": {
+                "1": {
+                    "title": "KKday 點對點交通",
+                    "description": "專案介紹文字，專案介紹文字，專案介紹文字，專案介紹文字，專案介紹文字，專案介紹文字，專案介紹文字，專案介紹文字，專案介紹文字，專案介紹文字，專案介紹文字，專案介紹文字，專案介紹文字。"
+                },
+                "2": {
+                    "title": "電商POS系統",
+                    "description": "這是一套專為實體零售門市打造的POS系統，透過直覺化的操作體驗，全面自動化管理收銀、庫存、進銷存等核心營運流程。系統與品牌官網無縫串接—所有在官網設定好的商品資料、售價策略與促銷活動，只要一鍵登入，就能即時同步到POS端，實現線上線下通路的高效整合。"
+                },
+                "3": {
+                    "title": "KKday Marketplace",
+                    "description": "這是一套專為實體零售門市打造的POS系統，透過直覺化的操作體驗，全面自動化管理收銀、庫存、進銷存等核心營運流程。系統與品牌官網無縫串接—所有在官網設定好的商品資料、售價策略與促銷活動，只要一鍵登入，就能即時同步到POS端，實現線上線下通路的高效整合。"
+                },
+                "4": {
+                    "title": "Live dealer gaming app",
+                    "description": "This is a scalable Ul system for live casino games and and it supports a unified mobile interface for 10+ real-time table games."
+                }
+            }
+        },
+        "gallery": {
+            "title": "Design Gallery",
+            "viewAll": "View all works",
+            "items": {
+                "1": {
+                    "title": "建設公司官網設計"
+                },
+                "2": {
+                    "title": "證券理財Landing page"
+                },
+                "3": {
+                    "title": "數位金融與時尚品牌聯名網站"
+                },
+                "4": {
+                    "title": "信貸限時活動Landing page"
+                }
+            }
+        },
+        "cta": {
+            "title": "Let's Work Together",
+            "description": "Have a project idea or collaboration opportunity? Feel free to reach out and let's create excellent digital products together.",
+            "viewWork": "View My Work",
+            "aboutMe": "About Me"
+        }
     },
     "work": {
-        "title": "Portfolio",
-        "subtitle": "My Work Showcase",
-        "item1": {
-            "title": "Project 1",
-            "description": "Description for project 1"
+        "title": "Design Gallery",
+        "filters": {
+            "all": "All",
+            "web": "Web",
+            "app": "APP",
+            "others": "Others"
         },
-        "item2": {
-            "title": "Project 2",
-            "description": "Description for project 2"
+        "projects": {
+            "1": {
+                "id": "changhong-website",
+                "title": "建設公司官網設計",
+                "category": "Web",
+                "tags": ["Web", "RWD"]
+            },
+            "2": {
+                "id": "securities-landing",
+                "title": "證券理財Landing page",
+                "category": "LandingPage",
+                "tags": ["LandingPage", "RWD"]
+            },
+            "3": {
+                "id": "fashion-finance-website",
+                "title": "數位金融與時尚品牌聯名網站",
+                "category": "LandingPage",
+                "tags": ["LandingPage", "RWD"]
+            },
+            "4": {
+                "id": "loan-landing",
+                "title": "信貸限時活動Landing page",
+                "category": "LandingPage",
+                "tags": ["LandingPage", "RWD"]
+            },
+            "5": {
+                "id": "stock-landing",
+                "title": "美股投資活動Landing page",
+                "category": "LandingPage",
+                "tags": ["LandingPage", "RWD"]
+            },
+            "6": {
+                "id": "securities-landing-2",
+                "title": "證券理財Landing page",
+                "category": "LandingPage",
+                "tags": ["LandingPage", "RWD"]
+            }
+        }
+    },
+    "workDetail": {
+        "backToWork": "Back to Work",
+        "overview": {
+            "company": "Company :",
+            "responsibilities": "Responsibilities :",
+            "duration": "Duration :"
         },
-        "item3": {
-            "title": "Project 3",
-            "description": "Description for project 3"
-        },
-        "detail": {
-            "title": "Project Details",
-            "description": "This is the detailed description page for the project.",
-            "backToList": "Back to Portfolio"
+        "otherProjects": "Other Projects",
+        "changhongWebsite": {
+            "title": "建設公司官網設計",
+            "description": "長虹建設原有官方網站因介面老舊、內容更新流程繁瑣，難以有效傳達企業價值與即時資訊。為重塑品牌形象並提升使用者體驗，客戶委託進行官網全面改版，本人負責本次專案的整體 UI 設計工作。",
+            "company": "長虹建設股份有限公司",
+            "responsibilities": "全站視覺風格、網頁設計",
+            "duration": "2024",
+            "sections": {
+                "challenge": "設計挑戰與解法",
+                "process": "設計流程",
+                "homepage": "首頁",
+                "investor": "投資人專區",
+                "collection": "典藏長虹"
+            }
         }
     },
     "about": {
         "title": "About Me",
-        "subtitle": "Personal Introduction",
-        "description": "This is my about page where I share my background and experience.",
-        "skills": "Skills",
-        "experience": "Experience"
+        "hero": {
+            "name": "Esther Hsueh",
+            "description": "擁有8年以上經驗的產品設計師，專精於 iOS、Android雙平台與Web產品開發。 我的職涯橫跨新創保險、B2B電商、金融活動及數位娛樂產業，累積了豐富的跨領域實戰經驗。我擅長從需求發散到規格收斂，推動產品從概念成形到最終上線，能快速梳理複雜邏輯，並在商業需求與使用者體驗之間找到平衡，確保設計方案能精準落地。\n\n重視設計的實作效率與團隊溝通。 我不只專注於視覺精緻度，更會在設計階段就考慮到元件的重複使用性與後續開發的便利性。在跨團隊協作時，我習慣用邏輯、易用性測試或實際數據來討論方案，減少主觀爭執，確保團隊能朝著解決用戶問題的目標達成共識。",
+            "copyEmail": "複製我的Email"
+        },
+        "skills": {
+            "title": "My skills & services",
+            "ux": {
+                "title": "UX 研究與定義",
+                "items": ["用戶研究了解用戶需求與痛點", "市場與競品分析", "問題定義與建立解決方案", "系統功能架構規劃與定義"]
+            },
+            "ui": {
+                "title": "UI 介面與互動設計",
+                "items": ["產品頁面與元件視覺設計", "建立產品 Style Guide", "Design System", "頁面與元件互動設計", "響應式網頁設計"]
+            },
+            "brand": {
+                "title": "品牌與多媒體整合",
+                "items": ["品牌CIS設計", "動態影像", "行銷素材製作", "HTML / CSS"]
+            }
+        },
+        "howIWork": {
+            "title": "How I Work",
+            "steps": {
+                "1": {
+                    "number": "01",
+                    "title": "了解與定義問題",
+                    "description": "深入梳理業務需求與產品目標，確保設計方向與團隊/業主達成共識。"
+                },
+                "2": {
+                    "number": "02",
+                    "title": "設計發想與架構",
+                    "description": "將發散的想法收斂為具體的資訊架構與原型，在視覺執行前確認方案的可行性。"
+                },
+                "3": {
+                    "number": "03",
+                    "title": "介面設計與規範",
+                    "description": "打造高品質的產品介面並建立完整的設計系統，透過標準化元件與設計規則確保跨平台體驗的一致性。"
+                },
+                "4": {
+                    "number": "04",
+                    "title": "迭代優化與上線",
+                    "description": "配合開發進度與業主反饋進行調調整，透過彈性的設計與細節修改，確保產品順利落地並完美上線。"
+                }
+            }
+        },
+        "experience": {
+            "title": "Work Experience"
+        },
+        "clients": {
+            "title": "Client Collaborations"
+        },
+        "learning": {
+            "title": "Continuous Learning",
+            "description": "對新技術保持熱情，是我在設計領域保持敏銳的方式。 \n透過持續的跨領域學習，讓自己的專業能力更全面，讓新的思考方式成為產品設計的養分。",
+            "progress": "上課 100%"
+        },
+        "tools": {
+            "title": "Cutting-Edge Tools I Use",
+            "description": "熟練運用多元工具整合工作流程，在確保設計品質的同時提升開發效率；透過AI輔助與管理平台優化協作模式，達成跨職能團隊間的無縫溝通與資訊同步。"
+        }
     },
     "auth": {
         "title": "User Authentication",
@@ -77,6 +232,6 @@
         "language": "Language"
     },
     "footer": {
-        "copyright": "© 2025 Esther Hsueh. All rights reserved."
+        "copyright": "© Esther 2026. All Rights Reserved."
     }
 }

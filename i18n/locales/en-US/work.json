@@ -1,0 +1,47 @@
+{
+    "title": "Design Gallery",
+    "filters": {
+        "all": "All",
+        "web": "Web",
+        "app": "APP",
+        "others": "Others"
+    },
+    "projects": {
+        "1": {
+            "id": "changhong-website",
+            "title": "建設公司官網設計",
+            "category": "Web",
+            "tags": ["Web", "RWD"]
+        },
+        "2": {
+            "id": "securities-landing",
+            "title": "證券理財Landing page",
+            "category": "LandingPage",
+            "tags": ["LandingPage", "RWD"]
+        },
+        "3": {
+            "id": "fashion-finance-website",
+            "title": "數位金融與時尚品牌聯名網站",
+            "category": "LandingPage",
+            "tags": ["LandingPage", "RWD"]
+        },
+        "4": {
+            "id": "loan-landing",
+            "title": "信貸限時活動Landing page",
+            "category": "LandingPage",
+            "tags": ["LandingPage", "RWD"]
+        },
+        "5": {
+            "id": "stock-landing",
+            "title": "美股投資活動Landing page",
+            "category": "LandingPage",
+            "tags": ["LandingPage", "RWD"]
+        },
+        "6": {
+            "id": "securities-landing-2",
+            "title": "證券理財Landing page",
+            "category": "LandingPage",
+            "tags": ["LandingPage", "RWD"]
+        }
+    }
+}

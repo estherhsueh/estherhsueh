@@ -17,17 +17,18 @@ $indigo-700: #3f217d;
 $indigo-800: #321867;
 
 // ==========================================
-// Greyscale Color Palette
+// Greyscale Color Palette (Figma Design System)
 // ==========================================
-$grey-50: #f2f2f0;
-$grey-100: #dcdde4;
-$grey-200: #a3a4b5;
-$grey-300: #67697c;
+$grey-50: #f6f6f6;      // 主要文字色 (from Figma)
+$grey-100: #dcdde4;     // 次要文字色
+$grey-200: #a3a4b5;     // 輔助文字/邊框
+$grey-300: #67697c;     // 標籤文字
 $grey-400: #4d4f60;
-$grey-500: #373946;
-$grey-600: #292a36;
-$grey-700: #20212b;
-$grey-800: #16171f;
+$grey-500: #373946;     // 邊框色
+$grey-600: #292a36;     // 卡片邊框/背景
+$grey-700: #20212b;     // 深色邊框
+$grey-800: #16171f;     // 卡片/容器背景
+$grey-900: #010109;     // 主背景色
 
 // ==========================================
 // Semantic Colors (主要使用的顏色)
@@ -47,7 +48,7 @@ $text-light: $grey-400;
 $text-lighter: $grey-300;
 
 // Background Colors
-$background-color: #ffffff;
+$background-color: #fff;
 $background-light: $grey-50;
 $background-grey: $grey-100;
 $background-dark: $grey-800;
@@ -65,32 +66,74 @@ $warning-color: #ff9800;
 $error-color: #f44336;
 $info-color: $indigo-400;
 
-// 間距
+// 間距 (Based on Figma Design)
 $spacing-xs: 8px;
 $spacing-sm: 12px;
 $spacing-md: 20px;
 $spacing-lg: 30px;
 $spacing-xl: 40px;
+$spacing-xxl: 60px;
 
-// 字體大小
-$font-size-xs: 12px;
-$font-size-sm: 14px;
-$font-size-base: 16px;
-$font-size-lg: 18px;
-$font-size-xl: 24px;
-$font-size-xxl: 32px;
-$font-size-xxxl: 36px;
+// Figma 中的特定間距
+$spacing-24: 24px;
+$spacing-32: 32px;
+$spacing-56: 56px;
 
-// 字體粗細
-$font-weight-normal: 400;
-$font-weight-medium: 500;
-$font-weight-semibold: 600;
-$font-weight-bold: 700;
+// ==========================================
+// Typography
+// ==========================================
+// 字體系列（根據 Figma 設計稿）
+// General Sans: 用於英文內容、UI 元素、按鈕等
+// Playfair Display: 用於大標題、特殊標題（如 About 頁面的名字）
+// Noto Sans TC: 用於中文內容（系統字體）
+$font-family-en: 'General Sans', -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, 'Helvetica Neue', arial, sans-serif;
+$font-family-playfair: 'Playfair Display', 'Times New Roman', serif;
+$font-family-zh: 'Noto Sans TC', -apple-system, blinkmacsystemfont, 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+$font-family-base: $font-family-en, $font-family-zh;
 
-// 行高
+// 字體大小 (Based on Figma Design)
+$font-size-xs: 12px;      // 小標籤、次要文字
+$font-size-sm: 14px;      // Navbar links
+$font-size-base: 16px;    // 基礎文字、描述
+$font-size-lg: 18px;      // 次標題、職位
+$font-size-xl: 24px;      // 卡片標題、工具名稱
+$font-size-xxl: 32px;     // 中型標題
+$font-size-xxxl: 36px;    // 步驟數字
+$font-size-display: 64px; // 大標題 (Section Title)
+
+// Figma 中的特定字體大小
+$font-size-20: 20px;      // How I Work 步驟標題
+$font-size-22: 22px;      // 技能列表
+$font-size-28: 28px;
+$font-size-48: 48px;      // Section Title (mobile)
+$font-size-56: 56px;
+$font-size-60: 60px;      // About Hero Name
+
+// 字體粗細 (Based on Figma Design)
+$font-weight-normal: 400;    // Regular
+$font-weight-medium: 500;    // Medium
+$font-weight-semibold: 600;  // Semibold
+$font-weight-bold: 700;      // Bold
+
+// 行高 (Based on Figma Design)
 $line-height-tight: 1.2;
 $line-height-normal: 1.6;
 $line-height-loose: 1.8;
+
+// Figma 中的特定行高
+$line-height-14: 14px;      // Navbar links
+$line-height-16: 16px;      // Tags
+$line-height-18: 18px;      // Job titles
+$line-height-21-6: 21.6px;  // Navbar title
+$line-height-24: 24px;      // Project titles, Tool names
+$line-height-25-6: 25.6px;  // Body text
+$line-height-30: 30px;      // Skill titles
+$line-height-32: 32px;      // How I Work step titles
+$line-height-32-4: 32.4px;  // Descriptions
+$line-height-48-6: 48.6px;  // Step numbers
+$line-height-76-8: 76.8px;  // Large headings (Desktop)
+$line-height-96: 96px;      // About Hero Name (Desktop)
+
 
 // 邊框圓角
 $border-radius-sm: 4px;
@@ -116,11 +159,12 @@ $breakpoint-lg: 1024px;
 $breakpoint-xl: 1280px;
 $breakpoint-xxl: 1536px;
 
-// 容器最大寬度
+// 容器最大寬度 (Based on Figma Design)
 $container-sm: 640px;
 $container-md: 768px;
 $container-lg: 1024px;
-$container-xl: 1280px;
+$container-xl: 1280px;    // Figma 中的最大寬度 1440px - 左右 padding
+$container-full: 1440px;  // Figma 設計寬度
 
 // Z-index 層級
 $z-index-dropdown: 1000;

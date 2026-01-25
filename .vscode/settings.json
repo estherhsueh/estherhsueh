@@ -1,0 +1,27 @@
+{
+    "editor.formatOnSave": true,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit",
+        "source.fixAll.stylelint": "explicit"
+    },
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "vue"
+    ],
+    "stylelint.validate": [
+        "css",
+        "scss",
+        "vue"
+    ],
+    "css.validate": false,
+    "scss.validate": false,
+    "cSpell.words": [
+        "Nuxt"
+    ]
+}

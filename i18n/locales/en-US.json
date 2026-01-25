@@ -1,0 +1,82 @@
+{
+    "nav": {
+        "home": "Home",
+        "work": "Work",
+        "about": "About",
+        "auth": "Auth"
+    },
+    "home": {
+        "title": "Welcome to My Website",
+        "subtitle": "A personal website built with Nuxt 3",
+        "description": "Here you can explore my portfolio and learn more about me."
+    },
+    "work": {
+        "title": "Portfolio",
+        "subtitle": "My Work Showcase",
+        "item1": {
+            "title": "Project 1",
+            "description": "Description for project 1"
+        },
+        "item2": {
+            "title": "Project 2",
+            "description": "Description for project 2"
+        },
+        "item3": {
+            "title": "Project 3",
+            "description": "Description for project 3"
+        },
+        "detail": {
+            "title": "Project Details",
+            "description": "This is the detailed description page for the project.",
+            "backToList": "Back to Portfolio"
+        }
+    },
+    "about": {
+        "title": "About Me",
+        "subtitle": "Personal Introduction",
+        "description": "This is my about page where I share my background and experience.",
+        "skills": "Skills",
+        "experience": "Experience"
+    },
+    "auth": {
+        "title": "User Authentication",
+        "subtitle": "Login or Register",
+        "login": {
+            "title": "Login",
+            "email": "Email",
+            "password": "Password",
+            "submit": "Login",
+            "success": "Login successful!",
+            "error": "Login failed. Please check your credentials."
+        },
+        "register": {
+            "title": "Register",
+            "name": "Name",
+            "email": "Email",
+            "password": "Password",
+            "confirmPassword": "Confirm Password",
+            "submit": "Register",
+            "success": "Registration successful!",
+            "error": "Registration failed. Please try again."
+        },
+        "switchToLogin": "Already have an account? Login",
+        "switchToRegister": "Don't have an account? Register"
+    },
+    "common": {
+        "loading": "Loading...",
+        "error": "Error occurred",
+        "success": "Success",
+        "cancel": "Cancel",
+        "confirm": "Confirm",
+        "save": "Save",
+        "edit": "Edit",
+        "delete": "Delete",
+        "back": "Back",
+        "next": "Next",
+        "previous": "Previous",
+        "language": "Language"
+    },
+    "footer": {
+        "copyright": "© 2025 Esther Hsueh. All rights reserved."
+    }
+}

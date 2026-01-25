@@ -1,0 +1,82 @@
+{
+    "nav": {
+        "home": "首頁",
+        "work": "作品",
+        "about": "關於",
+        "auth": "登入"
+    },
+    "home": {
+        "title": "歡迎來到我的網站",
+        "subtitle": "這是一個使用 Nuxt 3 建立的個人網站",
+        "description": "在這裡你可以看到我的作品集和個人資訊。"
+    },
+    "work": {
+        "title": "作品集",
+        "subtitle": "我的作品展示",
+        "item1": {
+            "title": "作品 1",
+            "description": "這是作品 1 的描述"
+        },
+        "item2": {
+            "title": "作品 2",
+            "description": "這是作品 2 的描述"
+        },
+        "item3": {
+            "title": "作品 3",
+            "description": "這是作品 3 的描述"
+        },
+        "detail": {
+            "title": "作品詳情",
+            "description": "這是作品的詳細描述頁面。",
+            "backToList": "回到作品列表"
+        }
+    },
+    "about": {
+        "title": "關於我",
+        "subtitle": "個人簡介",
+        "description": "這是關於我的頁面，介紹我的背景和經歷。",
+        "skills": "技能",
+        "experience": "經驗"
+    },
+    "auth": {
+        "title": "使用者認證",
+        "subtitle": "登入或註冊",
+        "login": {
+            "title": "登入",
+            "email": "電子郵件",
+            "password": "密碼",
+            "submit": "登入",
+            "success": "登入成功！",
+            "error": "登入失敗，請檢查您的憑證。"
+        },
+        "register": {
+            "title": "註冊",
+            "name": "姓名",
+            "email": "電子郵件",
+            "password": "密碼",
+            "confirmPassword": "確認密碼",
+            "submit": "註冊",
+            "success": "註冊成功！",
+            "error": "註冊失敗，請稍後再試。"
+        },
+        "switchToLogin": "已有帳號？登入",
+        "switchToRegister": "沒有帳號？註冊"
+    },
+    "common": {
+        "loading": "載入中...",
+        "error": "發生錯誤",
+        "success": "成功",
+        "cancel": "取消",
+        "confirm": "確認",
+        "save": "儲存",
+        "edit": "編輯",
+        "delete": "刪除",
+        "back": "返回",
+        "next": "下一步",
+        "previous": "上一步",
+        "language": "語言"
+    },
+    "footer": {
+        "copyright": "© 2025 Esther Hsueh. 版權所有。"
+    }
+}

@@ -1,17 +1,48 @@
 {
-  "name": "estherhsueh",
-  "type": "module",
-  "private": true,
-  "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
-  },
-  "dependencies": {
-    "nuxt": "^4.2.2",
-    "vue": "^3.5.26",
-    "vue-router": "^4.6.4"
-  }
+    "name": "estherhsueh",
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "build": "nuxt build",
+        "dev": "nuxt dev",
+        "generate": "nuxt generate",
+        "preview": "nuxt preview",
+        "postinstall": "nuxt prepare",
+        "lint": "npm run lint:eslint && npm run lint:stylelint",
+        "lint:eslint": "eslint .",
+        "lint:eslint:fix": "eslint . --fix",
+        "lint:stylelint": "stylelint \"**/*.{scss,vue}\"",
+        "lint:stylelint:fix": "stylelint \"**/*.{scss,vue}\" --fix",
+        "lint:fix": "npm run lint:eslint:fix && npm run lint:stylelint:fix",
+        "format": "prettier --write \"**/*.{js,ts,vue,css,scss,json,md}\"",
+        "format:check": "prettier --check \"**/*.{js,ts,vue,css,scss,json,md}\""
+    },
+    "dependencies": {
+        "@nuxtjs/i18n": "^10.2.1",
+        "nuxt": "^4.2.2",
+        "vue": "^3.5.26",
+        "vue-router": "^4.6.4"
+    },
+    "devDependencies": {
+        "@nuxt/eslint": "^1.13.0",
+        "@typescript-eslint/eslint-plugin": "^8.53.1",
+        "@typescript-eslint/parser": "^8.53.1",
+        "eslint": "^9.39.2",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-nuxt": "^4.0.0",
+        "eslint-plugin-vue": "^10.7.0",
+        "postcss-html": "^1.8.1",
+        "postcss-scss": "^4.0.9",
+        "prettier": "^3.8.1",
+        "sass": "^1.97.3",
+        "sass-loader": "^16.0.6",
+        "stylelint": "^17.0.0",
+        "stylelint-config-recommended-vue": "^1.6.1",
+        "stylelint-config-standard": "^40.0.0",
+        "stylelint-config-standard-scss": "^17.0.0",
+        "stylelint-order": "^7.0.1",
+        "typescript": "^5.9.3",
+        "typescript-eslint": "^8.53.1",
+        "vue-eslint-parser": "^10.2.0"
+    }
 }

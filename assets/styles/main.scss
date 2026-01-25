@@ -1,0 +1,245 @@
+@use 'variables' as *;
+
+// ==========================================
+// 全域樣式
+// ==========================================
+
+// CSS Reset
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: $background-color;
+    color: $text-color;
+    font-size: $font-size-base;
+    font-family: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, 'Helvetica Neue', arial, sans-serif;
+    line-height: $line-height-normal;
+}
+
+// 連結樣式
+a {
+    color: inherit;
+    transition: color $transition-base;
+    text-decoration: none;
+
+    &:hover {
+        color: $primary-color;
+    }
+}
+
+// 圖片
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+// 按鈕
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+}
+
+// 輸入框
+input,
+textarea,
+select {
+    font-size: inherit;
+    font-family: inherit;
+}
+
+// 列表
+ul,
+ol {
+    list-style: none;
+}
+
+// ==========================================
+// 通用工具類別
+// ==========================================
+
+// 容器
+.container {
+    width: 100%;
+    max-width: $container-xl;
+    margin: 0 auto;
+    padding: 0 $spacing-md;
+
+    &--sm {
+        max-width: $container-sm;
+    }
+
+    &--md {
+        max-width: $container-md;
+    }
+
+    &--lg {
+        max-width: $container-lg;
+    }
+}
+
+// 間距工具
+.mt {
+    &-xs {
+        margin-top: $spacing-xs;
+    }
+
+    &-sm {
+        margin-top: $spacing-sm;
+    }
+
+    &-md {
+        margin-top: $spacing-md;
+    }
+
+    &-lg {
+        margin-top: $spacing-lg;
+    }
+
+    &-xl {
+        margin-top: $spacing-xl;
+    }
+}
+
+.mb {
+    &-xs {
+        margin-bottom: $spacing-xs;
+    }
+
+    &-sm {
+        margin-bottom: $spacing-sm;
+    }
+
+    &-md {
+        margin-bottom: $spacing-md;
+    }
+
+    &-lg {
+        margin-bottom: $spacing-lg;
+    }
+
+    &-xl {
+        margin-bottom: $spacing-xl;
+    }
+}
+
+.pt {
+    &-xs {
+        padding-top: $spacing-xs;
+    }
+
+    &-sm {
+        padding-top: $spacing-sm;
+    }
+
+    &-md {
+        padding-top: $spacing-md;
+    }
+
+    &-lg {
+        padding-top: $spacing-lg;
+    }
+
+    &-xl {
+        padding-top: $spacing-xl;
+    }
+}
+
+.pb {
+    &-xs {
+        padding-bottom: $spacing-xs;
+    }
+
+    &-sm {
+        padding-bottom: $spacing-sm;
+    }
+
+    &-md {
+        padding-bottom: $spacing-md;
+    }
+
+    &-lg {
+        padding-bottom: $spacing-lg;
+    }
+
+    &-xl {
+        padding-bottom: $spacing-xl;
+    }
+}
+
+// 文字對齊
+.text {
+    &-left {
+        text-align: left;
+    }
+
+    &-center {
+        text-align: center;
+    }
+
+    &-right {
+        text-align: right;
+    }
+}
+
+// 顯示/隱藏
+.hidden {
+    display: none !important;
+}
+
+.visible {
+    visibility: visible !important;
+}
+
+.invisible {
+    visibility: hidden !important;
+}
+
+// Flexbox 工具
+.flex {
+    display: flex;
+
+    &-center {
+        @include flex-center;
+    }
+
+    &-between {
+        @include flex-between;
+    }
+
+    &-column {
+        @include flex-column;
+    }
+}
+
+// 響應式顯示
+@include md {
+    .hidden-md-up {
+        display: none !important;
+    }
+}
+
+@include lg {
+    .hidden-lg-up {
+        display: none !important;
+    }
+}

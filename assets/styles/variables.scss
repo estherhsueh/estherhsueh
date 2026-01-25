@@ -1,25 +1,69 @@
 // ==========================================
-// SCSS 變數檔案
+// SCSS 變數檔案 - Esther Portfolio Design System
 // ==========================================
 // 在所有組件中自動可用，無需 import
 
-// 顏色變數
-$primary-color: #000;
-$secondary-color: #666;
-$accent-color: #333;
-$text-color: #333;
-$text-light: #666;
-$text-lighter: #999;
-$background-color: #fff;
-$background-light: #f5f5f5;
-$border-color: #e0e0e0;
-$border-light: #ddd;
+// ==========================================
+// Indigo Color Palette
+// ==========================================
+$indigo-50: #e7dcff;
+$indigo-100: #d0bafe;
+$indigo-200: #b897fe;
+$indigo-300: #a175fd;
+$indigo-400: #8952fd;
+$indigo-500: #7042d2;
+$indigo-600: #5731a7;
+$indigo-700: #3f217d;
+$indigo-800: #321867;
 
-// 顏色功能
+// ==========================================
+// Greyscale Color Palette
+// ==========================================
+$grey-50: #f2f2f0;
+$grey-100: #dcdde4;
+$grey-200: #a3a4b5;
+$grey-300: #67697c;
+$grey-400: #4d4f60;
+$grey-500: #373946;
+$grey-600: #292a36;
+$grey-700: #20212b;
+$grey-800: #16171f;
+
+// ==========================================
+// Semantic Colors (主要使用的顏色)
+// ==========================================
+// Primary Brand Color
+$primary-color: $indigo-500;
+$primary-light: $indigo-400;
+$primary-dark: $indigo-600;
+$primary-lighter: $indigo-300;
+$primary-lightest: $indigo-100;
+
+// Text Colors
+$text-color: $grey-800;
+$text-secondary: $grey-600;
+$text-tertiary: $grey-500;
+$text-light: $grey-400;
+$text-lighter: $grey-300;
+
+// Background Colors
+$background-color: #ffffff;
+$background-light: $grey-50;
+$background-grey: $grey-100;
+$background-dark: $grey-800;
+
+// Border Colors
+$border-color: $grey-200;
+$border-light: $grey-100;
+$border-dark: $grey-300;
+
+// ==========================================
+// Functional Colors
+// ==========================================
 $success-color: #4caf50;
 $warning-color: #ff9800;
 $error-color: #f44336;
-$info-color: #2196f3;
+$info-color: $indigo-400;
 
 // 間距
 $spacing-xs: 8px;

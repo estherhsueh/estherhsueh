@@ -9,13 +9,16 @@
         "title": "歡迎來到我的網站",
         "subtitle": "這是一個使用 Nuxt 3 建立的個人網站",
         "description": "在這裡你可以看到我的作品集和個人資訊。",
-        "hero": {
+        "profile": {
             "available": "Available for freelance",
-            "greeting": "Hi, I'm Esther.",
+            "greeting_01": "Hi, I'm ",
+            "greeting_02": "Esther",
+            "greeting_03": ".",
             "description": "我是擁有8年資歷的產品設計師，專注網頁與行動體驗設計。秉持「化繁為簡，賦簡以深」的設計理念，透過嚴謹的規劃流程，將複雜需求淬鍊為清晰、流暢且富有溫度的數位體驗。 保持熱忱與開放，關注產業與科技脈動，善用新工具精進設計，為品牌打造清晰流暢且深具商業價值的產品。"
         },
         "featured": {
-            "title": "My featured projects",
+            "title_01": "My Featured ",
+            "title_02": "Projects",
             "projects": {
                 "1": {
                     "title": "KKday 點對點交通",
@@ -36,8 +39,9 @@
             }
         },
         "gallery": {
-            "title": "Design Gallery",
-            "viewAll": "View all works",
+            "title_01": "Design ",
+            "title_02": "Gallery",
+            "viewAll": "View All Works",
             "items": {
                 "1": {
                     "title": "建設公司官網設計"
@@ -73,37 +77,55 @@
                 "id": "changhong-website",
                 "title": "建設公司官網設計",
                 "category": "Web",
-                "tags": ["Web", "RWD"]
+                "tags": [
+                    "Web",
+                    "RWD"
+                ]
             },
             "2": {
                 "id": "securities-landing",
                 "title": "證券理財Landing page",
                 "category": "LandingPage",
-                "tags": ["LandingPage", "RWD"]
+                "tags": [
+                    "LandingPage",
+                    "RWD"
+                ]
             },
             "3": {
                 "id": "fashion-finance-website",
                 "title": "數位金融與時尚品牌聯名網站",
                 "category": "LandingPage",
-                "tags": ["LandingPage", "RWD"]
+                "tags": [
+                    "LandingPage",
+                    "RWD"
+                ]
             },
             "4": {
                 "id": "loan-landing",
                 "title": "信貸限時活動Landing page",
                 "category": "LandingPage",
-                "tags": ["LandingPage", "RWD"]
+                "tags": [
+                    "LandingPage",
+                    "RWD"
+                ]
             },
             "5": {
                 "id": "stock-landing",
                 "title": "美股投資活動Landing page",
                 "category": "LandingPage",
-                "tags": ["LandingPage", "RWD"]
+                "tags": [
+                    "LandingPage",
+                    "RWD"
+                ]
             },
             "6": {
                 "id": "securities-landing-2",
                 "title": "證券理財Landing page",
                 "category": "LandingPage",
-                "tags": ["LandingPage", "RWD"]
+                "tags": [
+                    "LandingPage",
+                    "RWD"
+                ]
             }
         }
     },
@@ -141,15 +163,31 @@
             "title": "My skills & services",
             "ux": {
                 "title": "UX 研究與定義",
-                "items": ["用戶研究了解用戶需求與痛點", "市場與競品分析", "問題定義與建立解決方案", "系統功能架構規劃與定義"]
+                "items": [
+                    "用戶研究了解用戶需求與痛點",
+                    "市場與競品分析",
+                    "問題定義與建立解決方案",
+                    "系統功能架構規劃與定義"
+                ]
             },
             "ui": {
                 "title": "UI 介面與互動設計",
-                "items": ["產品頁面與元件視覺設計", "建立產品 Style Guide", "Design System", "頁面與元件互動設計", "響應式網頁設計"]
+                "items": [
+                    "產品頁面與元件視覺設計",
+                    "建立產品 Style Guide",
+                    "Design System",
+                    "頁面與元件互動設計",
+                    "響應式網頁設計"
+                ]
             },
             "brand": {
                 "title": "品牌與多媒體整合",
-                "items": ["品牌CIS設計", "動態影像", "行銷素材製作", "HTML / CSS"]
+                "items": [
+                    "品牌CIS設計",
+                    "動態影像",
+                    "行銷素材製作",
+                    "HTML / CSS"
+                ]
             }
         },
         "howIWork": {

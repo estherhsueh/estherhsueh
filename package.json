@@ -18,6 +18,7 @@
         "format:check": "prettier --check \"**/*.{js,ts,vue,css,scss,json,md}\""
     },
     "dependencies": {
+        "@nuxt/icon": "^2.2.1",
         "@nuxtjs/i18n": "^10.2.1",
         "nuxt": "^4.2.2",
         "vue": "^3.5.26",

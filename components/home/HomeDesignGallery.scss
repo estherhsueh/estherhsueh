@@ -1,0 +1,269 @@
+@use '~/assets/styles/variables' as *;
+
+.design-gallery {
+    position: relative;
+    width: 100%;
+    padding: 40px 0 60px;
+    background: #010109;
+
+    @include md {
+        padding: 60px 0;
+    }
+
+    @include lg {
+        padding: 80px 0;
+    }
+
+    .section-header {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 48px;
+    
+        @include md {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 64px;
+        }
+
+        @include lg {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            color: $grey-50;
+            letter-spacing: -0.64px;
+            font-weight: $font-weight-medium;
+            font-size: 32px;
+            font-family: $font-family-en;
+            line-height: 1.2;
+
+            @include md {
+                letter-spacing: -0.8px;
+                font-size: 40px;
+            }
+            
+            @include lg {
+                letter-spacing: -1.28px;
+                font-size: 64px;
+            }
+    
+            .title-02 {
+                color: $grey-200;
+            }
+        }
+        
+        .view-all-button {
+            display: flex;
+            gap: $spacing-md;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 56px;
+            padding: 16px 32px;
+            border-radius: 12px;
+            background: #ab9dff;
+            color: #161616;
+            font-weight: 500;
+            font-size: 16px;
+            font-family: $font-family-zh;
+
+            @include md {
+                width: 207px;
+                padding: 16px 16px 16px 32px;
+            }
+        
+            svg {
+                width: 24px;
+                height: 24px;
+
+                /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+                :deep(path) {
+                    stroke: #161616;
+                }
+            }
+        }
+    }
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+
+    @include md {
+        grid-template-columns: repeat(2, 1fr);
+        gap: $spacing-lg;
+    }
+
+    @include lg {
+        gap: $spacing-24;
+    }
+
+    .gallery-item {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        height: 406px;
+        border: 1px solid #292a36;
+        border-radius: 16px;
+        background: #16171f;
+        cursor: pointer;
+        text-decoration: none;
+
+        @include md {
+            height: 434px;
+        }
+
+        @include lg {
+            height: 562px;
+        }
+
+        .gallery-image {
+            position: relative;
+            width: 100%;
+            height: 270px;
+
+            @include lg {
+                height: 426px;
+            }
+        
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+
+            .gallery-image-placeholder {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .gallery-info {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            height: 135px;
+            padding: 32px 24px;
+        
+            @include md {
+                height: 164px;
+            }
+
+            @include lg {
+                height: 136px;
+            }
+        
+            .gallery-title {
+                overflow: hidden;
+                width: 78%;
+                color: #fff;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                font-weight: 700;
+                font-size: 20px;
+                font-family: $font-family-zh;
+                line-height: 1.2;
+            
+                @include md {
+                    font-size: 22px;
+                }
+            
+                @include lg {
+                    width: 85%;
+                    font-size: 24px;
+                }
+            }
+    
+            .gallery-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: $spacing-xs;
+    
+                .gallery-tag {
+                    padding: 8px 16px;
+                    border: 1px solid #373946;
+                    border-radius: 8px;
+                    background: #292a36;
+                    color: #67697c;
+                    transition: all $transition-base;
+                    letter-spacing: 0;
+                    font-weight: $font-weight-normal;
+                    font-size: $font-size-base;
+                    font-family: $font-family-en;
+                    line-height: $line-height-16;
+                
+                    &:hover {
+                        border-color: #67697c;
+                        background: #373946;
+                        color: $grey-50;
+                    }
+                }
+            }
+        
+            .gallery-action {
+                position: absolute;
+                top: 49px;
+                right: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 52px;
+                height: 38px;
+                border: 1px solid $grey-500;
+                border-radius: 8px;
+                background: $grey-600;
+                transition: all 0.2s;
+
+                @include md {
+                    top: 63px;
+                    right: 24px;
+                }
+
+                @include lg {
+                    top: 42px;
+                    right: 24px;
+                    width: 56px;
+                    height: 52px;
+                }
+
+                svg {
+                    width: 20px;
+                    height: 20px;
+
+                    @include lg {
+                        width: 24px;
+                        height: 24px;
+                    }
+
+                    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+                    :deep(path) {
+                        fill: #fff;
+                    }
+                }
+
+                &:hover {
+                    border-color: $indigo-200;
+                    background: $indigo-200;
+
+                    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+                    :deep(path) {
+                        fill: $indigo-900;
+                    }
+                }
+            }
+        }
+    }
+}

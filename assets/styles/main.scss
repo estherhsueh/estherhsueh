@@ -297,6 +297,11 @@ ol {
     }
 }
 
+.font-italic-playfair {
+    font-style: italic;
+    font-family: $font-family-playfair;
+}
+
 // 響應式顯示
 @include md {
     .hidden-md-up {

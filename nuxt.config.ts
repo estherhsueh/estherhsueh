@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     modules: [
+        '@nuxt/icon',
         '@nuxt/eslint',
         '@nuxtjs/i18n'
     ],
@@ -45,5 +46,14 @@ export default defineNuxtConfig({
             fallbackLocale: 'zh-TW'
         },
         vueI18n: './i18n/i18n.config.ts'
+    },
+    icon: {
+        mode: 'svg',
+        customCollections: [
+            {
+                prefix: 'custom',
+                dir: './assets/icons'
+            }
+        ]
     }
 });

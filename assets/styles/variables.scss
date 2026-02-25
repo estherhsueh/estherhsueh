@@ -15,6 +15,7 @@ $indigo-500: #7042d2;
 $indigo-600: #5731a7;
 $indigo-700: #3f217d;
 $indigo-800: #321867;
+$indigo-900: #261052;
 
 // ==========================================
 // Greyscale Color Palette (Figma Design System)
@@ -151,20 +152,31 @@ $transition-fast: 0.15s;
 $transition-base: 0.2s;
 $transition-slow: 0.3s;
 
-// 斷點（響應式）
+// ==========================================
+// 斷點（響應式）- 新版三斷點系統
+// ==========================================
+// Mobile: <= 809px (container: 350px)
+// Tablet: 810px ~ 1439px (container: 350px)
+// PC: >= 1440px (container: 730px)
+$breakpoint-tablet: 810px;
+$breakpoint-pc: 1440px;
+
+// 容器最大寬度 (根據新的設計規範)
+$container-mobile: 350px;   // Mobile & Tablet
+$container-pc: 730px;        // PC
+
+// 舊版斷點（保留以供向下相容，將逐步棄用）
 $breakpoint-xs: 480px;
 $breakpoint-sm: 640px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 1024px;
 $breakpoint-xl: 1280px;
 $breakpoint-xxl: 1536px;
-
-// 容器最大寬度 (Based on Figma Design)
 $container-sm: 640px;
 $container-md: 768px;
 $container-lg: 1024px;
-$container-xl: 1280px;    // Figma 中的最大寬度 1440px - 左右 padding
-$container-full: 1440px;  // Figma 設計寬度
+$container-xl: 1280px;
+$container-full: 1160px;
 
 // Z-index 層級
 $z-index-dropdown: 1000;
@@ -179,7 +191,45 @@ $z-index-tooltip: 1070;
 // Mixins
 // ==========================================
 
-// 響應式 Mixins
+// ==========================================
+// 新版響應式 Mixins（三斷點系統）
+// ==========================================
+// Tablet: >= 810px
+@mixin tablet {
+    @media (min-width: $breakpoint-tablet) {
+        @content;
+    }
+}
+
+// PC: >= 1440px
+@mixin pc {
+    @media (min-width: $breakpoint-pc) {
+        @content;
+    }
+}
+
+// Mobile only: <= 809px
+@mixin mobile-only {
+    @media (max-width: #{$breakpoint-tablet - 1}) {
+        @content;
+    }
+}
+
+// Tablet only: 810px ~ 1439px
+@mixin tablet-only {
+    @media (min-width: $breakpoint-tablet) and (max-width: #{$breakpoint-pc - 1}) {
+        @content;
+    }
+}
+
+// ==========================================
+// 舊版響應式 Mixins（將逐步棄用，但保留向下相容）
+// ==========================================
+// 注意：建議使用新版 @include tablet 和 @include pc
+// 為了平滑遷移，舊版 mixin 映射到新版斷點：
+// - @include md 映射到 tablet (>= 810px)
+// - @include lg 映射到 pc (>= 1440px)
+
 @mixin xs {
     @media (min-width: $breakpoint-xs) {
         @content;
@@ -192,14 +242,16 @@ $z-index-tooltip: 1070;
     }
 }
 
+// md 映射到新的 tablet 斷點
 @mixin md {
-    @media (min-width: $breakpoint-md) {
+    @media (min-width: $breakpoint-tablet) {
         @content;
     }
 }
 
+// lg 映射到新的 pc 斷點
 @mixin lg {
-    @media (min-width: $breakpoint-lg) {
+    @media (min-width: $breakpoint-pc) {
         @content;
     }
 }

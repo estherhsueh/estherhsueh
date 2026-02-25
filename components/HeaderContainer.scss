@@ -1,0 +1,211 @@
+@use '~/assets/styles/variables' as *;
+
+.header-container {
+    position: sticky;
+    top: 0;
+    z-index: $z-index-sticky;
+    width: 100%;
+    height: 72px;
+    border-bottom: 1px solid rgb(255 255 255 / 20%);
+    background: rgb(22 23 31 / 35%);
+    transition: all $transition-base;
+    backdrop-filter: blur(10px);
+
+    .inner-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1160px;
+        height: 100%;
+        margin: 0 auto;
+        
+        @media (width < 1440px) {
+            max-width: 730px;
+        }
+
+        @media (width < 810px) {
+            max-width: 350px;
+        }
+
+        .logo-link {
+            .logo {
+                width: 50px;
+                height: 43.33px;
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+
+            .nav-link {
+                padding: 14px 20px;
+                border-radius: 20px;
+                color: $grey-100;
+                letter-spacing: 0;
+                font-weight: $font-weight-medium;
+                font-size: 14px;
+                font-family: $font-family-en;
+
+                &:hover {
+                    background: rgb(255 255 255 / 5%);
+                    color: $grey-50;
+                }
+
+                &.active {
+                    color: $grey-50;
+                    font-weight: $font-weight-semibold;
+                }
+            }
+
+            @media (width < 810px) {
+                display: none;
+            }
+        }
+
+        .resume-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 117px;
+            height: 46px;
+            border: 1px solid $grey-200;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 14px;
+
+            @media (width < 810px) {
+                display: none;
+            }
+        }
+    }
+}
+
+.mobile-menu-toggle {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+
+    @include md {
+        display: none;
+    }
+
+    .hamburger-line {
+        width: 100%;
+        height: 2px;
+        border-radius: 2px;
+        background-color: $grey-50;
+        transition: all $transition-base;
+    }
+
+    &.is-active {
+        .hamburger-line:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-line:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+    }
+}
+
+// ==========================================
+// Mobile Navigation
+// ==========================================
+.nav-mobile {
+    position: fixed;
+    top: 72px;
+    bottom: 0;
+    overflow-y: auto;
+    background: rgb(22 23 31 / 98%);
+    backdrop-filter: blur(20px);
+    inset-inline: 0;
+
+    @include md {
+        display: none;
+    }
+}
+
+.nav-mobile-content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xl;
+    padding: $spacing-xl $spacing-md;
+}
+
+.nav-links-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+}
+
+.nav-link-mobile {
+    padding: $spacing-md;
+    border-radius: 12px;
+    color: $grey-100;
+    transition: all $transition-base;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-lg;
+    font-family: $font-family-en;
+
+    &:hover {
+        background: rgb(255 255 255 / 5%);
+        color: $grey-50;
+    }
+
+    &.active {
+        background: rgb(255 255 255 / 8%);
+        color: $grey-50;
+        font-weight: $font-weight-semibold;
+    }
+}
+
+.nav-actions-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    padding-top: $spacing-md;
+    border-top: 1px solid rgb(255 255 255 / 10%);
+}
+
+.nav-button-mobile {
+    display: block;
+    padding: $spacing-md;
+    border: 1px solid #a175fd;
+    border-radius: 12px;
+    color: #a175fd;
+    transition: all $transition-base;
+    text-align: center;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-base;
+    font-family: $font-family-en;
+
+    &:hover {
+        border-color: #a175fd;
+        background: rgb(161 117 253 / 10%);
+    }
+}
+
+// ==========================================
+// Mobile Menu Transitions
+// ==========================================
+.mobile-menu-enter-active,
+.mobile-menu-leave-active {
+    transition: all $transition-base;
+}
+
+.mobile-menu-enter-from,
+.mobile-menu-leave-to {
+    transform: translateY(-20px);
+    opacity: 0;
+}

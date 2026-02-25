@@ -73,5 +73,5 @@ const galleryItems = getGalleryProjects();
 </script>
 
 <style lang="scss" scoped>
-@import './HomeDesignGallery';
+@use './HomeDesignGallery';
 </style>

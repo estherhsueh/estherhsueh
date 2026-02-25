@@ -20,7 +20,7 @@
 
         <img
             class="profile-image"
-            src="/images/pages/home/home_profile_selfie.png"
+            src="/images/pages/home/profile_selfie.png"
             alt="profile"
         >
     </div>

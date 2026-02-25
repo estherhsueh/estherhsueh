@@ -1,0 +1,141 @@
+@use '~/assets/styles/variables' as *;
+@use 'sass:color';
+
+.about-profile {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    padding: 40px 0 60px;
+
+    @include md {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 60px 0;
+    }
+
+    @include lg {
+        padding: 80px 0 80px 80px;
+    }
+
+    .about-image {
+        width: 200px;
+        height: 200px;
+
+        @include md {
+            width: 250px;
+            height: 250px;
+        }
+
+        @include lg {
+            width: 300px;
+            height: 300px;
+        }
+    }
+
+    .about-content {
+        width: 100%;
+
+        @include md {
+            width: 440px;
+        }
+
+        @include lg {
+            width: 640px;
+        }
+
+        .about-name {
+            margin-bottom: 20px;
+            color: #fff;
+            font-weight: 600;
+            font-style: italic;
+            font-size: 32px;
+            font-family: $font-family-playfair;
+            line-height: 1.6;
+
+            @include md {
+                font-size: 40px;
+            }
+        
+            @include lg {
+                font-size: 60px;
+            }
+        }
+        
+        .about-description {
+            margin-bottom: 32px;
+            color: $grey-200;
+            white-space: pre-line;
+            font-size: 16px;
+            font-family: $font-family-zh;
+            line-height: 1.6;
+
+            @include md {
+                margin-bottom: 48px;
+            }
+
+            @include lg {
+                margin-bottom: 60px;
+            }
+        }
+        
+        .about-button-container {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            height: 56px;
+
+            .copy-email-button {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                justify-content: center;
+                width: 222px;
+                height: 52px;
+                border: none;
+                border-radius: 12px;
+                background: $indigo-200;
+                color: $indigo-900;
+                cursor: pointer;
+                font-weight: 400px;
+                font-size: 18px;
+                font-family: $font-family-zh;
+
+                svg {
+                    width: 20px;
+                    height: 20px;
+
+                    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+                    :deep(path) {
+                        fill: $indigo-900;
+                    }
+                }
+            }
+
+            .behance-button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 56px;
+                height: 56px;
+                padding: 16px;
+                border: 1px solid $grey-600;
+                border-radius: 8px;
+                background: $grey-700;
+
+                svg {
+                    width: 24px;
+                    height: 24px;
+
+                    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+                    :deep(path) {
+                        fill: $grey-200;
+                    }
+                }
+            }
+        }
+    }
+}

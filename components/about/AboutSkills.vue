@@ -2,12 +2,17 @@
     <section class="about-skills">
         <div class="skills-container">
             <h2 class="section-title">
-                {{ $t('about.skills.title') }}
+                <span class="title-01">{{ $t('about.skills.title_01') }}</span>
+                <span class="title-02 font-italic-playfair">{{ $t('about.skills.title_02') }}</span>
             </h2>
             <div class="skills-grid">
                 <!-- UX 研究與定義 -->
                 <div class="skill-card">
-                    <div class="skill-icon" />
+                    <img
+                        class="skill-icon"
+                        src="/images/pages/about/skills_ux.png"
+                        alt="UX"
+                    >
                     <h3 class="skill-title">
                         {{ $t('about.skills.ux.title') }}
                     </h3>
@@ -23,7 +28,11 @@
 
                 <!-- UI 介面與互動設計 -->
                 <div class="skill-card">
-                    <div class="skill-icon" />
+                    <img
+                        class="skill-icon"
+                        src="/images/pages/about/skills_ui.png"
+                        alt="UI"
+                    >
                     <h3 class="skill-title">
                         {{ $t('about.skills.ui.title') }}
                     </h3>
@@ -39,7 +48,11 @@
 
                 <!-- 品牌與多媒體整合 -->
                 <div class="skill-card">
-                    <div class="skill-icon" />
+                    <img
+                        class="skill-icon"
+                        src="/images/pages/about/skills_brand.png"
+                        alt="Brand"
+                    >
                     <h3 class="skill-title">
                         {{ $t('about.skills.brand.title') }}
                     </h3>
@@ -94,87 +107,5 @@ const brandItems = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-@use '~/assets/styles/variables' as *;
-
-.about-skills {
-    padding: $spacing-xxl 0;
-}
-
-.skills-container {
-    max-width: $container-full;
-    margin: 0 auto;
-    padding: 0 $spacing-md;
-
-    @include md {
-        padding: 0 $spacing-xl;
-    }
-
-    @include lg {
-        padding: 0 140px;
-    }
-}
-
-.section-title {
-    margin-bottom: $spacing-xxl;
-    color: $grey-50;
-    letter-spacing: -1.28px;
-    font-weight: $font-weight-medium;
-    font-size: $font-size-48;
-    font-family: $font-family-en;
-    line-height: $line-height-tight;
-
-    @include lg {
-        font-size: $font-size-display;
-        line-height: $line-height-76-8;
-    }
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: $spacing-xl;
-
-    @include md {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    @include lg {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 220px;
-    }
-}
-
-.skill-card {
-    text-align: center;
-}
-
-.skill-icon {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto $spacing-lg;
-    border-radius: $border-radius-lg;
-    background: linear-gradient(135deg, $indigo-200 0%, $indigo-400 100%);
-}
-
-.skill-title {
-    margin-bottom: $spacing-md;
-    color: $grey-50;
-    font-family: $font-family-base;
-    font-size: $font-size-xl;
-    font-weight: $font-weight-medium;
-    line-height: $line-height-30;
-}
-
-.skill-list {
-    padding: 0;
-    list-style: none;
-}
-
-.skill-list li {
-    margin-bottom: $spacing-sm;
-    color: $grey-200;
-    font-family: $font-family-zh;
-    font-size: $font-size-22;
-    line-height: $font-size-22;
-}
+@use './AboutSkills';
 </style>

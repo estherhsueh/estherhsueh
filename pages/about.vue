@@ -1,6 +1,6 @@
 <template>
     <div class="about-page">
-        <AboutHero />
+        <AboutProfile />
         <AboutSkills />
         <AboutHowIWork />
         <AboutExperience />

@@ -46,5 +46,5 @@
 </template>
 
 <style lang="scss" scoped>
-@import './FooterContainer';
+@use './FooterContainer';
 </style>

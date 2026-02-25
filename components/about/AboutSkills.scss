@@ -1,0 +1,140 @@
+@use '~/assets/styles/variables' as *;
+
+.about-skills {
+    padding: 32px 0 60px;
+
+    @include md {
+        padding: 60px 0;
+    }
+
+    @include lg {
+        padding: 80px 0;
+    }
+
+    .section-title {
+        margin-bottom: 48px;
+        color: #fff;
+        letter-spacing: -0.02em;
+        font-weight: 500;
+        font-size: 32px;
+        font-family: $font-family-en;
+        line-height: 1.2;
+
+        .title-02 {
+            color: $grey-200;
+        }
+
+        @include md {
+            margin-bottom: 64px;
+            font-size: 40px;
+        }
+
+        @include lg {
+        margin-bottom: 80px;
+            font-size: 64px;
+        }
+    }
+    
+    .skills-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+
+        @include md {
+            flex-flow: row wrap;
+            gap: 32px 24px;
+        }
+        
+        @include lg {
+            flex-direction: row;
+            gap: unset;
+            justify-content: space-between;
+        }
+    
+        .skill-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            text-align: center;
+
+            @include md {
+                width: 353px;
+                height: 392px;
+                padding: 0 33.5px;
+            }
+
+            @include lg {
+                width: 286px;
+                padding: 0;
+            }
+        
+            .skill-icon {
+                width: 100px;
+                height: 100px;
+                margin: 0 auto 8px;
+
+                @include md {
+                    width: 120px;
+                    height: 120px;
+                    margin: 0 auto 32px;
+                }
+
+                @include lg {
+                    margin: 0 auto 12px;
+                }
+            }
+            
+            .skill-title {
+                margin-bottom: 24px;
+                color: #fff;
+                text-transform: uppercase;
+                font-weight: 500;
+                font-size: 24px;
+                font-family: $font-family-en;
+                line-height: 1.25;
+            }
+            
+            .skill-list {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                list-style: none;
+                text-align: center;
+            
+                li {
+                    color: $grey-200;
+                    font-weight: 400;
+                    font-size: 20px;
+                    font-family: $font-family-zh;
+                    line-height: 100%;
+                }
+
+                @include md {
+                    gap: 24px;
+                    text-align: left;
+                }
+            }
+
+            @include md {
+                &:nth-child(1) {
+                    .skill-list {
+                        width: 286px;
+                    }
+                }
+
+                &:nth-child(2) {
+                    .skill-list {
+                        width: 242px;
+                    }
+                }
+
+                &:nth-child(3) {
+                    .skill-list {
+                        width: 132px;
+                    }
+                }
+            }
+        }
+    }
+}

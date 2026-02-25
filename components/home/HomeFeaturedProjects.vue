@@ -65,5 +65,5 @@ const featuredProjects = getFeaturedProjects();
 </script>
 
 <style lang="scss" scoped>
-@import './HomeFeaturedProjects';
+@use './HomeFeaturedProjects';
 </style>

@@ -148,13 +148,14 @@
     },
     "about": {
         "title": "About Me",
-        "hero": {
+        "about": {
             "name": "Esther Hsueh",
             "description": "擁有8年以上經驗的產品設計師，專精於 iOS、Android雙平台與Web產品開發。 我的職涯橫跨新創保險、B2B電商、金融活動及數位娛樂產業，累積了豐富的跨領域實戰經驗。我擅長從需求發散到規格收斂，推動產品從概念成形到最終上線，能快速梳理複雜邏輯，並在商業需求與使用者體驗之間找到平衡，確保設計方案能精準落地。\n\n重視設計的實作效率與團隊溝通。 我不只專注於視覺精緻度，更會在設計階段就考慮到元件的重複使用性與後續開發的便利性。在跨團隊協作時，我習慣用邏輯、易用性測試或實際數據來討論方案，減少主觀爭執，確保團隊能朝著解決用戶問題的目標達成共識。",
             "copyEmail": "複製我的Email"
         },
         "skills": {
-            "title": "My skills & services",
+            "title_01": "My Skills & ",
+            "title_02": "Services",
             "ux": {
                 "title": "UX 研究與定義",
                 "items": [
@@ -185,7 +186,8 @@
             }
         },
         "howIWork": {
-            "title": "How I Work",
+            "title_01": "How I ",
+            "title_02": "Work",
             "steps": {
                 "1": {
                     "number": "01",

@@ -1,0 +1,120 @@
+@use '~/assets/styles/variables' as *;
+
+.about-learning {
+    display: none;
+    
+    @include md {
+        display: block;
+        padding: 60px 0;
+    }
+
+    @include lg {
+        padding: 80px 0;
+    }
+
+    .section-title {
+        margin-bottom: 20px;
+        color: #fff;
+        letter-spacing: -0.02em;
+        font-weight: 500;
+        font-size: 32px;
+        font-family: $font-family-en;
+        line-height: 1.2;
+
+        .title-02 {
+            color: $grey-200;
+        }
+
+        @include md {
+            margin-bottom: 32px;
+            font-size: 40px;
+        }
+
+        @include lg {
+            margin-bottom: 40px;
+            font-size: 64px;
+        }
+    }
+
+    .learning-description {
+        margin-bottom: 48px;
+        color: $grey-200;
+        white-space: pre-line;
+        font-weight: 400;
+        font-size: 16px;
+        font-family: $font-family-zh;
+        line-height: 1.6;
+    }
+
+    .courses-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+    
+        @include md {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    
+        @include lg {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    
+        .course-card {
+            overflow: hidden;
+            border: 1px solid $grey-500;
+            border-radius: 16px;
+            background: $grey-800;
+            backdrop-filter: blur(12px);
+        
+            .course-image {
+                object-fit: cover;
+                width: 100%;
+                height: 200px;
+
+                @include lg {
+                    height: 166px;
+                }
+            }
+            
+            .course-title {
+                padding: 24px 23px 16px;
+                color: #fff;
+                letter-spacing: 0.32px;
+                font-weight: 500;
+                font-size: 15.5px;
+                font-family: $font-family-zh;
+                line-height: 23px;
+                
+                @include lg {
+                    padding: 16px 15px 26px;
+                    font-size: 15.4px;
+                    line-height: 18px;
+                }
+            }
+            
+            .course-progress {
+                height: 5px;
+                margin: 0 23px;
+                border-radius: 10px;
+                background: linear-gradient(90deg, #383ad2 0%, #fc5cc4 100%);
+
+                @include lg {
+                    margin: 0 15px;
+                }
+            }
+            
+            .course-status {
+                padding: 12px 23px 27px;
+                color: $grey-300;
+                font-weight: 400;
+                font-size: 12px;
+                font-family: $font-family-zh;
+                line-height: 14px;
+
+                @include lg {
+                    padding: 12px 15px 23px;
+                }
+            }
+        }
+    }
+}

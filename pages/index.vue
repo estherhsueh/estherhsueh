@@ -17,7 +17,7 @@ definePageMeta({
 useHead({
     title: t('home.title'),
     meta: [
-        { name: 'description', content: t('home.hero.description') }
+        { name: 'description', content: t('home.profile.description') }
     ]
 });
 </script>

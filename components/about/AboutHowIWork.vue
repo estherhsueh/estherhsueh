@@ -23,10 +23,6 @@
     </section>
 </template>
 
-<script setup lang="ts">
-// How I Work section component
-</script>
-
 <style lang="scss" scoped>
 @use './AboutHowIWork'
 </style>

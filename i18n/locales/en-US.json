@@ -211,19 +211,23 @@
                 }
             }
         },
-        "experience": {
-            "title": "Work Experience"
-        },
         "clients": {
-            "title": "Client Collaborations"
+            "title_01": "Client ",
+            "title_02": "Collaborations"
+        },
+        "experience": {
+            "title_01": "Work ",
+            "title_02": "Experience"
         },
         "learning": {
-            "title": "Continuous Learning",
-            "description": "對新技術保持熱情，是我在設計領域保持敏銳的方式。 \n透過持續的跨領域學習，讓自己的專業能力更全面，讓新的思考方式成為產品設計的養分。",
+            "title_01": "Continuous ",
+            "title_02": "Learning",
+            "description": "對新技術保持熱情，是我在設計領域保持敏銳的方式。\n透過持續的跨領域學習，讓自己的專業能力更全面，讓新的思考方式成為產品設計的養分。",
             "progress": "上課 100%"
         },
         "tools": {
-            "title": "Cutting-Edge Tools I Use",
+            "title_01": "Cutting-Edge ",
+            "title_02": "Tools I Use",
             "description": "熟練運用多元工具整合工作流程，在確保設計品質的同時提升開發效率；透過AI輔助與管理平台優化協作模式，達成跨職能團隊間的無縫溝通與資訊同步。"
         }
     },

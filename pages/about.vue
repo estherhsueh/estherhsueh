@@ -3,8 +3,8 @@
         <AboutProfile />
         <AboutSkills />
         <AboutHowIWork />
-        <AboutExperience />
         <AboutClients />
+        <AboutExperience />
         <AboutLearning />
         <AboutTools />
     </div>

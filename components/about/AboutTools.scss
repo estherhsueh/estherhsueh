@@ -1,0 +1,134 @@
+@use '~/assets/styles/variables' as *;
+
+.about-tools {
+    padding: 32px 0 60px;
+
+    @include md {
+        padding: 60px 0;
+    }
+
+    @include lg {
+        padding: 80px 0;
+    }
+    
+    .tools-container {
+        padding: 48px 24px;
+        border: 1px solid $grey-600;
+        border-radius: 32px;
+        background: $grey-800;
+
+        @include md {
+            padding: 60px 40px;
+            border-radius: 32px;
+        }
+
+        @include lg {
+            padding: 80px;
+        }
+    }
+
+    .section-title {
+        margin-bottom: 32px;
+        color: #fff;
+        letter-spacing: -0.02em;
+        font-weight: 500;
+        font-size: 32px;
+        font-family: $font-family-en;
+        line-height: 1.2;
+
+        .title-02 {
+            color: $grey-200;
+        }
+
+        @include md {
+            font-size: 40px;
+        }
+
+        @include lg {
+            margin-bottom: 40px;
+            font-size: 64px;
+        }
+    }
+    
+    .tools-description {
+        margin-bottom: 48px;
+        color: $grey-200;
+        letter-spacing: 0.32px;
+        font-weight: 400;
+        font-size: 16px;
+        font-family: $font-family-zh;
+        line-height: 1.6;
+
+        @include md {
+            margin-bottom: 80px;
+        }
+
+        @include lg {
+            width: 72.2%;
+        }
+    }
+
+    .tools-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+    
+        @include md {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    
+        @include lg {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    
+        .tool-item {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            padding: 12px;
+            border: 1px solid $grey-500;
+            border-radius: 12px;
+            background: $grey-700;
+
+            @include md {
+                gap: 24px;
+                padding: 16px;
+            }
+        
+            .tool-icon {
+                width: 56px;
+                height: 56px;
+                border-radius: 8px;
+            }
+            
+            .tool-info {
+                flex: 1;
+            
+                .tool-name {
+                    margin-bottom: 8px;
+                    color: #fff;
+                    font-weight: 500;
+                    font-size: 20px;
+                    font-family: $font-family-en;
+                    line-height: 1;
+                    
+                    @include md {
+                        font-size: 24px;
+                    }
+                }
+                
+                .tool-category {
+                    color: $grey-300;
+                    font-weight: 400;
+                    font-size: 14px;
+                    font-family: $font-family-zh;
+                    line-height: 1;
+
+                    @include md {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+}

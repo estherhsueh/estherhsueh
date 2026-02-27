@@ -1,0 +1,135 @@
+@use '~/assets/styles/variables' as *;
+
+.about-experience {
+    padding: 32px 0 60px;
+
+    @include md {
+        padding: 60px 0;
+    }
+
+    @include lg {
+        padding: 80px 0;
+    }
+
+    .experience-container {
+        padding: 48px 24px;
+        border: 1px solid $grey-600;
+        border-radius: 20px;
+        background: $grey-800;
+
+        @include md {
+            padding: 48px 40px;
+            border-radius: 32px;
+        }
+
+        @include lg {
+            padding: 80px;
+        }
+
+        .section-title {
+            margin-bottom: 48px;
+            color: #fff;
+            letter-spacing: -0.02em;
+            font-weight: 500;
+            font-size: 32px;
+            font-family: $font-family-en;
+            line-height: 1.2;
+    
+            .title-02 {
+                color: $grey-200;
+            }
+    
+            @include md {
+                margin-bottom: 60px;
+                font-size: 40px;
+            }
+    
+            @include lg {
+                margin-bottom: 80px;
+                font-size: 64px;
+            }
+        }
+        
+        .experience-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            @include md {
+                flex-flow: row wrap;
+            }
+
+            @include lg {
+                flex-flow: column unset;
+            }
+        
+            .experience-item {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                padding: 32px 24px;
+                border: 1px solid $grey-500;
+                border-radius: 12px;
+                background: $grey-700;
+            
+                @include md {
+                    width: calc(50% - 8px);
+                }
+                
+                @include lg {
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 100%;
+                    padding: 32px 48px;
+                }
+        
+                .experience-info {
+                    .company-name {
+                        margin-bottom: 12px;
+                        color: $grey-50;
+                        font-weight: 500;
+                        font-size: 20px;
+                        font-family: $font-family-zh;
+                        line-height: 1.4;
+
+                        @include md {
+                            margin-bottom: 16px;
+                        }
+
+                        @include lg {
+                            font-size: 24px;
+                        }
+                    }
+                    
+                    .job-title {
+                        color: $grey-200;
+                        font-weight: 400;
+                        font-size: 18px;
+                        font-family: $font-family-en;
+                    }
+                }
+        
+                .experience-period {
+                    display: flex;
+                    gap: 16px;
+                    align-items: center;
+                    color: $grey-200;
+                    font-weight: 500;
+                    font-size: 16px;
+                    font-family: $font-family-en;
+
+                    @include md {
+                        font-size: 18px;
+                    }
+                
+                    .period-divider {
+                        width: 24px;
+                        height: 1px;
+                        background: $grey-200;
+                    }
+                }
+            }
+        }
+    }
+}

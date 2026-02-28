@@ -14,25 +14,18 @@
             >
                 <div class="project-image">
                     <img
-                        v-if="project.image"
                         :src="project.image"
-                        :alt="project.title"
+                        :alt="$t(`${project.id}.title`)"
                     >
-                    <div
-                        v-else
-                        class="project-image-placeholder"
-                    >
-                        {{ project.title.charAt(0) }}
-                    </div>
                 </div>
 
                 <div class="project-content">
                     <div class="project-info">
                         <h3 class="project-title">
-                            {{ project.title }}
+                            {{ $t(`${project.id}.title`) }}
                         </h3>
                         <p class="project-description">
-                            {{ project.description }}
+                            {{ $t(`${project.id}.description`) }}
                         </p>
                     </div>
                     <div class="project-tags">

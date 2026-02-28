@@ -19,7 +19,10 @@ definePageMeta({
 
 useHead({
     title: t('about.title'),
-    meta: [{ name: 'description', content: t('about.about.description') }]
+    meta: [{
+        name: 'description',
+        content: `${t('about.about.description_01')} ${t('about.about.description_02')} ${t('about.about.description_03')} ${t('about.about.description_04')} ${t('about.about.description_05')}`
+    }]
 });
 </script>
 

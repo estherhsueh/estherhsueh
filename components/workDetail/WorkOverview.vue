@@ -1,12 +1,12 @@
 <template>
     <div class="work-overview">
         <h1 class="project-title">
-            {{ title }}
+            {{ $t(`${id}.title`) }}
         </h1>
 
         <div class="overview-card">
             <div class="overview-description">
-                <p>{{ description }}</p>
+                <p>{{ $t(`${id}.description`) }}</p>
             </div>
             <div class="overview-divider" />
             <div class="overview-details">
@@ -15,7 +15,7 @@
                         {{ $t('workDetail.overview.company') }}
                     </h3>
                     <p class="detail-value">
-                        {{ company }}
+                        {{ $t(`${id}.company`) }}
                     </p>
                 </div>
                 <div class="detail-item">
@@ -23,7 +23,7 @@
                         {{ $t('workDetail.overview.responsibilities') }}
                     </h3>
                     <p class="detail-value">
-                        {{ responsibilities }}
+                        {{ $t(`${id}.responsibilities`) }}
                     </p>
                 </div>
                 <div class="detail-item">
@@ -42,10 +42,7 @@
 <script setup lang="ts">
 // Work 詳細頁面的 Overview 區塊
 defineProps<{
-    title: string
-    description: string
-    company: string
-    responsibilities: string
+    id: string
     duration: string
 }>();
 </script>

@@ -28,18 +28,12 @@
             >
                 <div class="gallery-image">
                     <img
-                        v-if="item.image"
                         :src="item.image"
-                        :alt="item.title"
+                        :alt="$t(`${item.id}.title`)"
                     >
-                    <div
-                        v-else
-                        class="gallery-image-placeholder"
-                        :style="{ background: item.color }"
-                    />
                 </div>
                 <div class="gallery-info">
-                    <h3 class="gallery-title">{{ item.title }}</h3>
+                    <h3 class="gallery-title">{{ $t(`${item.id}.title`) }}</h3>
 
                     <div
                         v-if="item.tags"

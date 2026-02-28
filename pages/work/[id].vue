@@ -7,10 +7,7 @@
         <div class="work-detail-container">
             <!-- Overview Section -->
             <WorkOverview
-                :title="projectData.title"
-                :description="projectData.description"
-                :company="projectData.company"
-                :responsibilities="projectData.responsibilities"
+                :id="projectData.id"
                 :duration="projectData.duration"
             />
 
@@ -38,6 +35,7 @@ definePageMeta({
 });
 
 interface ProjectData {
+    id: string
     title: string
     description: string
     company: string
@@ -59,26 +57,10 @@ const currentProject = computed(() => getProjectById(projectId.value));
 
 // 專案詳細資料（從 i18n 或預設值獲取）
 const projectData = computed<ProjectData>(() => {
-    if (projectId.value === 'changhong-website') {
-        return {
-            title: t('workDetail.changhongWebsite.title'),
-            description: t('workDetail.changhongWebsite.description'),
-            company: t('workDetail.changhongWebsite.company'),
-            responsibilities: t('workDetail.changhongWebsite.responsibilities'),
-            duration: t('workDetail.changhongWebsite.duration'),
-            sections: [
-                t('workDetail.changhongWebsite.sections.challenge'),
-                t('workDetail.changhongWebsite.sections.process'),
-                t('workDetail.changhongWebsite.sections.homepage'),
-                t('workDetail.changhongWebsite.sections.investor'),
-                t('workDetail.changhongWebsite.sections.collection')
-            ]
-        };
-    }
-
     // 預設資料（如果專案存在但沒有詳細資訊）
     if (currentProject.value) {
         return {
+            id: currentProject.value.id,
             title: currentProject.value.title,
             description: currentProject.value.description || 'Project description goes here.',
             company: 'Company Name',
@@ -89,6 +71,7 @@ const projectData = computed<ProjectData>(() => {
     }
 
     return {
+        id: 'default',
         title: 'Project Title',
         description: 'Project description goes here.',
         company: 'Company Name',
@@ -109,7 +92,7 @@ const otherProjects = computed<Project[]>(() => {
 });
 
 useHead({
-    title: `${projectData.value.title} - ${t('work.title_01')} ${t('work.title_02')}`
+    title: `${$t(`${projectData.value.id}.title`)} - ${t('work.title_01')} ${t('work.title_02')}`
 });
 </script>
 

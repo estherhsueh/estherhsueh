@@ -1,0 +1,26 @@
+{
+  "taishin-loan-landing": {
+    "title": "銀行信貸活動Landing page",
+    "description": "",
+    "company": "台新銀行",
+    "responsibilities": ""
+  },
+  "securities-stock-landing": {
+    "title": "證券美股交易活動",
+    "description": "",
+    "company": "兆豐證券",
+    "responsibilities": ""
+  },
+  "chang-hong-website": {
+    "title": "建設公司官網設計",
+    "description": "長虹建設原有官方網站因介面老舊、內容更新流程繁瑣，難以有效傳達企業價值與即時資訊。為重塑品牌形象並提升使用者體驗，客戶委託進行官網全面改版，本人負責本次專案的整體 UI 設計工作。",
+    "company": "長虹建設股份有限公司",
+    "responsibilities": ""
+  },
+  "kkday-transport": {
+    "title": "KKday點對點交通",
+    "description": "因應後疫情自助旅潮，為KKday擴展多元交通產品線，打造一站式租車預訂體驗。採用Desktop First策略優化複雜決策流程，並建立可擴充的響應式設計規範。從桌機端延伸至多裝置，以清晰的資訊架構提升用戶預訂效率與轉化率。",
+    "company": "KKday",
+    "responsibilities": "競品分析、Web UI、撰寫設計規格書"
+  }
+}

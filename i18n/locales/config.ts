@@ -9,14 +9,6 @@ const fileListPages = [
     'footer.json'
 ];
 
-// const fileListProjects = [
-
-// ];
-
 export const getFileListPages = (locale: string) => {
     return fileListPages.map((file) => `${locale}/pages/${file}`);
 };
-
-// export const getFileListProjects = (locale: string) => {
-//     return fileListProjects.map((file) => `${locale}/${file}`);
-// };

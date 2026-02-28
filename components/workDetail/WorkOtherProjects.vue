@@ -17,7 +17,7 @@
                 <div class="project-info">
                     <div class="project-content">
                         <h3 class="project-title">
-                            {{ project.title }}
+                            {{ $t(`${project.id}.title`) }}
                         </h3>
                         <div class="project-tags">
                             <span
@@ -95,8 +95,8 @@ defineProps<{
     border: 1px solid #292a36;
     border-radius: $border-radius-lg;
     background: transparent;
-    text-decoration: none;
     transition: all $transition-base;
+    text-decoration: none;
 
     &:hover {
         border-color: #373946;

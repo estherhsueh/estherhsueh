@@ -23,10 +23,14 @@
                 :to="localePath(`/work/${project.id}`)"
                 class="project-card"
             >
-                <div class="project-image" />
+                <img
+                    class="project-image"
+                    :src="project.image"
+                    :alt="$t(`${project.id}.title`)"
+                >
 
                 <div class="project-info">
-                    <h2 class="project-title">{{ project.title }}</h2>
+                    <h2 class="project-title">{{ $t(`${project.id}.title`) }}</h2>
 
                     <div class="project-tags">
                         <span

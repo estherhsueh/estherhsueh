@@ -84,11 +84,18 @@
         }
         
         .profile-description {
-            color: $grey-200;
-            font-weight: $font-weight-normal;
-            font-size: 16px;
-            font-family: $font-family-zh;
-            line-height: 1.6;
+            .text {
+                color: $grey-200;
+                white-space: pre-line;
+                font-weight: $font-weight-normal;
+                font-size: 16px;
+                font-family: $font-family-zh;
+                line-height: 1.6;
+
+                &.text-white {
+                    color: #fff;
+                }
+            }
         }
     }
 

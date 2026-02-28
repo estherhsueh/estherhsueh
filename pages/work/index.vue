@@ -51,13 +51,14 @@
 </template>
 
 <script setup lang="ts">
-const { t } = useI18n();
-const localePath = useLocalePath();
-const { allProjects, getProjectsByFilter } = useProjects();
-
 definePageMeta({
     title: 'Work'
 });
+
+const { t } = useI18n();
+const localePath = useLocalePath();
+
+const { getProjectsByFilter } = useProjects();
 
 useHead({
     title: `${t('work.title_01')} ${t('work.title_02')}`

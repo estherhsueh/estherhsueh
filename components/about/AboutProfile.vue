@@ -10,9 +10,15 @@
             <h1 class="about-name">
                 {{ $t('about.about.name') }}
             </h1>
+
             <p class="about-description">
-                {{ $t('about.about.description') }}
+                <span class="text">{{ $t('about.about.description_01') }}</span>
+                <span class="text text-white">{{ $t('about.about.description_02') }}</span>
+                <span class="text">{{ $t('about.about.description_03') }}</span>
+                <span class="text text-white">{{ $t('about.about.description_04') }}</span>
+                <span class="text">{{ $t('about.about.description_05') }}</span>
             </p>
+
             <div class="about-button-container">
                 <button
                     class="copy-email-button"

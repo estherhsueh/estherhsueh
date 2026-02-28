@@ -6,8 +6,6 @@ export interface ProjectData {
     category: string
     tags: string[]
     image?: string
-    color?: string
-    isFeatured?: boolean
 }
 
 // 所有專案的完整資料
@@ -17,60 +15,52 @@ const allProjects: ProjectData[] = [
         title: 'KKday 點對點交通',
         description: '專案介紹文字，專案介紹文字，專案介紹文字，專案介紹文字，專案介紹文字，專案介紹文字，專案介紹文字，專案介紹文字，專案介紹文字，專案介紹文字，專案介紹文字，專案介紹文字，專案介紹文字。',
         category: 'APP',
-        tags: ['APP', 'UX Research'],
-        isFeatured: true
+        tags: ['APP', 'UX Research']
     },
     {
         id: 'ecommerce-pos',
         title: '電商POS系統',
         description: '這是一套專為實體零售門市打造的POS系統，透過直覺化的操作體驗，全面自動化管理收銀、庫存、進銷存等核心營運流程。系統與品牌官網無縫串接—所有在官網設定好的商品資料、售價策略與促銷活動，只要一鍵登入，就能即時同步到POS端，實現線上線下通路的高效整合。',
         category: 'APP',
-        tags: ['POS', 'O2O'],
-        isFeatured: true
+        tags: ['POS', 'O2O']
     },
     {
         id: 'kkday-marketplace',
         title: 'KKday Marketplace',
         description: '這是一套專為實體零售門市打造的POS系統，透過直覺化的操作體驗，全面自動化管理收銀、庫存、進銷存等核心營運流程。系統與品牌官網無縫串接—所有在官網設定好的商品資料、售價策略與促銷活動，只要一鍵登入，就能即時同步到POS端，實現線上線下通路的高效整合。',
         category: 'APP',
-        tags: ['APP', 'Web'],
-        isFeatured: true
+        tags: ['APP', 'Web']
     },
     {
         id: 'live-casino',
         title: 'Live dealer gaming app',
         description: 'This is a scalable UI system for live casino games and and it supports a unified mobile interface for 10+ real-time table games.',
         category: 'APP',
-        tags: ['APP', 'game ui'],
-        isFeatured: true
+        tags: ['APP', 'game ui']
     },
     {
         id: 'changhong-website',
         title: '建設公司官網設計',
         category: 'Web',
-        tags: ['Web', 'RWD'],
-        color: 'linear-gradient(135deg, #7042d2 0%, #8952fd 100%)'
+        tags: ['Web', 'RWD']
     },
     {
         id: 'securities-landing',
         title: '證券理財Landing page',
         category: 'LandingPage',
-        tags: ['LandingPage', 'RWD'],
-        color: 'linear-gradient(135deg, #5731a7 0%, #7042d2 100%)'
+        tags: ['LandingPage', 'RWD']
     },
     {
         id: 'fashion-finance-website',
         title: '數位金融與時尚品牌聯名網站',
         category: 'LandingPage',
-        tags: ['LandingPage', 'RWD'],
-        color: 'linear-gradient(135deg, #a175fd 0%, #b897fe 100%)'
+        tags: ['LandingPage', 'RWD']
     },
     {
         id: 'loan-landing',
         title: '信貸限時活動Landing page',
         category: 'LandingPage',
-        tags: ['LandingPage', 'RWD'],
-        color: 'linear-gradient(135deg, #8952fd 0%, #a175fd 100%)'
+        tags: ['LandingPage', 'RWD']
     },
     {
         id: 'stock-landing',
@@ -116,14 +106,26 @@ export const useProjects = () => {
 
     // 獲取精選專案（用於 Home 頁面）
     const getFeaturedProjects = (): ProjectData[] => {
-        return allProjects.filter((project) => project.isFeatured);
+        const projectList = [
+            'changhong-website',
+            'securities-landing',
+            'fashion-finance-website',
+            'loan-landing'
+        ];
+
+        return allProjects.filter((project) => projectList.includes(project.id));
     };
 
     // 獲取 Design Gallery 專案（用於 Home 頁面）
     const getGalleryProjects = (): ProjectData[] => {
-        return allProjects.filter((project) =>
-            ['changhong-website', 'securities-landing', 'fashion-finance-website', 'loan-landing'].includes(project.id)
-        );
+        const projectList = [
+            'changhong-website',
+            'securities-landing',
+            'fashion-finance-website',
+            'loan-landing'
+        ];
+
+        return allProjects.filter((project) => projectList.includes(project.id));
     };
 
     // 根據 ID 獲取專案
@@ -148,6 +150,7 @@ export const useProjects = () => {
         return allProjects.filter((project) => {
             const matchCategory = project.category.toLowerCase().includes(filterValue);
             const matchTags = project.tags.some((tag) => tag.toLowerCase().includes(filterValue));
+
             return matchCategory || matchTags;
         });
     };

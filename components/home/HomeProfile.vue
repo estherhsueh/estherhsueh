@@ -14,7 +14,9 @@
             </h1>
 
             <p class="profile-description">
-                {{ $t('home.profile.description') }}
+                <span class="text">{{ $t('home.description_01') }}</span>
+                <span class="text text-white">{{ $t('home.description_02') }}</span>
+                <span class="text">{{ $t('home.description_03') }}</span>
             </p>
         </div>
 

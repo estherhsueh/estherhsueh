@@ -1,4 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
+import { getFileListPages } from './i18n/locales/config';
+
 export default defineNuxtConfig({
     modules: [
         '@nuxt/icon',
@@ -22,40 +25,9 @@ export default defineNuxtConfig({
         }
     },
     i18n: {
-        locales: [
-            {
-                code: 'zh-TW',
-                iso: 'zh-TW',
-                name: '繁體中文',
-                files: [
-                    'zh-TW/nav.json',
-                    'zh-TW/home.json',
-                    'zh-TW/work.json',
-                    'zh-TW/workDetail.json',
-                    'zh-TW/about.json',
-                    'zh-TW/auth.json',
-                    'zh-TW/common.json',
-                    'zh-TW/footer.json'
-                ]
-            },
-            {
-                code: 'en-US',
-                iso: 'en-US',
-                name: 'English',
-                files: [
-                    'en-US/nav.json',
-                    'en-US/home.json',
-                    'en-US/work.json',
-                    'en-US/workDetail.json',
-                    'en-US/about.json',
-                    'en-US/auth.json',
-                    'en-US/common.json',
-                    'en-US/footer.json'
-                ]
-            }
-        ],
         langDir: 'locales/',
         defaultLocale: 'zh-TW',
+        vueI18n: './i18n/i18n.config.ts',
         strategy: 'prefix_except_default',
         detectBrowserLanguage: {
             useCookie: true,
@@ -63,7 +35,24 @@ export default defineNuxtConfig({
             redirectOn: 'root',
             fallbackLocale: 'zh-TW'
         },
-        vueI18n: './i18n/i18n.config.ts'
+        locales: [
+            {
+                code: 'zh-TW',
+                iso: 'zh-TW',
+                name: '繁體中文',
+                files: [
+                    ...getFileListPages('zh-TW')
+                ]
+            },
+            {
+                code: 'en-US',
+                iso: 'en-US',
+                name: 'English',
+                files: [
+                    ...getFileListPages('en-US')
+                ]
+            }
+        ]
     },
     icon: {
         mode: 'svg',

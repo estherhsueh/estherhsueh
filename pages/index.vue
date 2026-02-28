@@ -1,7 +1,9 @@
 <template>
     <div class="home-page">
         <HomeProfile />
+
         <HomeFeaturedProjects />
+
         <HomeDesignGallery />
     </div>
 </template>

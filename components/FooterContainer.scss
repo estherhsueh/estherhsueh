@@ -7,7 +7,6 @@
     justify-content: center;
     max-width: 350px;
     margin: 0 auto;
-    margin-bottom: 20px;
     padding: 16px 24px;
     border-top: 1px solid $grey-700;
     border-radius: 16px;
@@ -24,7 +23,6 @@
 
     @include lg {
         max-width: 1160px;
-        margin-bottom: 40px;
     }
 
     .footer-copyright {

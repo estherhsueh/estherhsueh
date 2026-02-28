@@ -1,5 +1,16 @@
 <template>
     <div class="app">
+        <div class="bg-container">
+            <div
+                v-for="num in 3"
+                :key="num"
+                :class="`bg-${num.toString().padStart(2, '0')}`"
+                :style="{
+                    'background-image': `url(/images/pages/_shared/bg_${num.toString().padStart(2, '0')}.jpg)`,
+                }"
+            />
+        </div>
+
         <NuxtRouteAnnouncer />
 
         <HeaderContainer />
@@ -14,11 +25,50 @@
 @use '~/assets/styles/variables' as *;
 
 .app {
+    position: relative;
     min-height: 100vh;
-    background-color: $grey-900;
-}
+    padding-bottom: 20px;
 
-.app-main {
-    // TODO: Add main container styles here
+    @include lg {
+        padding-bottom: 40px;
+    }
+
+    .bg-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        background-color: $grey-900;
+
+        .bg-01 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding-bottom: calc(100% / 7680 * 3068);
+            background-size: 100% auto;
+        }
+
+        .bg-02 {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            padding-bottom: calc(100% / 7680 * 4532);
+            background-size: 100% auto;
+            transform: translateY(-50%);
+        }
+
+        .bg-03 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding-bottom: calc(100% / 7680 * 4360);
+            background-size: 100% auto;
+        }
+    }
 }
 </style>

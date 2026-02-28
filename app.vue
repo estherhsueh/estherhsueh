@@ -47,7 +47,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            padding-bottom: calc(100% / 7680 * 3068);
+            padding-bottom: calc(100% / 1920 * 767);
             background-size: 100% auto;
         }
 
@@ -56,7 +56,7 @@
             top: 50%;
             left: 0;
             width: 100%;
-            padding-bottom: calc(100% / 7680 * 4532);
+            padding-bottom: calc(100% / 1920 * 1133);
             background-size: 100% auto;
             transform: translateY(-50%);
         }
@@ -66,7 +66,7 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            padding-bottom: calc(100% / 7680 * 4360);
+            padding-bottom: calc(100% / 1920 * 1090);
             background-size: 100% auto;
         }
     }

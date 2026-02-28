@@ -4,17 +4,11 @@
 
         <HeaderContainer />
 
-        <main class="app-main">
-            <NuxtPage />
+        <NuxtPage />
 
-            <FooterContainer />
-        </main>
+        <FooterContainer />
     </div>
 </template>
-
-<script setup lang="ts">
-// Components are auto-imported
-</script>
 
 <style lang="scss" scoped>
 @use '~/assets/styles/variables' as *;
@@ -25,15 +19,6 @@
 }
 
 .app-main {
-    max-width: 1160px;
-    margin: 0 auto;
-
-    @media (width < 1440px) {
-        max-width: 730px;
-    }
-
-    @media (width < 810px) {
-        max-width: 350px;
-    }
+    // TODO: Add main container styles here
 }
 </style>

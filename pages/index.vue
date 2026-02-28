@@ -23,8 +23,18 @@ useHead({
 </script>
 
 <style lang="scss" scoped>
+@use '~/assets/styles/variables' as *;
+
 .home-page {
-    width: 100%;
-    background: #010109;
+    max-width: 350px;
+    margin: 0 auto;
+
+    @include md {
+        max-width: 730px;
+    }
+
+    @include lg {
+        max-width: 1160px;
+    }
 }
 </style>

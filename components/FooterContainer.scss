@@ -5,6 +5,8 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    max-width: 350px;
+    margin: 0 auto;
     margin-bottom: 20px;
     padding: 16px 24px;
     border-top: 1px solid $grey-700;
@@ -16,10 +18,12 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+        max-width: 610px;
         padding: 24px 40px;
     }
 
     @include lg {
+        max-width: 1160px;
         margin-bottom: 40px;
     }
 

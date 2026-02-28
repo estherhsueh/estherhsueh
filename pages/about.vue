@@ -27,7 +27,15 @@ useHead({
 @use '~/assets/styles/variables' as *;
 
 .about-page {
-    width: 100%;
-    background: $grey-900;
+    max-width: 350px;
+    margin: 0 auto;
+
+    @include md {
+        max-width: 730px;
+    }
+
+    @include lg {
+        max-width: 1160px;
+    }
 }
 </style>

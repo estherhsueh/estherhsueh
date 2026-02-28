@@ -1,50 +1,48 @@
 <template>
     <div class="work-page">
-        <div class="work-container">
-            <h1 class="page-title">
-                {{ $t('work.title') }}
-            </h1>
+        <h1 class="page-title">
+            {{ $t('work.title') }}
+        </h1>
 
-            <div class="filter-buttons">
-                <button
-                    v-for="filter in filters"
-                    :key="filter.value"
-                    :class="['filter-btn', { active: activeFilter === filter.value }]"
-                    @click="activeFilter = filter.value"
-                >
-                    {{ $t(filter.label) }}
-                </button>
-            </div>
+        <div class="filter-buttons">
+            <button
+                v-for="filter in filters"
+                :key="filter.value"
+                :class="['filter-btn', { active: activeFilter === filter.value }]"
+                @click="activeFilter = filter.value"
+            >
+                {{ $t(filter.label) }}
+            </button>
+        </div>
 
-            <div class="projects-grid">
-                <NuxtLink
-                    v-for="project in filteredProjects"
-                    :key="project.id"
-                    :to="localePath(`/work/${project.id}`)"
-                    class="project-card"
-                >
-                    <div class="project-image">
-                        <div class="image-placeholder" />
-                    </div>
-                    <div class="project-info">
-                        <div class="project-content">
-                            <h2 class="project-title">{{ project.title }}</h2>
-                            <div class="project-tags">
-                                <span
-                                    v-for="(tag, index) in project.tags"
-                                    :key="index"
-                                    class="project-tag"
-                                >
-                                    {{ tag }}
-                                </span>
-                            </div>
-                        </div>
-                        <div class="project-button">
-                            <span class="button-icon">→</span>
+        <div class="projects-grid">
+            <NuxtLink
+                v-for="project in filteredProjects"
+                :key="project.id"
+                :to="localePath(`/work/${project.id}`)"
+                class="project-card"
+            >
+                <div class="project-image">
+                    <div class="image-placeholder" />
+                </div>
+                <div class="project-info">
+                    <div class="project-content">
+                        <h2 class="project-title">{{ project.title }}</h2>
+                        <div class="project-tags">
+                            <span
+                                v-for="(tag, index) in project.tags"
+                                :key="index"
+                                class="project-tag"
+                            >
+                                {{ tag }}
+                            </span>
                         </div>
                     </div>
-                </NuxtLink>
-            </div>
+                    <div class="project-button">
+                        <span class="button-icon">→</span>
+                    </div>
+                </div>
+            </NuxtLink>
         </div>
     </div>
 </template>
@@ -81,77 +79,70 @@ const filteredProjects = computed(() => {
 @use '~/assets/styles/variables' as *;
 
 .work-page {
-    min-height: 100vh;
-    padding: $spacing-xxl 0;
-    background-color: $grey-900;
-}
-
-.work-container {
-    max-width: $container-full;
+    max-width: 350px;
     margin: 0 auto;
-    padding: 0 $spacing-md;
 
     @include md {
-        padding: 0 $spacing-xl;
+        max-width: 730px;
     }
 
     @include lg {
-        padding: 0 140px;
-    }
-}
-
-.page-title {
-    margin-bottom: $spacing-lg;
-    color: $grey-50;
-    letter-spacing: -1.28px;
-    font-weight: $font-weight-medium;
-    font-size: $font-size-xxl;
-    font-family: $font-family-en;
-    line-height: $line-height-76-8;
-
-    @include md {
-        font-size: $font-size-56;
+        max-width: 1160px;
     }
 
-    @include lg {
-        font-size: $font-size-display;
-    }
-}
+    .page-title {
+        margin-bottom: $spacing-lg;
+        color: $grey-50;
+        letter-spacing: -1.28px;
+        font-weight: $font-weight-medium;
+        font-size: $font-size-xxl;
+        font-family: $font-family-en;
+        line-height: $line-height-76-8;
 
-.filter-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: $spacing-xs;
-    margin-bottom: $spacing-xl;
+        @include md {
+            font-size: $font-size-56;
+        }
 
-    @include md {
-        gap: $spacing-sm;
-    }
-}
-
-.filter-btn {
-    padding: 18px $spacing-lg;
-    border: 1px solid #373946;
-    border-radius: 40px;
-    background: #16171f;
-    color: $grey-200;
-    cursor: pointer;
-    transition: all $transition-base;
-    letter-spacing: 0;
-    font-weight: $font-weight-medium;
-    font-size: $font-size-lg;
-    font-family: $font-family-en;
-    line-height: $line-height-18;
-
-    &:hover {
-        border-color: $grey-200;
-        background: #20212b;
+        @include lg {
+            font-size: $font-size-display;
+        }
     }
 
-    &.active {
-        border-color: transparent;
-        background: $indigo-200;
-        color: #261052;
+    .filter-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $spacing-xs;
+        margin-bottom: $spacing-xl;
+
+        @include md {
+            gap: $spacing-sm;
+        }
+
+        .filter-btn {
+            padding: 18px $spacing-lg;
+            border: 1px solid #373946;
+            border-radius: 40px;
+            background: #16171f;
+            color: $grey-200;
+            cursor: pointer;
+            transition: all $transition-base;
+            letter-spacing: 0;
+            font-weight: $font-weight-medium;
+            font-size: $font-size-lg;
+            font-family: $font-family-en;
+            line-height: $line-height-18;
+
+            &:hover {
+                border-color: $grey-200;
+                background: #20212b;
+            }
+
+            &.active {
+                border-color: transparent;
+                background: $indigo-200;
+                color: #261052;
+            }
+        }
     }
 }
 

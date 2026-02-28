@@ -1,6 +1,8 @@
 {
-    "home": "首頁",
-    "work": "作品",
-    "about": "關於",
-    "auth": "登入"
+    "nav": {
+        "home": "Home",
+        "work": "Work",
+        "about": "About",
+        "auth": "Auth"
+    }
 }

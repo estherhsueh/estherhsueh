@@ -1,14 +1,16 @@
 {
-    "loading": "Loading...",
-    "error": "Error occurred",
-    "success": "Success",
-    "cancel": "Cancel",
-    "confirm": "Confirm",
-    "save": "Save",
-    "edit": "Edit",
-    "delete": "Delete",
-    "back": "Back",
-    "next": "Next",
-    "previous": "Previous",
-    "language": "Language"
+    "common": {
+        "loading": "Loading...",
+        "error": "Error occurred",
+        "success": "Success",
+        "cancel": "Cancel",
+        "confirm": "Confirm",
+        "save": "Save",
+        "edit": "Edit",
+        "delete": "Delete",
+        "back": "Back",
+        "next": "Next",
+        "previous": "Previous",
+        "language": "Language"
+    }
 }

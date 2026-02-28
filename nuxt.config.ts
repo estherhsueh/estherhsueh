@@ -27,13 +27,31 @@ export default defineNuxtConfig({
                 code: 'zh-TW',
                 iso: 'zh-TW',
                 name: '繁體中文',
-                file: 'zh-TW.json'
+                files: [
+                    'zh-TW/nav.json',
+                    'zh-TW/home.json',
+                    'zh-TW/work.json',
+                    'zh-TW/workDetail.json',
+                    'zh-TW/about.json',
+                    'zh-TW/auth.json',
+                    'zh-TW/common.json',
+                    'zh-TW/footer.json'
+                ]
             },
             {
                 code: 'en-US',
                 iso: 'en-US',
                 name: 'English',
-                file: 'en-US.json'
+                files: [
+                    'en-US/nav.json',
+                    'en-US/home.json',
+                    'en-US/work.json',
+                    'en-US/workDetail.json',
+                    'en-US/about.json',
+                    'en-US/auth.json',
+                    'en-US/common.json',
+                    'en-US/footer.json'
+                ]
             }
         ],
         langDir: 'locales/',

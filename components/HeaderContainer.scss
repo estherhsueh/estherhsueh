@@ -126,8 +126,7 @@
     position: fixed;
     top: 72px;
     bottom: 0;
-    overflow-y: auto;
-    background: rgb(22 23 31 / 98%);
+    background: $grey-900;
     backdrop-filter: blur(20px);
     inset-inline: 0;
 
@@ -141,6 +140,7 @@
     flex-direction: column;
     gap: $spacing-xl;
     padding: $spacing-xl $spacing-md;
+    background: $grey-900;
 }
 
 .nav-links-mobile {

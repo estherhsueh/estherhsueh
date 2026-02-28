@@ -24,12 +24,10 @@
 
                     <div class="experience-period">
                         <span>{{ exp.startDate }}</span>
-
                         <span
                             v-if="exp.endDate"
                             class="period-divider"
                         />
-
                         <span v-if="exp.endDate">{{ exp.endDate }}</span>
                     </div>
                 </div>

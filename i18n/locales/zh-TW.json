@@ -65,7 +65,8 @@
         }
     },
     "work": {
-        "title": "Design Gallery",
+        "title_01": "Design ",
+        "title_02": "Gallery",
         "filters": {
             "all": "All",
             "web": "Web",

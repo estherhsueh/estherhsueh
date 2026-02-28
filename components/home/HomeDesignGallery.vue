@@ -40,6 +40,7 @@
                 </div>
                 <div class="gallery-info">
                     <h3 class="gallery-title">{{ item.title }}</h3>
+
                     <div
                         v-if="item.tags"
                         class="gallery-tags"
@@ -52,6 +53,7 @@
                             {{ tag }}
                         </span>
                     </div>
+
                     <div class="gallery-action">
                         <Icon
                             class="project-arrow"

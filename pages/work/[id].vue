@@ -24,6 +24,11 @@
 </template>
 
 <script setup lang="ts">
+import WorkHero from '~/components/workDetail/WorkHero.vue';
+import WorkOverview from '~/components/workDetail/WorkOverview.vue';
+import WorkContent from '~/components/workDetail/WorkContent.vue';
+import WorkOtherProjects from '~/components/workDetail/WorkOtherProjects.vue';
+
 const route = useRoute();
 const { t } = useI18n();
 const { getProjectById, getRecommendedProjects } = useProjects();
@@ -104,7 +109,7 @@ const otherProjects = computed<Project[]>(() => {
 });
 
 useHead({
-    title: `${projectData.value.title} - ${t('work.title')}`
+    title: `${projectData.value.title} - ${t('work.title_01')} ${t('work.title_02')}`
 });
 </script>
 

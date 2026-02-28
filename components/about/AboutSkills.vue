@@ -4,6 +4,7 @@
             <span class="title-01">{{ $t('about.skills.title_01') }}</span>
             <span class="title-02 font-italic-playfair">{{ $t('about.skills.title_02') }}</span>
         </h2>
+
         <div class="skills-grid">
             <!-- UX 研究與定義 -->
             <div class="skill-card">
@@ -12,9 +13,11 @@
                     src="/images/pages/about/skills_ux.png"
                     alt="UX"
                 >
+
                 <h3 class="skill-title">
                     {{ $t('about.skills.ux.title') }}
                 </h3>
+
                 <ul class="skill-list">
                     <li
                         v-for="(item, index) in uxItems"
@@ -32,9 +35,11 @@
                     src="/images/pages/about/skills_ui.png"
                     alt="UI"
                 >
+
                 <h3 class="skill-title">
                     {{ $t('about.skills.ui.title') }}
                 </h3>
+
                 <ul class="skill-list">
                     <li
                         v-for="(item, index) in uiItems"
@@ -52,9 +57,11 @@
                     src="/images/pages/about/skills_brand.png"
                     alt="Brand"
                 >
+
                 <h3 class="skill-title">
                     {{ $t('about.skills.brand.title') }}
                 </h3>
+
                 <ul class="skill-list">
                     <li
                         v-for="(item, index) in brandItems"

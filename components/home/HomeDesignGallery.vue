@@ -21,26 +21,26 @@
 
         <div class="gallery-grid">
             <NuxtLink
-                v-for="(item, index) in galleryItems"
+                v-for="(project, index) in galleryProjects"
                 :key="index"
-                :to="localePath(`/work/${item.id}`)"
+                :to="localePath(`/work/${project.id}`)"
                 class="gallery-item"
             >
                 <div class="gallery-image">
                     <img
-                        :src="item.image"
-                        :alt="$t(`${item.id}.title`)"
+                        :src="`/images/projects/${project.id}/cover.jpg`"
+                        :alt="$t(`${project.id}.title`)"
                     >
                 </div>
                 <div class="gallery-info">
-                    <h3 class="gallery-title">{{ $t(`${item.id}.title`) }}</h3>
+                    <h3 class="gallery-title">{{ $t(`${project.id}.title`) }}</h3>
 
                     <div
-                        v-if="item.tags"
+                        v-if="project.tags"
                         class="gallery-tags"
                     >
                         <span
-                            v-for="tag in item.tags"
+                            v-for="tag in project.tags"
                             :key="tag"
                             class="gallery-tag"
                         >
@@ -65,7 +65,7 @@ const localePath = useLocalePath();
 const { getGalleryProjects } = useProjects();
 
 // 獲取設計畫廊專案
-const galleryItems = getGalleryProjects();
+const galleryProjects = getGalleryProjects();
 </script>
 
 <style lang="scss" scoped>

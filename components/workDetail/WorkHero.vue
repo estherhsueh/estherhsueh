@@ -1,13 +1,17 @@
 <template>
     <div class="work-hero">
-        <div class="hero-image">
-            <div class="image-placeholder" />
-        </div>
+        <img
+            class="hero-image"
+            :src="`/images/projects/${id}/cover.jpg`"
+            alt="Work Hero Image"
+        >
     </div>
 </template>
 
 <script setup lang="ts">
-// Work 詳細頁面的 Hero 區塊
+defineProps<{
+    id: string
+}>();
 </script>
 
 <style lang="scss" scoped>
@@ -30,11 +34,5 @@
     left: 0;
     width: 100%;
     height: 100%;
-}
-
-.image-placeholder {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #292a36 0%, #20212b 100%);
 }
 </style>

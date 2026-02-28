@@ -1,14 +1,17 @@
 <template>
-    <div class="work-detail-page">
+    <div
+        v-if="currentProject"
+        class="work-detail-page"
+    >
         <!-- Hero Image -->
-        <WorkHero />
+        <WorkHero :id="currentProject.id" />
 
         <!-- Content -->
         <div class="work-detail-container">
             <!-- Overview Section -->
             <WorkOverview
-                :id="projectData.id"
-                :duration="projectData.duration"
+                :id="currentProject.id"
+                :duration="currentProject.duration"
             />
 
             <!-- Content Images Section -->

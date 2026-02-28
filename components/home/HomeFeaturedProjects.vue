@@ -14,7 +14,7 @@
             >
                 <div class="project-image">
                     <img
-                        :src="project.image"
+                        :src="`/images/projects/${project.id}/cover.jpg`"
                         :alt="$t(`${project.id}.title`)"
                     >
                 </div>

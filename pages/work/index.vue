@@ -17,11 +17,12 @@
         </div>
 
         <div class="projects-grid">
-            <NuxtLink
+            <a
                 v-for="project in filteredProjects"
                 :key="project.id"
-                :to="localePath(`/work/${project.id}`)"
+                :href="localePath(`/work/${project.id}`)"
                 class="project-card"
+                @click="navigateToProject(project, $event)"
             >
                 <img
                     class="project-image"
@@ -49,7 +50,7 @@
                         />
                     </div>
                 </div>
-            </NuxtLink>
+            </a>
         </div>
     </div>
 </template>
@@ -57,6 +58,7 @@
 <script setup lang="ts">
 const { t } = useI18n();
 const localePath = useLocalePath();
+const { navigateToProject } = useProjectNavigation();
 
 const { getProjectsByFilter } = useProjects();
 

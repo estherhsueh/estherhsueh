@@ -28,6 +28,8 @@ import WorkContent from '~/components/workDetail/WorkContent.vue';
 import WorkOtherProjects from '~/components/workDetail/WorkOtherProjects.vue';
 
 const route = useRoute();
+const router = useRouter();
+const localePath = useLocalePath();
 
 const { t } = useI18n();
 
@@ -37,6 +39,14 @@ const projectId = route.params.id as string;
 
 // 獲取當前專案基本資料
 const currentProject = getProjectById(projectId);
+
+// 檢查是否為 locked 專案且未授權
+if (currentProject?.isLocked && process.client) {
+    const isAuthenticated = sessionStorage.getItem('isAuthenticated') === 'true';
+    if (!isAuthenticated) {
+        router.push(localePath(`/auth?redirect=${encodeURIComponent(`/work/${projectId}`)}`));
+    }
+}
 
 // 獲取推薦的其他專案
 const recommendedProjects = getRecommendedProjects(projectId, 3);

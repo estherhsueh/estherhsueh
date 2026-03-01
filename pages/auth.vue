@@ -40,26 +40,37 @@ const errorMessage = ref<string>('');
 const isLoading = ref<boolean>(false);
 
 const router = useRouter();
-
-// 正確的密碼（實際專案中應該在後端驗證）
-const CORRECT_PASSWORD = 'admin123';
+const route = useRoute();
 
 const handleSubmit = async (): Promise<void> => {
     errorMessage.value = '';
     isLoading.value = true;
 
-    // 模擬 API 請求延遲
-    await new Promise((resolve) => setTimeout(resolve, 500));
+    try {
+        const response = await $fetch<{ success: boolean, message: string }>('/api/auth/verify', {
+            method: 'POST',
+            body: {
+                password: password.value
+            }
+        });
 
-    if (password.value === CORRECT_PASSWORD) {
-        // 密碼正確，儲存認證狀態
-        localStorage.setItem('isAuthenticated', 'true');
+        if (response.success) {
+            sessionStorage.setItem('isAuthenticated', 'true');
 
-        // 導向首頁
-        await router.push('/');
+            const redirectTo = route.query.redirect as string;
+            if (redirectTo) {
+                await router.push(redirectTo);
+            }
+            else {
+                await router.push('/');
+            }
+        }
+        else {
+            errorMessage.value = t('auth.login.error');
+            password.value = '';
+        }
     }
-    else {
-        // 密碼錯誤
+    catch {
         errorMessage.value = t('auth.login.error');
         password.value = '';
     }

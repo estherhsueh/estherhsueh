@@ -21,7 +21,7 @@ export interface ProjectData {
     category: string
     tags: string[]
     detailImageCount: number
-    image?: string
+    isLocked: boolean
 }
 
 // 首頁 - Featured Projects 專案列表 ID
@@ -64,7 +64,8 @@ const allProjects: ProjectData[] = [
         duration: '2023',
         category: 'Landing Page',
         tags: ['APP', 'UX Research'],
-        detailImageCount: 1
+        detailImageCount: 1,
+        isLocked: true
     },
     // 證券美股交易活動
     {
@@ -88,7 +89,8 @@ const allProjects: ProjectData[] = [
         duration: '2023',
         category: 'Landing Page',
         tags: ['APP', 'UX Research'],
-        detailImageCount: 1
+        detailImageCount: 1,
+        isLocked: false
     },
     // 建設公司官網設計
     {
@@ -112,7 +114,8 @@ const allProjects: ProjectData[] = [
         duration: '2024',
         category: 'Landing Page',
         tags: ['APP', 'UX Research'],
-        detailImageCount: 7
+        detailImageCount: 7,
+        isLocked: false
     },
     // KKday點對點交通
     {
@@ -136,7 +139,8 @@ const allProjects: ProjectData[] = [
         duration: '2024',
         category: 'Landing Page',
         tags: ['APP', 'UX Research'],
-        detailImageCount: 1
+        detailImageCount: 1,
+        isLocked: false
     }
 ];
 

@@ -6,11 +6,12 @@
         </h2>
 
         <div class="projects-list">
-            <NuxtLink
+            <a
                 v-for="project in featuredProjects"
                 :key="project.id"
-                :to="localePath(`/work/${project.id}`)"
+                :href="localePath(`/work/${project.id}`)"
                 class="project-card"
+                @click="navigateToProject(project, $event)"
             >
                 <div class="project-image">
                     <img
@@ -44,7 +45,7 @@
                         />
                     </div>
                 </div>
-            </NuxtLink>
+            </a>
         </div>
     </section>
 </template>
@@ -52,6 +53,7 @@
 <script setup lang="ts">
 const localePath = useLocalePath();
 const { getFeaturedProjects } = useProjects();
+const { navigateToProject } = useProjectNavigation();
 
 // 獲取精選專案
 const featuredProjects = getFeaturedProjects();

@@ -8,11 +8,12 @@
         <div class="projects-scroll-container">
             <div class="projects-container">
                 <div class="projects-list">
-                    <NuxtLink
+                    <a
                         v-for="(project, index) in projects"
                         :key="index"
-                        :to="localePath(`/work/${project.id}`)"
+                        :href="localePath(`/work/${project.id}`)"
                         class="project-item"
+                        @click="navigateToProject(project, $event)"
                     >
                         <div class="project-image">
                             <img
@@ -43,7 +44,7 @@
                                 />
                             </div>
                         </div>
-                    </NuxtLink>
+                    </a>
                 </div>
             </div>
         </div>
@@ -54,6 +55,7 @@
 import type { ProjectData } from '~/data/projects';
 
 const localePath = useLocalePath();
+const { navigateToProject } = useProjectNavigation();
 
 defineProps<{
     projects: ProjectData[]

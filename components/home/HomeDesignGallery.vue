@@ -20,11 +20,12 @@
         </div>
 
         <div class="gallery-grid">
-            <NuxtLink
+            <a
                 v-for="(project, index) in galleryProjects"
                 :key="index"
-                :to="localePath(`/work/${project.id}`)"
+                :href="localePath(`/work/${project.id}`)"
                 class="gallery-item"
+                @click="navigateToProject(project, $event)"
             >
                 <div class="gallery-image">
                     <img
@@ -55,7 +56,7 @@
                         />
                     </div>
                 </div>
-            </NuxtLink>
+            </a>
         </div>
     </section>
 </template>
@@ -63,6 +64,7 @@
 <script setup lang="ts">
 const localePath = useLocalePath();
 const { getGalleryProjects } = useProjects();
+const { navigateToProject } = useProjectNavigation();
 
 // 獲取設計畫廊專案
 const galleryProjects = getGalleryProjects();

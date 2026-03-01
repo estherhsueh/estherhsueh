@@ -1,6 +1,7 @@
 @use '~/assets/styles/variables' as *;
 
 .work-page {
+    overflow-x: hidden;
     max-width: 350px;
     margin: 0 auto;
     padding: 40px 0 82px;

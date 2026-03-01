@@ -93,6 +93,7 @@ useHead({
 @use '~/assets/styles/variables' as *;
 
 .about-page {
+    overflow-x: hidden;
     max-width: 350px;
     margin: 0 auto;
 

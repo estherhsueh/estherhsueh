@@ -26,6 +26,7 @@
 
 .app {
     position: relative;
+    overflow-x: hidden;
     min-width: 390px;
     max-width: 100vw;
     min-height: 100vh;

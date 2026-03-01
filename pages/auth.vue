@@ -98,6 +98,7 @@ const handleInput = (): void => {
 @use '~/assets/styles/variables' as *;
 
 .auth-page {
+    overflow-x: hidden;
     width: 330px;
     height: 666px;
     margin: 0 auto;

@@ -62,6 +62,7 @@ useHead({
 @use '~/assets/styles/variables' as *;
 
 .home-page {
+    overflow-x: hidden;
     max-width: 350px;
     margin: 0 auto;
 

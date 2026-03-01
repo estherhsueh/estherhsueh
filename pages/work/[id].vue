@@ -41,7 +41,7 @@ const projectId = route.params.id as string;
 const currentProject = getProjectById(projectId);
 
 // 檢查是否為 locked 專案且未授權
-if (currentProject?.isLocked && process.client) {
+if (currentProject?.isLocked && import.meta.client) {
     const isAuthenticated = sessionStorage.getItem('isAuthenticated') === 'true';
     if (!isAuthenticated) {
         router.push(localePath(`/auth?redirect=${encodeURIComponent(`/work/${projectId}`)}`));
@@ -67,6 +67,7 @@ useHead({
 @use '~/assets/styles/variables' as *;
 
 .work-detail-page {
+    overflow-x: hidden;
     margin-top: -72px;
 
     .work-detail-container {

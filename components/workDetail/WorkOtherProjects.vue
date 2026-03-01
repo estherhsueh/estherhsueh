@@ -15,12 +15,23 @@
                         class="project-item"
                         @click="navigateToProject(project, $event)"
                     >
+                        <div
+                            v-if="project.isLocked && !isAuthenticated"
+                            class="lock-icon-container"
+                        >
+                            <Icon
+                                name="custom:lock"
+                                class="lock-icon"
+                            />
+                        </div>
+
                         <div class="project-image">
                             <img
                                 :src="`/images/projects/${project.id}/cover.jpg`"
                                 :alt="$t(`${project.id}.title`)"
                             >
                         </div>
+
                         <div class="project-info">
                             <h3 class="project-title">{{ $t(`${project.id}.title`) }}</h3>
 
@@ -56,6 +67,12 @@ import type { ProjectData } from '~/data/projects';
 
 const localePath = useLocalePath();
 const { navigateToProject } = useProjectNavigation();
+
+const isAuthenticated = ref(false);
+
+onMounted(() => {
+    isAuthenticated.value = sessionStorage.getItem('isAuthenticated') === 'true';
+});
 
 defineProps<{
     projects: ProjectData[]

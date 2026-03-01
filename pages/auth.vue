@@ -1,29 +1,38 @@
 <template>
     <div class="auth-page">
-        <h1>{{ $t('auth.pleaseEnterPassword') }}</h1>
+        <h1 class="auth-title">
+            {{ $t('auth.pleaseEnterPassword') }}
+        </h1>
 
         <form
             class="auth-form"
             @submit.prevent="handleSubmit"
         >
-            <div class="form-group">
-                <input
-                    id="password"
-                    v-model="password"
-                    type="password"
-                    :placeholder="$t('auth.pleaseEnterPassword')"
-                    :disabled="isLoading"
-                    @input="handleInput"
-                >
+            <input
+                id="password"
+                v-model="password"
+                class="auth-input"
+                type="password"
+                :placeholder="$t('auth.pleaseEnterPassword')"
+                :disabled="isLoading"
+                @input="handleInput"
+            >
 
-                <p class="hint">
-                    {{ $t('auth.errorMessage') }}
-                </p>
-            </div>
+            <p
+                v-if="errorMessage"
+                class="hint"
+            >
+                <Icon
+                    name="custom:password-error"
+                    class="icon"
+                />
+
+                {{ $t('auth.errorMessage') }}
+            </p>
 
             <button
                 type="submit"
-                :disabled="!password || isLoading"
+                :disabled="isLoading"
                 class="submit-button"
             >
                 {{ isLoading ? $t('common.loading') : $t('auth.submit') }}
@@ -85,114 +94,97 @@ const handleInput = (): void => {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@use '~/assets/styles/variables' as *;
+
 .auth-page {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 330px;
     height: 666px;
+    margin: 0 auto;
     padding: 20px;
 
     @include md {
+        width: 420px;
         height: 914px;
     }
 
     @include lg {
         height: 894px;
     }
-}
 
-.auth-container {
-    width: 100%;
-    max-width: 400px;
-    padding: 40px;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 2px 12px rgb(0 0 0 / 8%);
-}
+    .auth-title {
+        margin: 112px 0 40px;
+        color: #fff;
+        text-align: center;
 
-.auth-container h1 {
-    margin-bottom: 10px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 28px;
-}
+        @include md {
+            margin: 134px 0 40px;
+        }
+    }
 
-.auth-container .subtitle {
-    margin-bottom: 30px;
-    color: #666;
-    text-align: center;
-    font-size: 14px;
-}
+    .auth-form {
+        position: relative;
+        width: 100%;
 
-.auth-form {
-    width: 100%;
-}
+        .auth-input {
+            width: 100%;
+            height: 44px;
+            padding: 10px 16px;
+            border-radius: 30px;
+            font-size: 16px;
 
-.form-group {
-    margin-bottom: 20px;
-}
+            &:focus {
+                outline: none;
+            }
+        }
 
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    color: #333;
-    font-weight: 500;
-    font-size: 14px;
-}
+        .hint {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            color: #fc5cc4;
+            transform: translateY(-50%);
+            text-align: center;
+            font-weight: 400;
+            font-size: 14px;
 
-.form-group input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    transition: border-color 0.2s;
-    font-size: 16px;
-}
+            svg {
+                width: 16px;
+                height: 16px;
 
-.form-group input:focus {
-    border-color: #000;
-    outline: none;
-}
+                /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+                :deep(path) {
+                    fill: #fc5cc4;
+                }
+            }
+        }
 
-.form-group input:disabled {
-    background-color: #f5f5f5;
-    cursor: not-allowed;
-}
+        .submit-button {
+            width: 100%;
+            height: 44px;
+            margin-top: 20px;
+            padding: 10px 14px;
+            border: none;
+            border-radius: 30px;
+            background: $indigo-200;
+            color: $indigo-900;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            font-weight: 500;
+            font-size: 16px;
 
-.error-message {
-    margin-bottom: 15px;
-    color: #f44336;
-    text-align: center;
-    font-size: 14px;
-}
+            &:hover:not(:disabled) {
+                background-color: $indigo-300;
+            }
 
-.submit-button {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 4px;
-    background-color: #000;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    font-weight: 500;
-    font-size: 16px;
-}
-
-.submit-button:hover:not(:disabled) {
-    background-color: #333;
-}
-
-.submit-button:disabled {
-    background-color: #999;
-    cursor: not-allowed;
-}
-
-.hint {
-    margin-top: 20px;
-    color: #999;
-    text-align: center;
-    font-size: 12px;
+            &:disabled {
+                background-color: #999;
+                cursor: not-allowed;
+            }
+        }
+    }
 }
 </style>

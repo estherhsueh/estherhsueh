@@ -24,6 +24,16 @@
                 class="project-card"
                 @click="navigateToProject(project, $event)"
             >
+                <div
+                    v-if="project.isLocked && !isAuthenticated"
+                    class="lock-icon-container"
+                >
+                    <Icon
+                        name="custom:lock"
+                        class="lock-icon"
+                    />
+                </div>
+
                 <img
                     class="project-image"
                     :src="`/images/projects/${project.id}/cover.jpg`"
@@ -56,6 +66,13 @@
 </template>
 
 <script setup lang="ts">
+const filters = [
+    { value: 'all', label: 'work.filters.all' },
+    { value: 'web', label: 'work.filters.web' },
+    { value: 'app', label: 'work.filters.app' },
+    { value: 'others', label: 'work.filters.others' }
+];
+
 const { t } = useI18n();
 const localePath = useLocalePath();
 const { navigateToProject } = useProjectNavigation();
@@ -63,13 +80,11 @@ const { navigateToProject } = useProjectNavigation();
 const { getProjectsByFilter } = useProjects();
 
 const activeFilter = ref('all');
+const isAuthenticated = ref(false);
 
-const filters = [
-    { value: 'all', label: 'work.filters.all' },
-    { value: 'web', label: 'work.filters.web' },
-    { value: 'app', label: 'work.filters.app' },
-    { value: 'others', label: 'work.filters.others' }
-];
+onMounted(() => {
+    isAuthenticated.value = sessionStorage.getItem('isAuthenticated') === 'true';
+});
 
 // 使用共用的專案資料和篩選函數
 const filteredProjects = computed(() => {

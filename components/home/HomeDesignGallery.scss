@@ -115,9 +115,36 @@
             @include lg {
                 height: 562px;
             }
+
+            .lock-icon-container {
+                position: absolute;
+                top: 16px;
+                left: 16px;
+                z-index: 2;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 28px;
+                height: 28px;
+                padding: 4px;
+                border-radius: 6px;
+                background: rgb(255 255 255 / 50%);
+                backdrop-filter: blur(8px);
+
+                svg {
+                    width: 13.33px;
+                    height: 15.56px;
+
+                    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+                    :deep(path) {
+                        fill: $grey-300;
+                    }
+                }
+            }
     
             .gallery-image {
                 position: relative;
+                z-index: 1;
                 width: 100%;
                 height: 270px;
     
@@ -137,6 +164,7 @@
     
             .gallery-info {
                 position: relative;
+                z-index: 1;
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;

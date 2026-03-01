@@ -27,12 +27,23 @@
                 class="gallery-item"
                 @click="navigateToProject(project, $event)"
             >
+                <div
+                    v-if="project.isLocked && !isAuthenticated"
+                    class="lock-icon-container"
+                >
+                    <Icon
+                        name="custom:lock"
+                        class="lock-icon"
+                    />
+                </div>
+
                 <div class="gallery-image">
                     <img
                         :src="`/images/projects/${project.id}/cover.jpg`"
                         :alt="$t(`${project.id}.title`)"
                     >
                 </div>
+
                 <div class="gallery-info">
                     <h3 class="gallery-title">{{ $t(`${project.id}.title`) }}</h3>
 
@@ -65,6 +76,12 @@
 const localePath = useLocalePath();
 const { getGalleryProjects } = useProjects();
 const { navigateToProject } = useProjectNavigation();
+
+const isAuthenticated = ref(false);
+
+onMounted(() => {
+    isAuthenticated.value = sessionStorage.getItem('isAuthenticated') === 'true';
+});
 
 // 獲取設計畫廊專案
 const galleryProjects = getGalleryProjects();

@@ -13,6 +13,16 @@
                 class="project-card"
                 @click="navigateToProject(project, $event)"
             >
+                <div
+                    v-if="project.isLocked && !isAuthenticated"
+                    class="lock-icon-container"
+                >
+                    <Icon
+                        name="custom:lock"
+                        class="lock-icon"
+                    />
+                </div>
+
                 <div class="project-image">
                     <img
                         :src="`/images/projects/${project.id}/cover.jpg`"
@@ -54,6 +64,12 @@
 const localePath = useLocalePath();
 const { getFeaturedProjects } = useProjects();
 const { navigateToProject } = useProjectNavigation();
+
+const isAuthenticated = ref(false);
+
+onMounted(() => {
+    isAuthenticated.value = sessionStorage.getItem('isAuthenticated') === 'true';
+});
 
 // 獲取精選專案
 const featuredProjects = getFeaturedProjects();

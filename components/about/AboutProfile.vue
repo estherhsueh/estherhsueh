@@ -47,7 +47,7 @@
                 </button>
 
                 <a
-                    href="https://www.behance.net"
+                    href="https://www.behance.net/esther_design"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="behance-button"
@@ -83,8 +83,22 @@ onMounted(() => {
     });
 });
 
-const copyEmail = () => {
-    // TODO: 實作複製 email 功能
+const copyEmail = async () => {
+    const email = 'estherhsueh923@gmail.com';
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(email);
+    }
+    else {
+        const textArea = document.createElement('textarea');
+        textArea.value = email;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+    }
 };
 </script>
 

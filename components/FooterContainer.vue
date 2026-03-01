@@ -5,7 +5,7 @@
         </p>
 
         <div class="footer-social">
-            <a
+            <!-- <a
                 href="https://www.linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -16,9 +16,9 @@
                     name="custom:linkedin"
                     class="icon"
                 />
-            </a>
+            </a> -->
             <a
-                href="https://www.behance.net"
+                href="https://www.behance.net/esther_design"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="social-link"
@@ -30,7 +30,7 @@
                 />
             </a>
             <a
-                href="mailto:example@example.com"
+                href="mailto:estherhsueh923@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="social-link"

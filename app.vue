@@ -27,6 +27,7 @@
 .app {
     position: relative;
     min-width: 390px;
+    max-width: 100vw;
     min-height: 100vh;
     padding-bottom: 20px;
 

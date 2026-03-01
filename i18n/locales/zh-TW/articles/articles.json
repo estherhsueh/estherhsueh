@@ -3,24 +3,42 @@
     "title": "銀行信貸活動Landing page",
     "description": "",
     "company": "台新銀行",
-    "responsibilities": ""
+    "responsibilities": "活動主視覺、網頁設計(含動效)、行銷文宣設計"
   },
   "securities-stock-landing": {
     "title": "證券美股交易活動",
     "description": "",
     "company": "兆豐證券",
-    "responsibilities": ""
+    "responsibilities": "活動主視覺、網頁設計(含動效)、行銷文宣設計"
   },
   "chang-hong-website": {
     "title": "建設公司官網設計",
     "description": "長虹建設原有官方網站因介面老舊、內容更新流程繁瑣，難以有效傳達企業價值與即時資訊。為重塑品牌形象並提升使用者體驗，客戶委託進行官網全面改版，本人負責本次專案的整體 UI 設計工作。",
     "company": "長虹建設股份有限公司",
-    "responsibilities": ""
+    "responsibilities": "全站視覺風格、網頁設計"
   },
   "kkday-transport": {
     "title": "KKday點對點交通",
     "description": "因應後疫情自助旅潮，為KKday擴展多元交通產品線，打造一站式租車預訂體驗。採用Desktop First策略優化複雜決策流程，並建立可擴充的響應式設計規範。從桌機端延伸至多裝置，以清晰的資訊架構提升用戶預訂效率與轉化率。",
     "company": "KKday",
     "responsibilities": "競品分析、Web UI、撰寫設計規格書"
+  },
+  "fashion-finance-website": {
+    "title": "數位金融與時尚品牌聯名網站",
+    "description": "為永豐銀行DAWHO×時尚品牌BLVCK聯名打造活動主視覺。以層次黑調與金屬光澤，融合時尚美學與數位金融，打造貼近年輕世代的理財體驗。透過有辨識度的視覺語言，迅速吸引注意，重塑兼具潮流感與功能性的金融服務。",
+    "company": "永豐DAWHO",
+    "responsibilities": "活動主視覺、網頁設計(含動效)、行銷文宣設計"
+  },
+  "securities-e-stock-landing": {
+    "title": "證券理財Landing page",
+    "description": "主導兆豐證券「e存股」平台整體 VI 與 Landing Page 設計，並延伸發展多檔行銷 Banner，以清晰排版和專業生動的插畫設計，讓複雜金融服務變得直覺易讀。",
+    "company": "兆豐證券",
+    "responsibilities": "活動主視覺、網頁設計(含動效)、行銷文宣設計"
+  },
+  "taishin-loan-landing-2": {
+    "title": "信貸限時活動Landing page",
+    "description": "延續台新品牌風格，注入柔和現代色調。聚焦行動優先的申辦流程與商品導覽。並透過一致的視覺系統，整合多元信貸商品資訊。",
+    "company": "台新銀行",
+    "responsibilities": "活動主視覺、網頁設計(含動效)、行銷文宣設計"
   }
 }

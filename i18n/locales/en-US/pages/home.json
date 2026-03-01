@@ -1,7 +1,6 @@
 {
     "home": {
-        "title": "Welcome to My Website",
-        "subtitle": "A personal website built with Nuxt 3",
+        "title": "Esther's Portfolio",
         "description_01": "我是擁有8年資歷的產品設計師，專注網頁與行動體驗設計。秉持「",
         "description_02": "化繁為簡，賦簡以深",
         "description_03": "」的設計理念，透過嚴謹的規劃流程，將複雜需求淬鍊為清晰、流暢且富有溫度的數位體驗。\n保持熱忱與開放，關注產業與科技脈動，善用新工具精進設計，為品牌打造清晰流暢且深具商業價值的產品。",

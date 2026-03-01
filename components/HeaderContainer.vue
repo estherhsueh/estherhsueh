@@ -43,7 +43,9 @@
 
             <a
                 class="resume-button"
-                href="#resume"
+                href="https://onedrive.live.com/?cid=2beaaa58541c1d3e&id=2BEAAA58541C1D3E%21s185eb3716a3640e0ab1372e5d63affce&resid=2BEAAA58541C1D3E%21s185eb3716a3640e0ab1372e5d63affce&ithint=file%2Cpdf&e=fh7xWQ&migratedtospo=true&redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy8yYmVhYWE1ODU0MWMxZDNlL0lRQnhzMTRZTm1yZ1FLc1RjdVhXT3ZfT0FVUjBfVWhDWHQ3b0tUQlh2ZWlPMFQwP2U9Zmg3eFdR&v=validatepermission"
+                target="_blank"
+                rel="noopener noreferrer"
             >
                 Resume
             </a>
@@ -97,9 +99,12 @@
                         </div>
 
                         <div class="nav-actions-mobile">
-                            <LanguageSwitcher />
+                            <!-- <LanguageSwitcher /> -->
+
                             <a
-                                href="#resume"
+                                href="https://onedrive.live.com/?cid=2beaaa58541c1d3e&id=2BEAAA58541C1D3E%21s185eb3716a3640e0ab1372e5d63affce&resid=2BEAAA58541C1D3E%21s185eb3716a3640e0ab1372e5d63affce&ithint=file%2Cpdf&e=fh7xWQ&migratedtospo=true&redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy8yYmVhYWE1ODU0MWMxZDNlL0lRQnhzMTRZTm1yZ1FLc1RjdVhXT3ZfT0FVUjBfVWhDWHQ3b0tUQlh2ZWlPMFQwP2U9Zmg3eFdR&v=validatepermission"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 class="nav-button-mobile"
                                 @click="closeMobileMenu"
                             >

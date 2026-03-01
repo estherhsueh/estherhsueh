@@ -33,7 +33,7 @@
     
         .profile-status {
             display: inline-flex;
-            gap: $spacing-xs;
+            gap: 8px;
             align-items: center;
             margin-bottom: 16px;
 
@@ -52,26 +52,30 @@
             .status-text {
                 color: $grey-200;
                 text-transform: uppercase;
-                font-weight: $font-weight-normal;
+                font-weight: 400;
                 font-size: 14px;
                 font-family: $font-family-en;
-                line-height: $line-height-14;
+                line-height: 14px;
                 
                 @include md {
                     font-size: 16px;
-                    line-height: $line-height-16;
+                    line-height: 16px;
                 }
             }
         }
         
         .profile-title {
             margin-bottom: 16px;
-            color: $grey-50;
+            color: #fff;
             letter-spacing: 0;
-            font-weight: $font-weight-medium;
+            font-weight: 500;
             font-size: 36px;
             font-family: $font-family-en;
             line-height: 1.6;
+
+            .title-02 {
+                margin-left: 9px;
+            }
 
             @include md {
                 margin-bottom: 20px;
@@ -87,7 +91,7 @@
             .text {
                 color: $grey-200;
                 white-space: pre-line;
-                font-weight: $font-weight-normal;
+                font-weight: 400;
                 font-size: 16px;
                 font-family: $font-family-zh;
                 line-height: 1.6;

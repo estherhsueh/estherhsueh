@@ -1,13 +1,20 @@
 <template>
     <section class="about-skills">
-        <h2 class="section-title">
+        <h2
+            ref="titleEl"
+            class="section-title scroll-animate-title"
+        >
             <span class="title-01">{{ $t('about.skills.title_01') }}</span>
             <span class="title-02 font-italic-playfair">{{ $t('about.skills.title_02') }}</span>
         </h2>
 
         <div class="skills-grid">
             <!-- UX 研究與定義 -->
-            <div class="skill-card">
+            <div
+                ref="uxCard"
+                class="skill-card scroll-animate-card"
+                data-index="0"
+            >
                 <img
                     class="skill-icon"
                     src="/images/pages/about/skills_ux.png"
@@ -29,7 +36,11 @@
             </div>
 
             <!-- UI 介面與互動設計 -->
-            <div class="skill-card">
+            <div
+                ref="uiCard"
+                class="skill-card scroll-animate-card"
+                data-index="1"
+            >
                 <img
                     class="skill-icon"
                     src="/images/pages/about/skills_ui.png"
@@ -51,7 +62,11 @@
             </div>
 
             <!-- 品牌與多媒體整合 -->
-            <div class="skill-card">
+            <div
+                ref="brandCard"
+                class="skill-card scroll-animate-card"
+                data-index="2"
+            >
                 <img
                     class="skill-icon"
                     src="/images/pages/about/skills_brand.png"
@@ -77,6 +92,24 @@
 
 <script setup lang="ts">
 const { tm, rt } = useI18n();
+const { observeElements } = useScrollAnimation();
+
+const titleEl = ref<HTMLElement>();
+const uxCard = ref<HTMLElement>();
+const uiCard = ref<HTMLElement>();
+const brandCard = ref<HTMLElement>();
+
+onMounted(() => {
+    const skillCards = [uxCard.value, uiCard.value, brandCard.value];
+    const allElements = [titleEl.value, ...skillCards].filter(Boolean) as HTMLElement[];
+    observeElements(allElements);
+
+    skillCards.forEach((card, index) => {
+        if (card) {
+            card.style.transitionDelay = `${100 + index * 150}ms`;
+        }
+    });
+});
 
 const uxItems = computed(() => {
     const items = tm('about.skills.ux.items') as string[];
@@ -111,4 +144,26 @@ const brandItems = computed(() => {
 
 <style lang="scss" scoped>
 @use './AboutSkills';
+
+.scroll-animate-title {
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: translateX(30px);
+    opacity: 0;
+
+    &.is-visible {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.scroll-animate-card {
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    transform: translateX(30px);
+    opacity: 0;
+
+    &.is-visible {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
 </style>

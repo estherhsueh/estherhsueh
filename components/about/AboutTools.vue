@@ -1,18 +1,26 @@
 <template>
     <section class="about-tools">
         <div class="tools-container">
-            <h2 class="section-title">
+            <h2
+                ref="titleEl"
+                class="section-title scroll-animate-title"
+            >
                 <span class="title-01">{{ $t('about.tools.title_01') }}</span>
                 <span class="title-02 font-italic-playfair">{{ $t('about.tools.title_02') }}</span>
             </h2>
-            <p class="tools-description">
+            <p
+                ref="descEl"
+                class="tools-description scroll-animate-desc"
+            >
                 {{ $t('about.tools.description') }}
             </p>
             <div class="tools-grid">
                 <div
                     v-for="(tool, index) in tools"
                     :key="index"
-                    class="tool-item"
+                    ref="toolItems"
+                    class="tool-item scroll-animate-item"
+                    :data-index="index"
                 >
                     <img
                         class="tool-icon"
@@ -35,6 +43,12 @@
 </template>
 
 <script setup lang="ts">
+const { observeElements } = useScrollAnimation();
+
+const titleEl = ref<HTMLElement>();
+const descEl = ref<HTMLElement>();
+const toolItems = ref<HTMLElement[]>([]);
+
 interface Tool {
     image: string
     name: string
@@ -52,8 +66,56 @@ const tools: Tool[] = [
     { image: 'tools_slack.png', name: 'Slack', category: '團隊溝通' },
     { image: 'tools_gitlab.png', name: 'GitLab', category: '專案管理' }
 ];
+
+onMounted(() => {
+    const allElements = [titleEl.value, descEl.value, ...toolItems.value].filter(Boolean) as HTMLElement[];
+    observeElements(allElements);
+
+    if (descEl.value) {
+        descEl.value.style.transitionDelay = '100ms';
+    }
+
+    toolItems.value.forEach((item, index) => {
+        if (item) {
+            item.style.transitionDelay = `${200 + index * 80}ms`;
+        }
+    });
+});
 </script>
 
 <style lang="scss" scoped>
 @use './AboutTools';
+
+.scroll-animate-title {
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: translateX(30px);
+    opacity: 0;
+
+    &.is-visible {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.scroll-animate-desc {
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: translateX(30px);
+    opacity: 0;
+
+    &.is-visible {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.scroll-animate-item {
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    transform: translateX(30px);
+    opacity: 0;
+
+    &.is-visible {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
 </style>

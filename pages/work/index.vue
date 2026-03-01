@@ -1,11 +1,17 @@
 <template>
     <div class="work-page">
-        <h1 class="page-title">
+        <h1
+            ref="titleEl"
+            class="page-title scroll-animate-title"
+        >
             <span class="title-01">{{ $t('work.title_01') }}</span>
             <span class="title-02 font-italic-playfair">{{ $t('work.title_02') }}</span>
         </h1>
 
-        <div class="filter-buttons">
+        <div
+            ref="filtersEl"
+            class="filter-buttons scroll-animate-filters"
+        >
             <button
                 v-for="filter in filters"
                 :key="filter.value"
@@ -18,10 +24,12 @@
 
         <div class="projects-grid">
             <a
-                v-for="project in filteredProjects"
+                v-for="(project, index) in filteredProjects"
                 :key="project.id"
+                ref="projectCards"
                 :href="localePath(`/work/${project.id}`)"
-                class="project-card"
+                class="project-card scroll-animate-card"
+                :data-index="index"
                 @click="navigateToProject(project, $event)"
             >
                 <div
@@ -45,8 +53,8 @@
 
                     <div class="project-tags">
                         <span
-                            v-for="(tag, index) in project.tags"
-                            :key="index"
+                            v-for="(tag, tagIndex) in project.tags"
+                            :key="tagIndex"
                             class="project-tag"
                         >
                             {{ tag }}
@@ -76,19 +84,53 @@ const filters = [
 const { t } = useI18n();
 const localePath = useLocalePath();
 const { navigateToProject } = useProjectNavigation();
+const { observeElements } = useScrollAnimation();
 
 const { getProjectsByFilter } = useProjects();
 
 const activeFilter = ref('all');
 const isAuthenticated = ref(false);
-
-onMounted(() => {
-    isAuthenticated.value = sessionStorage.getItem('isAuthenticated') === 'true';
-});
+const titleEl = ref<HTMLElement>();
+const filtersEl = ref<HTMLElement>();
+const projectCards = ref<HTMLElement[]>([]);
 
 // 使用共用的專案資料和篩選函數
 const filteredProjects = computed(() => {
     return getProjectsByFilter(activeFilter.value);
+});
+
+// 觀察卡片元素的函數
+const observeCards = () => {
+    if (projectCards.value && projectCards.value.length > 0) {
+        observeElements(projectCards.value);
+
+        projectCards.value.forEach((card, index) => {
+            if (card) {
+                card.style.transitionDelay = `${index * 100}ms`;
+            }
+        });
+    }
+};
+
+onMounted(() => {
+    if (import.meta.client) {
+        isAuthenticated.value = sessionStorage.getItem('isAuthenticated') === 'true';
+    }
+
+    const allElements = [titleEl.value, filtersEl.value].filter(Boolean) as HTMLElement[];
+    observeElements(allElements);
+
+    // 初始載入時也觀察卡片
+    nextTick(() => {
+        observeCards();
+    });
+});
+
+// 監聽 filteredProjects 變化，當專案列表改變時重新觀察
+watch(filteredProjects, () => {
+    nextTick(() => {
+        observeCards();
+    });
 });
 
 const title = `${t('work.title_01')} ${t('work.title_02')}`;
@@ -102,4 +144,38 @@ useHead({
 
 <style lang="scss" scoped>
 @use './index';
+
+.scroll-animate-title {
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: translateX(30px);
+    opacity: 0;
+
+    &.is-visible {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.scroll-animate-filters {
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition-delay: 100ms;
+    transform: translateX(30px);
+    opacity: 0;
+
+    &.is-visible {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.scroll-animate-card {
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    transform: translateX(30px);
+    opacity: 0;
+
+    &.is-visible {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
 </style>

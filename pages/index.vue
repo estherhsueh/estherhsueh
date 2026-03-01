@@ -1,18 +1,48 @@
 <template>
     <div class="home-page">
-        <HomeProfile />
+        <div
+            ref="profileSection"
+            class="scroll-animate"
+        >
+            <HomeProfile />
+        </div>
 
-        <HomeFeaturedProjects />
+        <div
+            ref="featuredSection"
+            class="scroll-animate"
+        >
+            <HomeFeaturedProjects />
+        </div>
 
-        <HomeDesignGallery />
+        <div
+            ref="gallerySection"
+            class="scroll-animate"
+        >
+            <HomeDesignGallery />
+        </div>
     </div>
 </template>
 
 <script setup lang="ts">
 const { t } = useI18n();
+const { observeElements } = useScrollAnimation();
+
+const profileSection = ref<HTMLElement>();
+const featuredSection = ref<HTMLElement>();
+const gallerySection = ref<HTMLElement>();
 
 definePageMeta({
     title: 'Home'
+});
+
+onMounted(() => {
+    const elements = [
+        profileSection.value,
+        featuredSection.value,
+        gallerySection.value
+    ].filter(Boolean) as HTMLElement[];
+
+    observeElements(elements);
 });
 
 // 設置頁面 SEO
@@ -41,6 +71,29 @@ useHead({
 
     @include lg {
         max-width: 1160px;
+    }
+}
+
+@keyframes fade-in-up {
+    from {
+        transform: translateX(30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.scroll-animate {
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transform: translateX(30px);
+    opacity: 0;
+
+    &.is-visible {
+        transform: translateX(0);
+        opacity: 1;
     }
 }
 </style>

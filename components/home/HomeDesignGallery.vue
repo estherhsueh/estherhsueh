@@ -1,6 +1,9 @@
 <template>
     <section class="design-gallery">
-        <div class="section-header">
+        <div
+            ref="headerEl"
+            class="section-header scroll-animate-header"
+        >
             <h2 class="section-title">
                 <span class="title-01">{{ $t('home.gallery.title_01') }}</span>
                 <span class="title-02 font-italic-playfair">{{ $t('home.gallery.title_02') }}</span>
@@ -23,8 +26,10 @@
             <a
                 v-for="(project, index) in galleryProjects"
                 :key="index"
+                ref="galleryItems"
                 :href="localePath(`/work/${project.id}`)"
-                class="gallery-item"
+                class="gallery-item scroll-animate-item"
+                :data-index="index"
                 @click="navigateToProject(project, $event)"
             >
                 <div
@@ -76,11 +81,25 @@
 const localePath = useLocalePath();
 const { getGalleryProjects } = useProjects();
 const { navigateToProject } = useProjectNavigation();
+const { observeElements } = useScrollAnimation();
 
 const isAuthenticated = ref(false);
+const headerEl = ref<HTMLElement>();
+const galleryItems = ref<HTMLElement[]>([]);
 
 onMounted(() => {
-    isAuthenticated.value = sessionStorage.getItem('isAuthenticated') === 'true';
+    if (import.meta.client) {
+        isAuthenticated.value = sessionStorage.getItem('isAuthenticated') === 'true';
+    }
+
+    const allElements = [headerEl.value, ...galleryItems.value].filter(Boolean) as HTMLElement[];
+    observeElements(allElements);
+
+    galleryItems.value.forEach((item, index) => {
+        if (item) {
+            item.style.transitionDelay = `${150 + index * 100}ms`;
+        }
+    });
 });
 
 // 獲取設計畫廊專案
@@ -89,4 +108,26 @@ const galleryProjects = getGalleryProjects();
 
 <style lang="scss" scoped>
 @use './HomeDesignGallery';
+
+.scroll-animate-header {
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: translateX(30px);
+    opacity: 0;
+
+    &.is-visible {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.scroll-animate-item {
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    transform: translateX(30px);
+    opacity: 0;
+
+    &.is-visible {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
 </style>

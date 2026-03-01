@@ -13,16 +13,15 @@
 <script setup lang="ts">
 const { t } = useI18n();
 
-definePageMeta({
-    title: 'About'
-});
-
+const title = t('about.title');
+const description = `${t('about.about.description_01')} ${t('about.about.description_02')} ${t('about.about.description_03')} ${t('about.about.description_04')} ${t('about.about.description_05')}`;
 useHead({
-    title: t('about.title'),
-    meta: [{
-        name: 'description',
-        content: `${t('about.about.description_01')} ${t('about.about.description_02')} ${t('about.about.description_03')} ${t('about.about.description_04')} ${t('about.about.description_05')}`
-    }]
+    title,
+    meta: [
+        { name: 'description', content: description },
+        { property: 'og:title', content: title },
+        { property: 'og:description', content: description }
+    ]
 });
 </script>
 

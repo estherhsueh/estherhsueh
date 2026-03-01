@@ -181,9 +181,9 @@
 .nav-button-mobile {
     display: block;
     padding: $spacing-md;
-    border: 1px solid #a175fd;
+    border: 1px solid $indigo-300;
     border-radius: 12px;
-    color: #a175fd;
+    color: $indigo-300;
     transition: all $transition-base;
     text-align: center;
     font-weight: $font-weight-medium;
@@ -191,7 +191,7 @@
     font-family: $font-family-en;
 
     &:hover {
-        border-color: #a175fd;
+        border-color: $indigo-300;
         background: rgb(161 117 253 / 10%);
     }
 }

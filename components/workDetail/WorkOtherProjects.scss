@@ -1,0 +1,229 @@
+@use '~/assets/styles/variables' as *;
+
+.other-projects {
+    padding: 111.5px 0 60px;
+
+    @include md {
+        padding: 134.5px 0 60px;
+    }
+
+    @include lg {
+        padding: 160px 0 60px;
+    }
+
+    .section-title {
+        max-width: 350px;
+        margin: 0 auto;
+        margin-bottom: 51.5px;
+        color: #fff;
+        letter-spacing: -0.64px;
+        font-weight: 500;
+        font-size: 32px;
+        font-family: $font-family-en;
+        line-height: 1.2;
+
+        @include md {
+            max-width: 730px;
+            margin-bottom: 74.5px;
+            letter-spacing: -0.8px;
+            font-size: 40px;
+        }
+        
+        @include lg {
+            max-width: 1160px;
+            margin-bottom: 80px;
+            letter-spacing: -1.28px;
+            font-size: 64px;
+        }
+
+        .title-02 {
+            color: $grey-200;
+        }
+    }
+
+    .projects-scroll-container {
+        overflow: scroll;
+        max-width: 100%;
+
+        /* Hide scrollbar for webkit browsers */
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for Firefox */
+        scrollbar-width: none;
+
+        /* Hide scrollbar for IE and Edge */
+        -ms-overflow-style: none;
+    }
+    
+    .projects-container {
+        overflow: visible;
+        
+        .projects-list {
+            display: flex;
+            gap: 25px;
+            width: max-content;
+            padding: 0 calc(50% - 175px);
+        
+            @include md {
+                padding: 0 calc(50% - 362.5px);
+            }
+        
+            @include lg {
+                padding: 0 calc(50% - 580px);
+            }
+        
+            .project-item {
+                position: relative;
+                display: block;
+                overflow: hidden;
+                width: 350px;
+                height: 434px;
+                border: 1px solid $grey-600;
+                border-radius: 16px;
+                background: $grey-800;
+                cursor: pointer;
+                text-decoration: none;
+        
+                @include md {
+                    width: 350px;
+                }
+        
+                @include lg {
+                    width: 370px;
+                    height: 406px;
+                }
+        
+                .project-image {
+                    position: relative;
+                    width: 100%;
+                    height: 270px;
+                
+                    img {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        object-fit: cover;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+        
+                .project-info {
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: space-between;
+                    height: 164px;
+                    padding: 32px 24px;
+        
+                    @include lg {
+                        height: 136px;
+                    }
+                
+                    .project-title {
+                        overflow: hidden;
+                        width: 78%;
+                        color: #fff;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        font-weight: 700;
+                        font-size: 20px;
+                        font-family: $font-family-zh;
+                        line-height: 1.2;
+                    
+                        @include md {
+                            font-size: 22px;
+                        }
+                    
+                        @include lg {
+                            width: 85%;
+                            font-size: 24px;
+                        }
+                    }
+            
+                    .project-tags {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 8px;
+            
+                        .project-tag {
+                            padding: 8px 16px;
+                            border: 1px solid $grey-500;
+                            border-radius: 8px;
+                            background: $grey-600;
+                            color: $grey-300;
+                            transition: all 0.2s;
+                            letter-spacing: 0;
+                            font-weight: 400;
+                            font-size: 16px;
+                            font-family: $font-family-en;
+                            line-height: 16px;
+                        
+                            &:hover {
+                                border-color: $grey-300;
+                                background: $grey-500;
+                                color: #fff;
+                            }
+                        }
+                    }
+                
+                    .project-action {
+                        position: absolute;
+                        top: 49px;
+                        right: 24px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 52px;
+                        height: 38px;
+                        border: 1px solid $grey-500;
+                        border-radius: 8px;
+                        background: $grey-600;
+                        transition: all 0.2s;
+        
+                        @include md {
+                            top: 63px;
+                            right: 24px;
+                        }
+        
+                        @include lg {
+                            top: 42px;
+                            right: 24px;
+                            width: 56px;
+                            height: 52px;
+                        }
+        
+                        svg {
+                            width: 20px;
+                            height: 20px;
+        
+                            @include lg {
+                                width: 24px;
+                                height: 24px;
+                            }
+        
+                            /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+                            :deep(path) {
+                                fill: #fff;
+                            }
+                        }
+        
+                        &:hover {
+                            border-color: $indigo-200;
+                            background: $indigo-200;
+        
+                            /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+                            :deep(path) {
+                                fill: $indigo-900;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

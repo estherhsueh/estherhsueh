@@ -55,18 +55,10 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-    title: 'Work'
-});
-
 const { t } = useI18n();
 const localePath = useLocalePath();
 
 const { getProjectsByFilter } = useProjects();
-
-useHead({
-    title: `${t('work.title_01')} ${t('work.title_02')}`
-});
 
 const activeFilter = ref('all');
 
@@ -80,6 +72,14 @@ const filters = [
 // 使用共用的專案資料和篩選函數
 const filteredProjects = computed(() => {
     return getProjectsByFilter(activeFilter.value);
+});
+
+const title = `${t('work.title_01')} ${t('work.title_02')}`;
+useHead({
+    title,
+    meta: [
+        { property: 'og:title', content: title }
+    ]
 });
 </script>
 

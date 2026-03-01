@@ -16,10 +16,14 @@ definePageMeta({
 });
 
 // 設置頁面 SEO
+const title = t('home.title');
+const description = t('home.profile.description');
 useHead({
-    title: t('home.title'),
+    title,
     meta: [
-        { name: 'description', content: t('home.profile.description') }
+        { name: 'description', content: description },
+        { property: 'og:title', content: title },
+        { property: 'og:description', content: description }
     ]
 });
 </script>

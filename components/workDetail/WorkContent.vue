@@ -1,19 +1,19 @@
 <template>
     <div class="work-content">
-        <div
-            v-for="(section, index) in sections"
+        <img
+            v-for="(num, index) in detailImageCount"
             :key="index"
             class="content-image"
+            :src="`/images/projects/${id}/detail_${num.toString().padStart(2, '0')}.jpg`"
+            :alt="`Detail Image ${num}`"
         >
-            <div class="content-placeholder" />
-        </div>
     </div>
 </template>
 
 <script setup lang="ts">
-// Work 詳細頁面的內容圖片區塊
 defineProps<{
-    sections: string[]
+    id: string
+    detailImageCount: number
 }>();
 </script>
 
@@ -23,19 +23,18 @@ defineProps<{
 .work-content {
     display: flex;
     flex-direction: column;
-    gap: $spacing-xl;
-    margin-bottom: $spacing-xxl;
-}
+    gap: 48px;
 
-.content-image {
-    overflow: hidden;
-    width: 100%;
-    border-radius: $border-radius-lg;
-}
+    @include md {
+        gap: 60px;
+    }
 
-.content-placeholder {
-    width: 100%;
-    padding-bottom: 56.25%;
-    background: linear-gradient(135deg, #292a36 0%, #20212b 100%);
+    @include lg {
+        gap: 80px;
+    }
+
+    .content-image {
+        width: 100%;
+    }
 }
 </style>

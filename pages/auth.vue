@@ -1,62 +1,39 @@
 <template>
     <div class="auth-page">
-        <div class="auth-container">
-            <h1>{{ $t('auth.title') }}</h1>
-            <p class="subtitle">
-                {{ $t('auth.subtitle') }}
-            </p>
+        <h1>{{ $t('auth.pleaseEnterPassword') }}</h1>
 
-            <form
-                class="auth-form"
-                @submit.prevent="handleSubmit"
-            >
-                <div class="form-group">
-                    <label for="password">{{ $t('auth.login.password') }}</label>
-                    <input
-                        id="password"
-                        v-model="password"
-                        type="password"
-                        :placeholder="$t('auth.login.password')"
-                        :disabled="isLoading"
-                        @input="handleInput"
-                    >
-                </div>
-
-                <p
-                    v-if="errorMessage"
-                    class="error-message"
+        <form
+            class="auth-form"
+            @submit.prevent="handleSubmit"
+        >
+            <div class="form-group">
+                <input
+                    id="password"
+                    v-model="password"
+                    type="password"
+                    :placeholder="$t('auth.pleaseEnterPassword')"
+                    :disabled="isLoading"
+                    @input="handleInput"
                 >
-                    {{ errorMessage }}
+
+                <p class="hint">
+                    {{ $t('auth.errorMessage') }}
                 </p>
+            </div>
 
-                <button
-                    type="submit"
-                    :disabled="!password || isLoading"
-                    class="submit-button"
-                >
-                    {{ isLoading ? $t('common.loading') : $t('common.confirm') }}
-                </button>
-            </form>
-
-            <p class="hint">
-                {{ $t('common.loading') }}: "admin123"
-            </p>
-        </div>
+            <button
+                type="submit"
+                :disabled="!password || isLoading"
+                class="submit-button"
+            >
+                {{ isLoading ? $t('common.loading') : $t('auth.submit') }}
+            </button>
+        </form>
     </div>
 </template>
 
 <script setup lang="ts">
 const { t } = useI18n();
-
-definePageMeta({
-    title: 'Authentication'
-});
-
-// 設置頁面 SEO
-useHead({
-    title: t('auth.title'),
-    meta: [{ name: 'description', content: t('auth.subtitle') }]
-});
 
 const password = ref<string>('');
 const errorMessage = ref<string>('');
@@ -67,7 +44,7 @@ const router = useRouter();
 // 正確的密碼（實際專案中應該在後端驗證）
 const CORRECT_PASSWORD = 'admin123';
 
-async function handleSubmit (): Promise<void> {
+const handleSubmit = async (): Promise<void> => {
     errorMessage.value = '';
     isLoading.value = true;
 
@@ -88,13 +65,13 @@ async function handleSubmit (): Promise<void> {
     }
 
     isLoading.value = false;
-}
+};
 
-function handleInput (): void {
+const handleInput = (): void => {
     if (errorMessage.value) {
         errorMessage.value = '';
     }
-}
+};
 </script>
 
 <style scoped>
@@ -102,9 +79,16 @@ function handleInput (): void {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    height: 666px;
     padding: 20px;
-    background-color: #f5f5f5;
+
+    @include md {
+        height: 914px;
+    }
+
+    @include lg {
+        height: 894px;
+    }
 }
 
 .auth-container {

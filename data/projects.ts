@@ -20,6 +20,7 @@ export interface ProjectData {
     duration: string
     category: string
     tags: string[]
+    detailImageCount: number
     image?: string
 }
 
@@ -62,7 +63,8 @@ const allProjects: ProjectData[] = [
         },
         duration: '2023',
         category: 'Landing Page',
-        tags: ['APP', 'UX Research']
+        tags: ['APP', 'UX Research'],
+        detailImageCount: 1
     },
     // 證券美股交易活動
     {
@@ -85,7 +87,8 @@ const allProjects: ProjectData[] = [
         },
         duration: '2023',
         category: 'Landing Page',
-        tags: ['APP', 'UX Research']
+        tags: ['APP', 'UX Research'],
+        detailImageCount: 1
     },
     // 建設公司官網設計
     {
@@ -108,7 +111,8 @@ const allProjects: ProjectData[] = [
         },
         duration: '2024',
         category: 'Landing Page',
-        tags: ['APP', 'UX Research']
+        tags: ['APP', 'UX Research'],
+        detailImageCount: 7
     },
     // KKday點對點交通
     {
@@ -131,7 +135,8 @@ const allProjects: ProjectData[] = [
         },
         duration: '2024',
         category: 'Landing Page',
-        tags: ['APP', 'UX Research']
+        tags: ['APP', 'UX Research'],
+        detailImageCount: 1
     }
 ];
 

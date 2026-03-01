@@ -90,7 +90,7 @@ const allProjects: ProjectData[] = [
         category: 'Landing Page',
         tags: ['APP', 'UX Research'],
         detailImageCount: 1,
-        isLocked: false
+        isLocked: true
     },
     // 建設公司官網設計
     {
@@ -115,7 +115,7 @@ const allProjects: ProjectData[] = [
         category: 'Landing Page',
         tags: ['APP', 'UX Research'],
         detailImageCount: 7,
-        isLocked: false
+        isLocked: true
     },
     // KKday點對點交通
     {
@@ -140,7 +140,7 @@ const allProjects: ProjectData[] = [
         category: 'Landing Page',
         tags: ['APP', 'UX Research'],
         detailImageCount: 1,
-        isLocked: false
+        isLocked: true
     }
 ];
 

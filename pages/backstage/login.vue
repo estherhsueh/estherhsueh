@@ -79,7 +79,7 @@ const handleSubmit = async (): Promise<void> => {
     isLoading.value = true;
 
     try {
-        const response = await $fetch<{ success: boolean; message: string }>('/api/backstage/login', {
+        const response = await $fetch<{ success: boolean, message: string }>('/api/backstage/login', {
             method: 'POST',
             body: {
                 account: account.value,
@@ -89,7 +89,7 @@ const handleSubmit = async (): Promise<void> => {
 
         if (response.success) {
             sessionStorage.setItem('isBackstageAuthenticated', 'true');
-            await router.push('/backstage');
+            await router.push('/backstage/projects');
         }
         else {
             errorMessage.value = '帳號或密碼錯誤，請重新輸入';

@@ -48,6 +48,9 @@ export default defineNuxtConfig({
             });
         }
     },
+    routeRules: {
+        '/backstage': { redirect: '/backstage/projects' }
+    },
     eslint: {
         config: {
             standalone: true,

@@ -119,30 +119,30 @@ const allProjects: ProjectData[] = [
         isLocked: true
     },
     // KKday 首頁改版(待更新
-    {
-        id: 'kkday-homepage-redesign',
-        title: {
-            'zh-TW': 'KKday 首頁改版(待更新',
-            'en-US': 'KKday 首頁改版(待更新'
-        },
-        description: {
-            'zh-TW': '為提升使用者瀏覽效率並支援各地市場的在地化需求，對 KKday首頁進行全面體驗優化。專案分兩階段推動：先統個平台的視覺風格，強化商品卡片的資訊層級；再重新設計首頁大分類入口，使其兼具直觀導覽與彈性調整能力，讓首頁更能貼近不同市場的使用者習慣與推廣策略。',
-            'en-US': '為提升使用者瀏覽效率並支援各地市場的在地化需求，對 KKday首頁進行全面體驗優化。專案分兩階段推動：先統個平台的視覺風格，強化商品卡片的資訊層級；再重新設計首頁大分類入口，使其兼具直觀導覽與彈性調整能力，讓首頁更能貼近不同市場的使用者習慣與推廣策略。'
-        },
-        company: {
-            'zh-TW': 'KKday',
-            'en-US': 'KKday'
-        },
-        responsibilities: {
-            'zh-TW': 'UI/UX 設計、競品分析、使用者流程、設計系統、設計規格書、設計QA',
-            'en-US': 'UI/UX 設計、競品分析、使用者流程、設計系統、設計規格書、設計QA'
-        },
-        duration: '2021',
-        category: 'APP',
-        tags: ['APP', 'E-commerce'],
-        detailImageCount: 1,
-        isLocked: true
-    },
+    // {
+    //     id: 'kkday-homepage-redesign',
+    //     title: {
+    //         'zh-TW': 'KKday 首頁改版(待更新',
+    //         'en-US': 'KKday 首頁改版(待更新'
+    //     },
+    //     description: {
+    //         'zh-TW': '為提升使用者瀏覽效率並支援各地市場的在地化需求，對 KKday首頁進行全面體驗優化。專案分兩階段推動：先統個平台的視覺風格，強化商品卡片的資訊層級；再重新設計首頁大分類入口，使其兼具直觀導覽與彈性調整能力，讓首頁更能貼近不同市場的使用者習慣與推廣策略。',
+    //         'en-US': '為提升使用者瀏覽效率並支援各地市場的在地化需求，對 KKday首頁進行全面體驗優化。專案分兩階段推動：先統個平台的視覺風格，強化商品卡片的資訊層級；再重新設計首頁大分類入口，使其兼具直觀導覽與彈性調整能力，讓首頁更能貼近不同市場的使用者習慣與推廣策略。'
+    //     },
+    //     company: {
+    //         'zh-TW': 'KKday',
+    //         'en-US': 'KKday'
+    //     },
+    //     responsibilities: {
+    //         'zh-TW': 'UI/UX 設計、競品分析、使用者流程、設計系統、設計規格書、設計QA',
+    //         'en-US': 'UI/UX 設計、競品分析、使用者流程、設計系統、設計規格書、設計QA'
+    //     },
+    //     duration: '2021',
+    //     category: 'APP',
+    //     tags: ['APP', 'E-commerce'],
+    //     detailImageCount: 1,
+    //     isLocked: true
+    // },
     // 電商POS系統
     {
         id: 'ecommerce-pos-system',

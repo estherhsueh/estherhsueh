@@ -16,10 +16,10 @@ export default defineNuxtConfig({
     css: [
         '~~/assets/styles/main.scss'
     ],
-    compatibilityDate: '2025-07-15',
     routeRules: {
         '/backstage': { redirect: '/backstage/projects' }
     },
+    compatibilityDate: '2025-07-15',
     eslint: {
         config: {
             standalone: true,
@@ -43,7 +43,6 @@ export default defineNuxtConfig({
                 iso: 'zh-TW',
                 name: '繁體中文',
                 files: [
-                    'zh-TW/articles/articles.json',
                     ...getFileListPages('zh-TW')
                 ]
             },
@@ -52,7 +51,6 @@ export default defineNuxtConfig({
                 iso: 'en-US',
                 name: 'English',
                 files: [
-                    'en-US/articles/articles.json',
                     ...getFileListPages('en-US')
                 ]
             }

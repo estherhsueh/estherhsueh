@@ -191,48 +191,52 @@
                 </tbody>
             </table>
         </div>
-    </div>
 
-    <!-- 刪除確認 Modal -->
-    <teleport to="body">
-        <transition name="modal-fade">
-            <div
-                v-if="isDeleteModalOpen"
-                class="modal-backdrop"
-                @click.self="closeDeleteModal"
-            >
-                <div class="modal-dialog">
-                    <h3 class="modal-title">
-                        確認刪除
-                    </h3>
-                    <p class="modal-body">
-                        確定要刪除專案「{{ deleteTargetProject?.title }}」嗎？<br>
-                        此操作無法復原。
-                    </p>
-                    <div class="modal-actions">
-                        <button
-                            class="btn-cancel"
-                            :disabled="isDeleting"
-                            @click="closeDeleteModal"
-                        >
-                            取消
-                        </button>
-                        <button
-                            class="btn-confirm-delete"
-                            :disabled="isDeleting"
-                            @click="confirmDelete"
-                        >
-                            {{ isDeleting ? '刪除中...' : '確認刪除' }}
-                        </button>
+        <!-- 刪除確認 Modal -->
+        <teleport to="body">
+            <transition name="modal-fade">
+                <div
+                    v-if="isDeleteModalOpen"
+                    class="modal-backdrop"
+                    @click.self="closeDeleteModal"
+                >
+                    <div class="modal-dialog">
+                        <h3 class="modal-title">
+                            確認刪除
+                        </h3>
+                        <p class="modal-body">
+                            確定要刪除專案「{{ deleteTargetProject?.title }}」嗎？<br>
+                            此操作無法復原。
+                        </p>
+                        <div class="modal-actions">
+                            <button
+                                class="btn-cancel"
+                                :disabled="isDeleting"
+                                @click="closeDeleteModal"
+                            >
+                                取消
+                            </button>
+                            <button
+                                class="btn-confirm-delete"
+                                :disabled="isDeleting"
+                                @click="confirmDelete"
+                            >
+                                {{ isDeleting ? '刪除中...' : '確認刪除' }}
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </transition>
-    </teleport>
+            </transition>
+        </teleport>
+    </div>
 </template>
 
 <script setup lang="ts">
 import type { ProjectRow } from '~/types/project';
+
+useHead({
+    title: '後台管理 - 專案管理'
+});
 
 definePageMeta({ layout: 'backstage' });
 
@@ -253,7 +257,9 @@ const openDeleteModal = (project: ProjectRow): void => {
 };
 
 const closeDeleteModal = (): void => {
-    if (isDeleting.value) return;
+    if (isDeleting.value) {
+        return;
+    }
     isDeleteModalOpen.value = false;
     deleteTargetProject.value = null;
 };
@@ -348,7 +354,9 @@ const fetchProjects = async (): Promise<void> => {
 };
 
 const confirmDelete = async (): Promise<void> => {
-    if (!deleteTargetProject.value) return;
+    if (!deleteTargetProject.value) {
+        return;
+    }
     const id = deleteTargetProject.value.id;
     isDeleting.value = true;
     try {

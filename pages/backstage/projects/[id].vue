@@ -740,6 +740,10 @@ const handleSubmit = async (): Promise<void> => {
 };
 
 onMounted(loadProject);
+
+useHead({
+    title: `後台管理 - ${isNew.value ? '新增' : '編輯'}專案`
+});
 </script>
 
 <style lang="scss" scoped>

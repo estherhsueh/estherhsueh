@@ -63,6 +63,10 @@
 </template>
 
 <script setup lang="ts">
+useHead({
+    title: '後台管理 - 登入'
+});
+
 definePageMeta({
     layout: 'backstage'
 });

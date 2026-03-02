@@ -1,39 +1,63 @@
 {
-  "taishin-loan-landing": {
-    "title": "銀行信貸活動Landing page",
-    "description": "",
-    "company": "台新銀行",
-    "responsibilities": "活動主視覺、網頁設計(含動效)、行銷文宣設計"
-  },
-  "securities-stock-landing": {
-    "title": "證券美股交易活動",
-    "description": "",
-    "company": "兆豐證券",
-    "responsibilities": "活動主視覺、網頁設計(含動效)、行銷文宣設計"
-  },
-  "chang-hong-website": {
-    "title": "建設公司官網設計",
-    "description": "長虹建設原有官方網站因介面老舊、內容更新流程繁瑣，難以有效傳達企業價值與即時資訊。為重塑品牌形象並提升使用者體驗，客戶委託進行官網全面改版，本人負責本次專案的整體 UI 設計工作。",
-    "company": "長虹建設股份有限公司",
-    "responsibilities": "全站視覺風格、網頁設計"
+  "live-dealer-gaming-app": {
+    "title": "Live dealer gaming app",
+    "description": "This is a scalable Ul system for live casino games and it supports a unified mobile interface for 10+ real-time table games.",
+    "company": "",
+    "responsibilities": "UI/UX 設計, 設計系統, 設計QA"
   },
   "kkday-transport": {
     "title": "KKday點對點交通",
     "description": "因應後疫情自助旅潮，為KKday擴展多元交通產品線，打造一站式租車預訂體驗。採用Desktop First策略優化複雜決策流程，並建立可擴充的響應式設計規範。從桌機端延伸至多裝置，以清晰的資訊架構提升用戶預訂效率與轉化率。",
     "company": "KKday",
-    "responsibilities": "競品分析、Web UI、撰寫設計規格書"
+    "responsibilities": "UI/UX 設計, 競品分析, 設計系統, 設計規格書, 設計QA"
+  },
+  "kkday-marketplace": {
+    "title": "KKday Marketplace",
+    "description": "配合平台由直營轉向開放商城的商業轉型，我主導了使用者端介面的架構優化。藉由改良商品卡片，精準區隔自營與供應商識別，並延伸打造專屬商家頁與對話系統，優化售前諮詢的互動流程，有效建立開放商城環境下的信任感與品牌價值。",
+    "company": "KKday",
+    "responsibilities": "UI/UX 設計, 競品分析, 設計系統, 設計規格書, 設計QA"
+  },
+  "kkday-homepage-redesign": {
+    "title": "KKday 首頁改版(待更新",
+    "description": "為提升使用者瀏覽效率並支援各地市場的在地化需求，對 KKday首頁進行全面體驗優化。專案分兩階段推動：先統個平台的視覺風格，強化商品卡片的資訊層級；再重新設計首頁大分類入口，使其兼具直觀導覽與彈性調整能力，讓首頁更能貼近不同市場的使用者習慣與推廣策略。",
+    "company": "KKday",
+    "responsibilities": "UI/UX 設計, 競品分析, 使用者流程, 設計系統, 設計規格書, 設計QA"
+  },
+  "ecommerce-pos-system": {
+    "title": "電商POS系統",
+    "description": "用直覺易用、簡單明瞭的POS介面，減輕店員每一分操作負擔。從零打造可擴展的設計系統，一站整合收銀、庫存與促銷等功能，輕鬆支援線上、線下與虛實整合銷售模式。",
+    "company": "Waca",
+    "responsibilities": "UI/UX 設計, 競品分析, 使用者流程, 設計系統, 設計規格書"
+  },
+  "taishin-loan-landing": {
+    "title": "銀行信貸活動網頁",
+    "description": "",
+    "company": "台新銀行",
+    "responsibilities": "UI/UX 設計, 活動主視覺, 設計QA, 互動動效, 行銷文宣設計"
+  },
+  "securities-stock-landing": {
+    "title": "證券美股交易活動網頁",
+    "description": "",
+    "company": "兆豐證券",
+    "responsibilities": "UI/UX 設計, 活動主視覺, 設計QA, 互動動效, 行銷文宣設計"
+  },
+  "chang-hong-website": {
+    "title": "建設公司官網設計",
+    "description": "長虹建設原有官方網站因介面老舊、內容更新流程繁瑣，難以有效傳達企業價值與即時資訊。為重塑品牌形象並提升使用者體驗，客戶委託進行官網全面改版，本人負責本次專案的整體 UI 設計工作。",
+    "company": "長虹建設股份有限公司",
+    "responsibilities": "UI/UX 設計, 視覺風格定義, 設計系統, 資訊架構"
   },
   "fashion-finance-website": {
     "title": "數位金融與時尚品牌聯名網站",
     "description": "為永豐銀行DAWHO×時尚品牌BLVCK聯名打造活動主視覺。以層次黑調與金屬光澤，融合時尚美學與數位金融，打造貼近年輕世代的理財體驗。透過有辨識度的視覺語言，迅速吸引注意，重塑兼具潮流感與功能性的金融服務。",
     "company": "永豐DAWHO",
-    "responsibilities": "活動主視覺、網頁設計(含動效)、行銷文宣設計"
+    "responsibilities": "UI/UX 設計, 活動主視覺, 設計QA, 互動動效, 行銷文宣設計"
   },
   "securities-e-stock-landing": {
     "title": "證券理財Landing page",
     "description": "主導兆豐證券「e存股」平台整體 VI 與 Landing Page 設計，並延伸發展多檔行銷 Banner，以清晰排版和專業生動的插畫設計，讓複雜金融服務變得直覺易讀。",
     "company": "兆豐證券",
-    "responsibilities": "活動主視覺、網頁設計(含動效)、行銷文宣設計"
+    "responsibilities": "UI/UX 設計, 活動主視覺, 互動動效, 設計QA, 行銷文宣設計"
   },
   "taishin-loan-landing-2": {
     "title": "信貸限時活動Landing page",

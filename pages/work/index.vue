@@ -78,7 +78,7 @@ const filters = [
     { value: 'all', label: 'work.filters.all' },
     { value: 'web', label: 'work.filters.web' },
     { value: 'app', label: 'work.filters.app' },
-    { value: 'others', label: 'work.filters.others' }
+    { value: 'landing page', label: 'work.filters.landing-page' }
 ];
 
 const { t } = useI18n();

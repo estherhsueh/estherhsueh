@@ -5,11 +5,13 @@
         </h1>
 
         <div class="overview-card">
-            <div class="overview-description">
-                <p>{{ $t(`${id}.description`) }}</p>
-            </div>
+            <template v-if="$t(`${id}.description`)">
+                <div class="overview-description">
+                    <p>{{ $t(`${id}.description`) }}</p>
+                </div>
 
-            <div class="overview-divider" />
+                <div class="overview-divider" />
+            </template>
 
             <div class="overview-details">
                 <div

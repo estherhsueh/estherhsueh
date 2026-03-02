@@ -12,12 +12,16 @@ export const useProjects = () => {
 
     // 首頁 - 獲取 Featured Projects 專案
     const getFeaturedProjects = (): ProjectData[] => {
-        return allProjects.filter((project) => FEATURED_PROJECT_LIST.includes(project.id));
+        return FEATURED_PROJECT_LIST
+            .map((id) => allProjects.find((project) => project.id === id))
+            .filter((project): project is ProjectData => project !== undefined);
     };
 
     // 首頁 - 獲取 Design Gallery 專案
     const getGalleryProjects = (): ProjectData[] => {
-        return allProjects.filter((project) => GALLERY_PROJECT_LIST.includes(project.id));
+        return GALLERY_PROJECT_LIST
+            .map((id) => allProjects.find((project) => project.id === id))
+            .filter((project): project is ProjectData => project !== undefined);
     };
 
     // 根據 ID 獲取專案

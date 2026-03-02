@@ -19,7 +19,7 @@
                 @click="navigateToProject(project, $event)"
             >
                 <div
-                    v-if="project.isLocked && !isAuthenticated"
+                    v-if="project.is_locked && !isAuthenticated"
                     class="lock-icon-container"
                 >
                     <Icon
@@ -30,18 +30,18 @@
 
                 <div class="project-image">
                     <img
-                        :src="`/images/projects/${project.id}/cover.jpg`"
-                        :alt="$t(`${project.id}.title`)"
+                        :src="project.cover_image"
+                        :alt="getLocaleText(project.title, locale)"
                     >
                 </div>
 
                 <div class="project-content">
                     <div class="project-info">
                         <h3 class="project-title">
-                            {{ $t(`${project.id}.title`) }}
+                            {{ getLocaleText(project.title, locale) }}
                         </h3>
                         <p class="project-description">
-                            {{ $t(`${project.id}.description`) }}
+                            {{ getLocaleText(project.description, locale) }}
                         </p>
                     </div>
                     <div class="project-tags">
@@ -67,7 +67,8 @@
 
 <script setup lang="ts">
 const localePath = useLocalePath();
-const { getFeaturedProjects } = useProjects();
+const { locale } = useI18n();
+const { featuredProjects, getLocaleText } = useProjects();
 const { navigateToProject } = useProjectNavigation();
 const { observeElements } = useScrollAnimation();
 
@@ -89,9 +90,6 @@ onMounted(() => {
         }
     });
 });
-
-// 獲取精選專案
-const featuredProjects = getFeaturedProjects();
 </script>
 
 <style lang="scss" scoped>

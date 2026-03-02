@@ -1,13 +1,13 @@
 <template>
     <div class="work-overview">
         <h1 class="project-title">
-            {{ $t(`${id}.title`) }}
+            {{ getLocaleText(project.title, locale) }}
         </h1>
 
         <div class="overview-card">
-            <template v-if="$t(`${id}.description`)">
+            <template v-if="getLocaleText(project.description, locale)">
                 <div class="overview-description">
-                    <p>{{ $t(`${id}.description`) }}</p>
+                    <p>{{ getLocaleText(project.description, locale) }}</p>
                 </div>
 
                 <div class="overview-divider" />
@@ -15,36 +15,36 @@
 
             <div class="overview-details">
                 <div
-                    v-if="$t(`${id}.company`)"
+                    v-if="getLocaleText(project.company, locale)"
                     class="detail-item"
                 >
                     <h3 class="detail-label">
                         {{ $t('workDetail.overview.company') }}
                     </h3>
                     <p class="detail-value">
-                        {{ $t(`${id}.company`) }}
+                        {{ getLocaleText(project.company, locale) }}
                     </p>
                 </div>
                 <div
-                    v-if="$t(`${id}.responsibilities`)"
+                    v-if="getLocaleText(project.responsibilities, locale)"
                     class="detail-item"
                 >
                     <h3 class="detail-label">
                         {{ $t('workDetail.overview.responsibilities') }}
                     </h3>
                     <p class="detail-value">
-                        {{ $t(`${id}.responsibilities`) }}
+                        {{ getLocaleText(project.responsibilities, locale) }}
                     </p>
                 </div>
                 <div
-                    v-if="duration"
+                    v-if="project.duration"
                     class="detail-item"
                 >
                     <h3 class="detail-label">
                         {{ $t('workDetail.overview.duration') }}
                     </h3>
                     <p class="detail-value">
-                        {{ duration }}
+                        {{ project.duration }}
                     </p>
                 </div>
             </div>
@@ -53,10 +53,13 @@
 </template>
 
 <script setup lang="ts">
-// Work 詳細頁面的 Overview 區塊
+import type { ProjectRow } from '~/types/project';
+
+const { locale } = useI18n();
+const { getLocaleText } = useProjects();
+
 defineProps<{
-    id: string
-    duration: string
+    project: ProjectRow
 }>();
 </script>
 

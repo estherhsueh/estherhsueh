@@ -33,7 +33,7 @@
                 @click="navigateToProject(project, $event)"
             >
                 <div
-                    v-if="project.isLocked && !isAuthenticated"
+                    v-if="project.is_locked && !isAuthenticated"
                     class="lock-icon-container"
                 >
                     <Icon
@@ -44,12 +44,12 @@
 
                 <img
                     class="project-image"
-                    :src="`/images/projects/${project.id}/cover.jpg`"
-                    :alt="$t(`${project.id}.title`)"
+                    :src="project.cover_image"
+                    :alt="getLocaleText(project.title, locale)"
                 >
 
                 <div class="project-info">
-                    <h2 class="project-title">{{ $t(`${project.id}.title`) }}</h2>
+                    <h2 class="project-title">{{ getLocaleText(project.title, locale) }}</h2>
 
                     <div class="project-tags">
                         <span
@@ -81,12 +81,12 @@ const filters = [
     { value: 'landing page', label: 'work.filters.landing-page' }
 ];
 
-const { t } = useI18n();
+const { t, locale } = useI18n();
 const localePath = useLocalePath();
 const { navigateToProject } = useProjectNavigation();
 const { observeElements } = useScrollAnimation();
 
-const { getProjectsByFilter } = useProjects();
+const { getProjectsByFilter, getLocaleText } = useProjects();
 
 const activeFilter = ref('all');
 const isAuthenticated = ref(false);

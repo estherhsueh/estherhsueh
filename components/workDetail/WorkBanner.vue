@@ -1,14 +1,14 @@
 <template>
     <img
         class="work-banner"
-        :src="`/images/projects/${id}/cover.jpg`"
+        :src="coverImage"
         alt="Work Banner Image"
     >
 </template>
 
 <script setup lang="ts">
 defineProps<{
-    id: string
+    coverImage: string
 }>();
 </script>
 

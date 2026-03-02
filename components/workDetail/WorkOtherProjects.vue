@@ -16,7 +16,7 @@
                         @click="navigateToProject(project, $event)"
                     >
                         <div
-                            v-if="project.isLocked && !isAuthenticated"
+                            v-if="project.is_locked && !isAuthenticated"
                             class="lock-icon-container"
                         >
                             <Icon
@@ -27,13 +27,13 @@
 
                         <div class="project-image">
                             <img
-                                :src="`/images/projects/${project.id}/cover.jpg`"
-                                :alt="$t(`${project.id}.title`)"
+                                :src="project.cover_image"
+                                :alt="getLocaleText(project.title, locale)"
                             >
                         </div>
 
                         <div class="project-info">
-                            <h3 class="project-title">{{ $t(`${project.id}.title`) }}</h3>
+                            <h3 class="project-title">{{ getLocaleText(project.title, locale) }}</h3>
 
                             <div
                                 v-if="project.tags"
@@ -63,9 +63,11 @@
 </template>
 
 <script setup lang="ts">
-import type { ProjectData } from '~/data/projects';
+import type { ProjectRow } from '~/types/project';
 
 const localePath = useLocalePath();
+const { locale } = useI18n();
+const { getLocaleText } = useProjects();
 const { navigateToProject } = useProjectNavigation();
 
 const isAuthenticated = ref(false);
@@ -75,7 +77,7 @@ onMounted(() => {
 });
 
 defineProps<{
-    projects: ProjectData[]
+    projects: ProjectRow[]
 }>();
 </script>
 

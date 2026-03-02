@@ -13,6 +13,14 @@
                 </NuxtLink>
             </div>
 
+            <a
+                href="/"
+                target="_blank"
+                class="nav-frontend"
+            >
+                前台首頁
+            </a>
+
             <button
                 class="nav-logout"
                 @click="logout"
@@ -84,6 +92,24 @@ const { logout } = useBackstageAuth();
         background-color: $grey-700;
         color: $grey-50;
         font-weight: $font-weight-medium;
+    }
+}
+
+.nav-frontend {
+    padding: 6px 16px;
+    border: 1px solid $grey-600;
+    border-radius: $border-radius-md;
+    background: transparent;
+    color: $grey-300;
+    cursor: pointer;
+    transition: all $transition-base;
+    white-space: nowrap;
+    text-decoration: none;
+    font-size: $font-size-sm;
+
+    &:hover {
+        border-color: $indigo-400;
+        color: $indigo-200;
     }
 }
 

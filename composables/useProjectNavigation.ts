@@ -1,17 +1,19 @@
-import type { ProjectData } from '~/data/projects';
+import type { ProjectRow } from '~/types/project';
 
 export const useProjectNavigation = () => {
     const router = useRouter();
     const localePath = useLocalePath();
 
-    const navigateToProject = (project: ProjectData, event?: MouseEvent) => {
+    const navigateToProject = (project: ProjectRow, event?: MouseEvent) => {
         if (event) {
             event.preventDefault();
         }
 
-        if (project.isLocked) {
-            const isAuthenticated = process.client ? sessionStorage.getItem('isAuthenticated') === 'true' : false;
-            
+        if (project.is_locked) {
+            const isAuthenticated = import.meta.client
+                ? sessionStorage.getItem('isAuthenticated') === 'true'
+                : false;
+
             if (!isAuthenticated) {
                 const redirectPath = `/work/${project.id}`;
                 router.push(localePath(`/auth?redirect=${encodeURIComponent(redirectPath)}`));

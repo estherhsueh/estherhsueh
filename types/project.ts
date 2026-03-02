@@ -12,6 +12,7 @@ export interface ProjectRow {
     duration: string
     category: string
     tags: string[]
+    is_active: boolean
     is_locked: boolean
     sort_order: number | null
     featured_order: number | null

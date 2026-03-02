@@ -15,6 +15,7 @@ export default defineEventHandler(async (event) => {
             duration: body.duration,
             category: body.category,
             tags: body.tags,
+            is_active: body.is_active ?? true,
             is_locked: body.is_locked,
             sort_order: body.sort_order,
             featured_order: body.featured_order ?? null,

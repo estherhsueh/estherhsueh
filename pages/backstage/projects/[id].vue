@@ -77,6 +77,21 @@
                     </div>
 
                     <div class="field field-full">
+                        <label class="field-label">啟用狀態（停用時前台不顯示）</label>
+                        <label class="toggle-wrapper">
+                            <input
+                                v-model="form.is_active"
+                                type="checkbox"
+                                class="toggle-input"
+                            >
+                            <span class="toggle-track">
+                                <span class="toggle-thumb" />
+                            </span>
+                            <span class="toggle-label">{{ form.is_active ? '啟用' : '停用' }}</span>
+                        </label>
+                    </div>
+
+                    <div class="field field-full">
                         <label class="field-label">是否鎖定（需密碼才能查看）</label>
                         <label class="toggle-wrapper">
                             <input
@@ -89,6 +104,72 @@
                             </span>
                             <span class="toggle-label">{{ form.is_locked ? '鎖定' : '公開' }}</span>
                         </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 顯示設定 -->
+            <section class="form-section">
+                <h2 class="section-title">
+                    顯示設定
+                </h2>
+                <div class="form-grid">
+                    <div class="field field-full">
+                        <label class="field-label">標籤（逗號分隔）</label>
+                        <input
+                            v-model="tagsInput"
+                            class="field-input"
+                            type="text"
+                            placeholder="例：APP, E-commerce, B2B"
+                        >
+                        <div
+                            v-if="parsedTags.length"
+                            class="tags-preview"
+                        >
+                            <span
+                                v-for="tag in parsedTags"
+                                :key="tag"
+                                class="tag-chip"
+                            >{{ tag }}</span>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="field-label">排列順序（sort_order）</label>
+                        <input
+                            v-model.number="form.sort_order"
+                            class="field-input"
+                            type="number"
+                            placeholder="整體排列順序"
+                        >
+                    </div>
+
+                    <div class="field">
+                        <label class="field-label">
+                            Featured 排列順序
+                            <span class="field-label-hint">留空代表不顯示於首頁 Featured 區</span>
+                        </label>
+                        <input
+                            v-model="featuredOrderInput"
+                            class="field-input"
+                            type="number"
+                            min="0"
+                            placeholder="留空表示不顯示"
+                        >
+                    </div>
+
+                    <div class="field">
+                        <label class="field-label">
+                            Gallery 排列順序
+                            <span class="field-label-hint">留空代表不顯示於首頁 Gallery 區</span>
+                        </label>
+                        <input
+                            v-model="galleryOrderInput"
+                            class="field-input"
+                            type="number"
+                            min="0"
+                            placeholder="留空表示不顯示"
+                        >
                     </div>
                 </div>
             </section>
@@ -354,72 +435,6 @@
                 >
             </section>
 
-            <!-- 顯示設定 -->
-            <section class="form-section">
-                <h2 class="section-title">
-                    顯示設定
-                </h2>
-                <div class="form-grid">
-                    <div class="field field-full">
-                        <label class="field-label">標籤（逗號分隔）</label>
-                        <input
-                            v-model="tagsInput"
-                            class="field-input"
-                            type="text"
-                            placeholder="例：APP, E-commerce, B2B"
-                        >
-                        <div
-                            v-if="parsedTags.length"
-                            class="tags-preview"
-                        >
-                            <span
-                                v-for="tag in parsedTags"
-                                :key="tag"
-                                class="tag-chip"
-                            >{{ tag }}</span>
-                        </div>
-                    </div>
-
-                    <div class="field">
-                        <label class="field-label">排列順序（sort_order）</label>
-                        <input
-                            v-model.number="form.sort_order"
-                            class="field-input"
-                            type="number"
-                            placeholder="整體排列順序"
-                        >
-                    </div>
-
-                    <div class="field">
-                        <label class="field-label">
-                            Featured 排列順序
-                            <span class="field-label-hint">留空代表不顯示於首頁 Featured 區</span>
-                        </label>
-                        <input
-                            v-model="featuredOrderInput"
-                            class="field-input"
-                            type="number"
-                            min="0"
-                            placeholder="留空表示不顯示"
-                        >
-                    </div>
-
-                    <div class="field">
-                        <label class="field-label">
-                            Gallery 排列順序
-                            <span class="field-label-hint">留空代表不顯示於首頁 Gallery 區</span>
-                        </label>
-                        <input
-                            v-model="galleryOrderInput"
-                            class="field-input"
-                            type="number"
-                            min="0"
-                            placeholder="留空表示不顯示"
-                        >
-                    </div>
-                </div>
-            </section>
-
             <!-- 儲存結果訊息 -->
             <div
                 v-if="submitResult"
@@ -614,7 +629,10 @@ const onDrop = (dropIndex: number): void => {
         return;
     }
     const items = [...detailImages.value];
-    const [moved] = items.splice(dragIndex.value, 1);
+    const moved = items.splice(dragIndex.value, 1)[0];
+    if (!moved) {
+        return;
+    }
     items.splice(dropIndex, 0, moved);
     detailImages.value = items;
     dragOverIndex.value = null;
@@ -634,6 +652,7 @@ const form = reactive<ProjectUpsertPayload>({
     duration: '',
     category: 'Web',
     tags: [],
+    is_active: true,
     is_locked: false,
     sort_order: null,
     featured_order: null,
@@ -664,6 +683,7 @@ const loadProject = async (): Promise<void> => {
         form.duration = data.duration;
         form.category = data.category;
         form.tags = [...data.tags];
+        form.is_active = data.is_active ?? true;
         form.is_locked = data.is_locked;
         form.sort_order = data.sort_order;
         form.featured_order = data.featured_order;

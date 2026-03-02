@@ -82,6 +82,9 @@
                         <th class="col-badge">
                             Gallery
                         </th>
+                        <th class="col-badge">
+                            啟用
+                        </th>
                         <th class="col-actions">
                             操作
                         </th>
@@ -149,8 +152,25 @@
                                 {{ project.gallery_order !== null ? `#${project.gallery_order + 1}` : '—' }}
                             </span>
                         </td>
+                        <td class="col-badge">
+                            <span
+                                class="badge"
+                                :class="project.is_active ? 'badge-active' : 'badge-inactive'"
+                            >
+                                {{ project.is_active ? '啟用' : '停用' }}
+                            </span>
+                        </td>
                         <td class="col-actions">
                             <div class="action-buttons">
+                                <a
+                                    v-if="project.is_active"
+                                    :href="`/work/${project.id}`"
+                                    target="_blank"
+                                    class="btn-view"
+                                >
+                                    開啟文章
+                                </a>
+
                                 <NuxtLink
                                     :to="`/backstage/projects/${project.id}`"
                                     class="btn-edit"
@@ -158,25 +178,10 @@
                                     編輯
                                 </NuxtLink>
 
-                                <template v-if="confirmDeleteId === project.id">
-                                    <button
-                                        class="btn-confirm-delete"
-                                        :disabled="deletingId === project.id"
-                                        @click="handleDelete(project.id)"
-                                    >
-                                        {{ deletingId === project.id ? '刪除中...' : '確認刪除' }}
-                                    </button>
-                                    <button
-                                        class="btn-cancel"
-                                        @click="confirmDeleteId = null"
-                                    >
-                                        取消
-                                    </button>
-                                </template>
                                 <button
-                                    v-else
+                                    v-if="!project.is_active"
                                     class="btn-delete"
-                                    @click="confirmDeleteId = project.id"
+                                    @click="openDeleteModal(project)"
                                 >
                                     刪除
                                 </button>
@@ -187,6 +192,43 @@
             </table>
         </div>
     </div>
+
+    <!-- 刪除確認 Modal -->
+    <teleport to="body">
+        <transition name="modal-fade">
+            <div
+                v-if="isDeleteModalOpen"
+                class="modal-backdrop"
+                @click.self="closeDeleteModal"
+            >
+                <div class="modal-dialog">
+                    <h3 class="modal-title">
+                        確認刪除
+                    </h3>
+                    <p class="modal-body">
+                        確定要刪除專案「{{ deleteTargetProject?.title }}」嗎？<br>
+                        此操作無法復原。
+                    </p>
+                    <div class="modal-actions">
+                        <button
+                            class="btn-cancel"
+                            :disabled="isDeleting"
+                            @click="closeDeleteModal"
+                        >
+                            取消
+                        </button>
+                        <button
+                            class="btn-confirm-delete"
+                            :disabled="isDeleting"
+                            @click="confirmDelete"
+                        >
+                            {{ isDeleting ? '刪除中...' : '確認刪除' }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </transition>
+    </teleport>
 </template>
 
 <script setup lang="ts">
@@ -200,8 +242,21 @@ onMounted(checkAuth);
 const projects = ref<ProjectRow[]>([]);
 const isLoading = ref(true);
 const loadError = ref('');
-const confirmDeleteId = ref<string | null>(null);
-const deletingId = ref<string | null>(null);
+
+const isDeleteModalOpen = ref(false);
+const deleteTargetProject = ref<ProjectRow | null>(null);
+const isDeleting = ref(false);
+
+const openDeleteModal = (project: ProjectRow): void => {
+    deleteTargetProject.value = project;
+    isDeleteModalOpen.value = true;
+};
+
+const closeDeleteModal = (): void => {
+    if (isDeleting.value) return;
+    isDeleteModalOpen.value = false;
+    deleteTargetProject.value = null;
+};
 
 // ── 拖曳排序 ────────────────────────────────────────────────
 
@@ -292,17 +347,20 @@ const fetchProjects = async (): Promise<void> => {
     isLoading.value = false;
 };
 
-const handleDelete = async (id: string): Promise<void> => {
-    deletingId.value = id;
+const confirmDelete = async (): Promise<void> => {
+    if (!deleteTargetProject.value) return;
+    const id = deleteTargetProject.value.id;
+    isDeleting.value = true;
     try {
         await $fetch(`/api/backstage/projects/${id}`, { method: 'DELETE' });
         projects.value = projects.value.filter((p) => p.id !== id);
-        confirmDeleteId.value = null;
+        isDeleteModalOpen.value = false;
+        deleteTargetProject.value = null;
     }
     catch {
         console.error('刪除失敗，請稍後再試');
     }
-    deletingId.value = null;
+    isDeleting.value = false;
 };
 
 onMounted(fetchProjects);
@@ -450,8 +508,8 @@ onMounted(fetchProjects);
     padding: 0 8px 0 16px !important;
 }
 .col-order    { width: 60px; }
-.col-id       { width: 220px; }
-.col-title    { min-width: 160px; }
+.col-id       { width: 180px; }
+.col-title    { width: 200px; }
 .col-category { width: 120px; }
 .col-year     { width: 70px; }
 
@@ -460,7 +518,7 @@ onMounted(fetchProjects);
     text-align: center;
 }
 
-.col-actions  { width: 200px; }
+.col-actions  { width: 280px; }
 
 .drag-handle {
     display: block;
@@ -520,12 +578,39 @@ onMounted(fetchProjects);
     &.badge-off {
         color: $grey-400;
     }
+
+    &.badge-active {
+        background-color: rgb(72 199 142 / 15%);
+        color: #48c78e;
+    }
+
+    &.badge-inactive {
+        background-color: rgb(255 100 100 / 12%);
+        color: #ff6b6b;
+    }
 }
 
 .action-buttons {
     display: flex;
     gap: 8px;
     align-items: center;
+}
+
+.btn-view {
+    padding: 4px 12px;
+    border: 1px solid $grey-600;
+    border-radius: $border-radius-md;
+    color: $grey-200;
+    cursor: pointer;
+    transition: all $transition-base;
+    white-space: nowrap;
+    text-decoration: none;
+    font-size: $font-size-xs;
+
+    &:hover {
+        border-color: #48c78e;
+        color: #48c78e;
+    }
 }
 
 .btn-edit {
@@ -561,14 +646,18 @@ onMounted(fetchProjects);
 }
 
 .btn-confirm-delete {
-    padding: 4px 12px;
+    padding: 8px 20px;
     border: 1px solid $error-color;
     border-radius: $border-radius-md;
     background: rgb(244 67 54 / 15%);
     color: #e57373;
     cursor: pointer;
     transition: all $transition-base;
-    font-size: $font-size-xs;
+    font-size: $font-size-sm;
+
+    &:hover:not(:disabled) {
+        background: rgb(244 67 54 / 25%);
+    }
 
     &:disabled {
         cursor: not-allowed;
@@ -577,18 +666,86 @@ onMounted(fetchProjects);
 }
 
 .btn-cancel {
-    padding: 4px 10px;
+    padding: 8px 20px;
     border: 1px solid $grey-600;
     border-radius: $border-radius-md;
     background: transparent;
     color: $grey-300;
     cursor: pointer;
     transition: all $transition-base;
-    font-size: $font-size-xs;
+    font-size: $font-size-sm;
 
-    &:hover {
+    &:hover:not(:disabled) {
         border-color: $grey-400;
         color: $grey-100;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+}
+
+// ── Modal ──────────────────────────────────────────────────
+
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(0 0 0 / 60%);
+}
+
+.modal-dialog {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 400px;
+    max-width: calc(100vw - 48px);
+    padding: 28px 32px;
+    border: 1px solid $grey-700;
+    border-radius: $border-radius-lg;
+    background: $grey-800;
+}
+
+.modal-title {
+    margin: 0;
+    color: $grey-50;
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-base;
+}
+
+.modal-body {
+    margin: 0;
+    color: $grey-300;
+    font-size: $font-size-sm;
+    line-height: 1.6;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 8px;
+}
+
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+    transition: opacity 0.2s ease;
+
+    .modal-dialog {
+        transition: transform 0.2s ease;
+    }
+}
+
+.modal-fade-enter-from,
+.modal-fade-leave-to {
+    opacity: 0;
+
+    .modal-dialog {
+        transform: scale(0.96);
     }
 }
 </style>

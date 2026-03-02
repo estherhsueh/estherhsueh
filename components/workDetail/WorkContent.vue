@@ -1,19 +1,18 @@
 <template>
     <div class="work-content">
         <img
-            v-for="(num, index) in detailImageCount"
+            v-for="(url, index) in detailImages"
             :key="index"
             class="content-image"
-            :src="`/images/projects/${id}/detail_${num.toString().padStart(2, '0')}.jpg`"
-            :alt="`Detail Image ${num}`"
+            :src="url"
+            :alt="`Detail Image ${index + 1}`"
         >
     </div>
 </template>
 
 <script setup lang="ts">
 defineProps<{
-    id: string
-    detailImageCount: number
+    detailImages: string[]
 }>();
 </script>
 

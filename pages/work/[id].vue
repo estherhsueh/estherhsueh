@@ -3,18 +3,12 @@
         v-if="currentProject"
         class="work-detail-page"
     >
-        <WorkBanner :id="currentProject.id" />
+        <WorkBanner :cover-image="currentProject.cover_image" />
 
         <div class="work-detail-container">
-            <WorkOverview
-                :id="currentProject.id"
-                :duration="currentProject.duration"
-            />
+            <WorkOverview :project="currentProject" />
 
-            <WorkContent
-                :id="currentProject.id"
-                :detail-image-count="currentProject.detailImageCount"
-            />
+            <WorkContent :detail-images="currentProject.detail_images ?? []" />
         </div>
 
         <WorkOtherProjects :projects="recommendedProjects" />
@@ -30,35 +24,39 @@ import WorkOtherProjects from '~/components/workDetail/WorkOtherProjects.vue';
 const route = useRoute();
 const router = useRouter();
 const localePath = useLocalePath();
+const { locale } = useI18n();
 
-const { t } = useI18n();
-
-const { getProjectById, getRecommendedProjects } = useProjects();
+const { getProjectById, getRecommendedProjects, getLocaleText } = useProjects();
 
 const projectId = route.params.id as string;
 
-// 獲取當前專案基本資料
 const currentProject = getProjectById(projectId);
-
-// 檢查是否為 locked 專案且未授權
-if (currentProject?.isLocked && import.meta.client) {
-    const isAuthenticated = sessionStorage.getItem('isAuthenticated') === 'true';
-    if (!isAuthenticated) {
-        router.push(localePath(`/auth?redirect=${encodeURIComponent(`/work/${projectId}`)}`));
-    }
-}
-
-// 獲取推薦的其他專案
 const recommendedProjects = getRecommendedProjects(projectId, 3);
 
-const title = `${t(`${currentProject?.id}.title`)}`;
-const description = t(`${currentProject?.id}.description`);
+// 檢查 locked 專案授權（資料載入後觸發）
+watch(currentProject, (project) => {
+    if (project?.is_locked && import.meta.client) {
+        const isAuthenticated = sessionStorage.getItem('isAuthenticated') === 'true';
+        if (!isAuthenticated) {
+            router.push(localePath(`/auth?redirect=${encodeURIComponent(`/work/${projectId}`)}`));
+        }
+    }
+}, { immediate: true });
+
+// 動態 meta
+const pageTitle = computed(() =>
+    currentProject.value ? getLocaleText(currentProject.value.title, locale.value) : ''
+);
+const pageDescription = computed(() =>
+    currentProject.value ? getLocaleText(currentProject.value.description, locale.value) : ''
+);
+
 useHead({
-    title,
+    title: pageTitle,
     meta: [
-        { name: 'description', content: description },
-        { property: 'og:title', content: title },
-        { property: 'og:description', content: description }
+        { name: 'description', content: pageDescription },
+        { property: 'og:title', content: pageTitle },
+        { property: 'og:description', content: pageDescription }
     ]
 });
 </script>

@@ -66,7 +66,7 @@ const allProjects: ProjectData[] = [
         category: 'APP',
         tags: ['APP', 'Gaming'],
         detailImageCount: 1,
-        isLocked: true
+        isLocked: false
     },
     // KKday點對點交通
     {
@@ -191,7 +191,7 @@ const allProjects: ProjectData[] = [
         category: 'Landing Page',
         tags: ['Landing Page', 'Fintech'],
         detailImageCount: 1,
-        isLocked: true
+        isLocked: false
     },
     // 證券美股交易活動網頁
     {
@@ -216,7 +216,7 @@ const allProjects: ProjectData[] = [
         category: 'Landing Page',
         tags: ['Landing Page', 'Fintech'],
         detailImageCount: 1,
-        isLocked: true
+        isLocked: false
     },
     // 建設公司官網設計
     {
@@ -266,7 +266,7 @@ const allProjects: ProjectData[] = [
         category: 'Landing Page',
         tags: ['Landing Page', 'Fintech'],
         detailImageCount: 1,
-        isLocked: true
+        isLocked: false
     },
     // 證券理財Landing page
     {
@@ -291,7 +291,7 @@ const allProjects: ProjectData[] = [
         category: 'Landing Page',
         tags: ['Landing Page', 'Fintech'],
         detailImageCount: 1,
-        isLocked: true
+        isLocked: false
     },
     // 信貸限時活動Landing page
     {
@@ -316,7 +316,7 @@ const allProjects: ProjectData[] = [
         category: 'Landing Page',
         tags: ['Landing Page', 'Fintech'],
         detailImageCount: 1,
-        isLocked: true
+        isLocked: false
     }
 ];
 

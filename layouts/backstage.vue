@@ -5,6 +5,14 @@
 
             <div class="nav-links">
                 <NuxtLink
+                    to="/backstage/settings"
+                    class="nav-link"
+                    active-class="nav-link-active"
+                >
+                    基本管理
+                </NuxtLink>
+
+                <NuxtLink
                     to="/backstage/projects"
                     class="nav-link"
                     active-class="nav-link-active"
@@ -37,6 +45,10 @@
 
 <script setup lang="ts">
 const { logout } = useBackstageAuth();
+
+useHead({
+    title: '後台管理 - 基本管理'
+});
 </script>
 
 <style lang="scss" scoped>

@@ -5,8 +5,9 @@
         </p>
 
         <div class="footer-social">
-            <!-- <a
-                href="https://www.linkedin.com"
+            <a
+                v-if="links?.linkedin"
+                :href="links.linkedin"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="social-link"
@@ -16,9 +17,11 @@
                     name="custom:linkedin"
                     class="icon"
                 />
-            </a> -->
+            </a>
+
             <a
-                href="https://www.behance.net/esther_design"
+                v-if="links?.behance"
+                :href="links.behance"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="social-link"
@@ -29,8 +32,10 @@
                     class="icon"
                 />
             </a>
+
             <a
-                href="mailto:estherhsueh923@gmail.com"
+                v-if="links?.mail"
+                :href="`mailto:${links.mail}`"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="social-link"
@@ -44,6 +49,10 @@
         </div>
     </footer>
 </template>
+
+<script setup lang="ts">
+const { data: links } = await useLinks();
+</script>
 
 <style lang="scss" scoped>
 @use './FooterContainer';

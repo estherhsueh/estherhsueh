@@ -1,46 +1,28 @@
 <template>
     <div class="language-switcher">
-        <select
-            v-model="selectedLocale"
-            class="language-select"
-            @change="changeLanguage"
+        <button
+            v-for="option in availableLocales"
+            :key="option.code"
+            class="lang-btn"
+            :class="{ 'is-active': locale === option.code }"
+            @click="switchTo(option.code)"
         >
-            <option
-                v-for="localeOption in availableLocales"
-                :key="localeOption.code"
-                :value="localeOption.code"
-            >
-                {{ localeOption.name }}
-            </option>
-        </select>
+            {{ option.label }}
+        </button>
     </div>
 </template>
 
 <script setup lang="ts">
 const { locale, setLocale } = useI18n();
 
-// 定義可用的語言選項
-const availableLocales = computed(() => [
-    {
-        code: 'zh-TW',
-        name: '繁體中文'
-    },
-    {
-        code: 'en-US',
-        name: 'English'
-    }
-]);
+const availableLocales = [
+    { code: 'zh-TW', label: '繁中' },
+    { code: 'en-US', label: 'EN' }
+];
 
-const selectedLocale = ref(locale.value);
-
-const changeLanguage = () => {
-    setLocale(selectedLocale.value);
+const switchTo = (code: string) => {
+    setLocale(code as 'zh-TW' | 'en-US');
 };
-
-// 監聽 locale 變化，同步更新選中的語言
-watch(locale, (newLocale) => {
-    selectedLocale.value = newLocale;
-});
 </script>
 
 <style lang="scss" scoped>
@@ -48,35 +30,39 @@ watch(locale, (newLocale) => {
 
 .language-switcher {
     display: flex;
+    gap: 2px;
     align-items: center;
+    align-self: flex-start;
+    padding: 4px;
+    border-radius: 20px;
+    background: rgb(255 255 255 / 6%);
+
+    @include md {
+        align-self: center;
+    }
 }
 
-.language-select {
-    padding: 8px 12px;
-    border: 1px solid rgb(163 164 181 / 30%);
-    border-radius: 8px;
-    background-color: rgb(255 255 255 / 5%);
-    color: $grey-100;
+.lang-btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 16px;
+    background: transparent;
+    color: $grey-300;
     cursor: pointer;
     transition: all $transition-base;
+    letter-spacing: 0;
     font-weight: $font-weight-medium;
-    font-size: $font-size-sm;
+    font-size: 13px;
     font-family: $font-family-base;
 
-    &:hover {
-        border-color: $grey-200;
-        background-color: rgb(255 255 255 / 8%);
+    &:hover:not(.is-active) {
+        color: $grey-100;
     }
 
-    &:focus {
-        border-color: $grey-100;
-        background-color: rgb(255 255 255 / 10%);
-        outline: none;
-    }
-
-    option {
-        background-color: $grey-800;
+    &.is-active {
+        background: rgb(255 255 255 / 10%);
         color: $grey-50;
+        font-weight: $font-weight-semibold;
     }
 }
 </style>

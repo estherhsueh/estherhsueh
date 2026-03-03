@@ -162,6 +162,13 @@
                         </td>
                         <td class="col-actions">
                             <div class="action-buttons">
+                                <NuxtLink
+                                    :to="`/backstage/projects/${project.id}`"
+                                    class="btn-edit"
+                                >
+                                    編輯
+                                </NuxtLink>
+
                                 <a
                                     v-if="project.is_active"
                                     :href="`/work/${project.id}`"
@@ -170,13 +177,6 @@
                                 >
                                     開啟文章
                                 </a>
-
-                                <NuxtLink
-                                    :to="`/backstage/projects/${project.id}`"
-                                    class="btn-edit"
-                                >
-                                    編輯
-                                </NuxtLink>
 
                                 <button
                                     v-if="!project.is_active"

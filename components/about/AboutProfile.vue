@@ -30,11 +30,13 @@
             </p>
 
             <div
+                v-if="links?.mail || links?.behance"
                 ref="buttonsEl"
                 class="about-button-container scroll-animate-item"
                 data-delay="400"
             >
                 <button
+                    v-if="links?.mail"
                     class="copy-email-button"
                     @click="copyEmail"
                 >
@@ -47,7 +49,8 @@
                 </button>
 
                 <a
-                    href="https://www.behance.net/esther_design"
+                    v-if="links?.behance"
+                    :href="links.behance"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="behance-button"
@@ -65,6 +68,7 @@
 
 <script setup lang="ts">
 const { observeElements } = useScrollAnimation();
+const { data: links } = await useLinks();
 
 const imageEl = ref<HTMLElement>();
 const nameEl = ref<HTMLElement>();
@@ -92,7 +96,10 @@ onUnmounted(() => {
 });
 
 const copyEmail = async () => {
-    const email = 'estherhsueh923@gmail.com';
+    const email = links.value?.mail ?? '';
+    if (!email) {
+        return;
+    }
 
     if (navigator.clipboard && navigator.clipboard.writeText) {
         await navigator.clipboard.writeText(email);

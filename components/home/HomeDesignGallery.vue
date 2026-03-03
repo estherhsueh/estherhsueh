@@ -88,19 +88,38 @@ const isAuthenticated = ref(false);
 const headerEl = ref<HTMLElement>();
 const galleryItems = ref<HTMLElement[]>([]);
 
-onMounted(() => {
-    if (import.meta.client) {
-        isAuthenticated.value = sessionStorage.getItem('isAuthenticated') === 'true';
-    }
+let scrollObserver: IntersectionObserver | null = null;
 
-    const allElements = [headerEl.value, ...galleryItems.value].filter(Boolean) as HTMLElement[];
-    observeElements(allElements);
+const observeItems = () => {
+    scrollObserver?.disconnect();
+    scrollObserver = null;
 
     galleryItems.value.forEach((item, index) => {
         if (item) {
             item.style.transitionDelay = `${150 + index * 100}ms`;
         }
     });
+
+    const allElements = [headerEl.value, ...galleryItems.value].filter(Boolean) as HTMLElement[];
+    scrollObserver = observeElements(allElements);
+};
+
+onMounted(() => {
+    if (import.meta.client) {
+        isAuthenticated.value = sessionStorage.getItem('isAuthenticated') === 'true';
+    }
+
+    observeItems();
+});
+
+// 資料非同步載入時重新觀察（避免 onMounted 時 galleryItems 為空）
+watch(galleryProjects, () => {
+    nextTick(observeItems);
+});
+
+onUnmounted(() => {
+    scrollObserver?.disconnect();
+    scrollObserver = null;
 });
 </script>
 

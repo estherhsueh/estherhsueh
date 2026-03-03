@@ -60,6 +60,8 @@ const title3El = ref<HTMLElement>();
 const descEl = ref<HTMLElement>();
 const imageEl = ref<HTMLElement>();
 
+let scrollObserver: IntersectionObserver | null = null;
+
 onMounted(() => {
     const elements = [
         statusEl.value,
@@ -70,14 +72,19 @@ onMounted(() => {
         imageEl.value
     ].filter(Boolean) as HTMLElement[];
 
-    observeElements(elements);
-
     elements.forEach((element) => {
         if (element) {
             const delay = element.getAttribute('data-delay') || '0';
             element.style.transitionDelay = `${parseInt(delay)}ms`;
         }
     });
+
+    scrollObserver = observeElements(elements);
+});
+
+onUnmounted(() => {
+    scrollObserver?.disconnect();
+    scrollObserver = null;
 });
 </script>
 

@@ -49,6 +49,8 @@ const titleEl = ref<HTMLElement>();
 const descEl = ref<HTMLElement>();
 const toolItems = ref<HTMLElement[]>([]);
 
+let scrollObserver: IntersectionObserver | null = null;
+
 interface Tool {
     image: string
     name: string
@@ -68,9 +70,6 @@ const tools: Tool[] = [
 ];
 
 onMounted(() => {
-    const allElements = [titleEl.value, descEl.value, ...toolItems.value].filter(Boolean) as HTMLElement[];
-    observeElements(allElements);
-
     if (descEl.value) {
         descEl.value.style.transitionDelay = '100ms';
     }
@@ -80,6 +79,14 @@ onMounted(() => {
             item.style.transitionDelay = `${200 + index * 80}ms`;
         }
     });
+
+    const allElements = [titleEl.value, descEl.value, ...toolItems.value].filter(Boolean) as HTMLElement[];
+    scrollObserver = observeElements(allElements);
+});
+
+onUnmounted(() => {
+    scrollObserver?.disconnect();
+    scrollObserver = null;
 });
 </script>
 

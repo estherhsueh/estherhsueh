@@ -42,13 +42,20 @@ const { observeElements } = useScrollAnimation();
 const titleEl = ref<HTMLElement>();
 const logosEl = ref<HTMLElement>();
 
-onMounted(() => {
-    const elements = [titleEl.value, logosEl.value].filter(Boolean) as HTMLElement[];
-    observeElements(elements);
+let scrollObserver: IntersectionObserver | null = null;
 
+onMounted(() => {
     if (logosEl.value) {
         logosEl.value.style.transitionDelay = '200ms';
     }
+
+    const elements = [titleEl.value, logosEl.value].filter(Boolean) as HTMLElement[];
+    scrollObserver = observeElements(elements);
+});
+
+onUnmounted(() => {
+    scrollObserver?.disconnect();
+    scrollObserver = null;
 });
 </script>
 

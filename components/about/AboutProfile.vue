@@ -71,9 +71,10 @@ const nameEl = ref<HTMLElement>();
 const descEl = ref<HTMLElement>();
 const buttonsEl = ref<HTMLElement>();
 
+let scrollObserver: IntersectionObserver | null = null;
+
 onMounted(() => {
     const elements = [imageEl.value, nameEl.value, descEl.value, buttonsEl.value].filter(Boolean) as HTMLElement[];
-    observeElements(elements);
 
     elements.forEach((element) => {
         if (element) {
@@ -81,6 +82,13 @@ onMounted(() => {
             element.style.transitionDelay = `${parseInt(delay)}ms`;
         }
     });
+
+    scrollObserver = observeElements(elements);
+});
+
+onUnmounted(() => {
+    scrollObserver?.disconnect();
+    scrollObserver = null;
 });
 
 const copyEmail = async () => {

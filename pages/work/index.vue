@@ -94,21 +94,25 @@ const titleEl = ref<HTMLElement>();
 const filtersEl = ref<HTMLElement>();
 const projectCards = ref<HTMLElement[]>([]);
 
-// 使用共用的專案資料和篩選函數
+let headerObserver: IntersectionObserver | null = null;
+let cardsObserver: IntersectionObserver | null = null;
+
 const filteredProjects = computed(() => {
     return getProjectsByFilter(activeFilter.value);
 });
 
-// 觀察卡片元素的函數
 const observeCards = () => {
-    if (projectCards.value && projectCards.value.length > 0) {
-        observeElements(projectCards.value);
+    cardsObserver?.disconnect();
+    cardsObserver = null;
 
+    if (projectCards.value && projectCards.value.length > 0) {
         projectCards.value.forEach((card, index) => {
             if (card) {
                 card.style.transitionDelay = `${index * 100}ms`;
             }
         });
+
+        cardsObserver = observeElements(projectCards.value);
     }
 };
 
@@ -118,15 +122,20 @@ onMounted(() => {
     }
 
     const allElements = [titleEl.value, filtersEl.value].filter(Boolean) as HTMLElement[];
-    observeElements(allElements);
+    headerObserver = observeElements(allElements);
 
-    // 初始載入時也觀察卡片
     nextTick(() => {
         observeCards();
     });
 });
 
-// 監聽 filteredProjects 變化，當專案列表改變時重新觀察
+onUnmounted(() => {
+    headerObserver?.disconnect();
+    headerObserver = null;
+    cardsObserver?.disconnect();
+    cardsObserver = null;
+});
+
 watch(filteredProjects, () => {
     nextTick(() => {
         observeCards();

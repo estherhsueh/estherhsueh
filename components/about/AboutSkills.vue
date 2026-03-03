@@ -99,16 +99,24 @@ const uxCard = ref<HTMLElement>();
 const uiCard = ref<HTMLElement>();
 const brandCard = ref<HTMLElement>();
 
+let scrollObserver: IntersectionObserver | null = null;
+
 onMounted(() => {
     const skillCards = [uxCard.value, uiCard.value, brandCard.value];
-    const allElements = [titleEl.value, ...skillCards].filter(Boolean) as HTMLElement[];
-    observeElements(allElements);
 
     skillCards.forEach((card, index) => {
         if (card) {
             card.style.transitionDelay = `${100 + index * 150}ms`;
         }
     });
+
+    const allElements = [titleEl.value, ...skillCards].filter(Boolean) as HTMLElement[];
+    scrollObserver = observeElements(allElements);
+});
+
+onUnmounted(() => {
+    scrollObserver?.disconnect();
+    scrollObserver = null;
 });
 
 const uxItems = computed(() => {
